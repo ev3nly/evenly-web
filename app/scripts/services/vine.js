@@ -3,10 +3,10 @@
 Evenly.factory('Session', ['Restangular', function(Restangular) {
   return {
     create: function(email, password) {
-      Restangular.all('sessions').post({email:email, password: password});
+      return Restangular.all('sessions').post({email:email, password: password});
     },
     destroy: function() {
-      Restangular.one('sessions', '').remove();
+      return Restangular.one('sessions', '').remove();
     }
   };
 }]);
@@ -14,13 +14,13 @@ Evenly.factory('Session', ['Restangular', function(Restangular) {
 Evenly.factory('User', ['Restangular', function(Restangular) {
   return {
     create: function(params) {
-      Restangular.all('users').post(params);
+      return Restangular.all('users').post(params);
     },
     all: function(query) {
-      Restangular.all('users').getList();
+      return Restangular.all('users').getList();
     },
     me: function() {
-      Restangular.one('me', '').get();
+      return Restangular.one('me', '').get();
     }
   }
 }]);

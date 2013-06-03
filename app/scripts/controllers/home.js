@@ -1,11 +1,8 @@
 'use strict';
 
 
-Evenly.controller('HomeCtrl', ['$scope', 'Restangular', function ($scope, Restangular) {
-  // Session.create('seansu4you87@gmail.com', 'ilye2yu2')
-  
-  Restangular.all('sessions')
-    .post({email:'seansu4you87@gmail.com', password: 'ilye2yu2'})
+Evenly.controller('HomeCtrl', ['$scope', 'Session', function ($scope, Session) {
+  Session.create('sean@paywithivy.com', 'haisean')
     .then(function(result){
       alert('hello');
       console.log(result);
@@ -13,9 +10,18 @@ Evenly.controller('HomeCtrl', ['$scope', 'Restangular', function ($scope, Restan
       console.log("There was an error ", response);
     });
   
-
+  // Restangular.all('sessions')
+  //   .post({email:'sean@paywithivy.com', password: 'haisean'})
+  //   .then(function(result){
+  //     alert('hello');
+  //     console.log(result);
+  //   }, function(response) {
+  //     console.log("There was an error ", response);
+  //   });
+  
   // Restangular.one('meta', '').get()
   //   .then(function(result){
+  //     console.log("success");
   //     console.log(result['version']);
   //   }, function(response) {
   //     console.log("There was an error ", response);
