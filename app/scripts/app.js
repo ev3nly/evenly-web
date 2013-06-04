@@ -20,6 +20,14 @@ Evenly.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'views/login.html',
       controller: 'LoginCtrl'
     })
+    .when('/wallet', {
+      templateUrl: 'views/wallet.html',
+      controller: 'WalletCtrl'
+    })
+    .when('/profile', {
+      templateUrl: 'views/profile.html',
+      controller: 'ProfileCtrl'
+    })
     .otherwise({
       redirectTo: '/home'
     });
