@@ -1,6 +1,6 @@
 'use strict';
 
-window.Evenly = angular.module('evenlyApp', ['restangular']);
+window.Evenly = angular.module('evenlyApp', ['restangular', 'ngCookies']);
 
 Evenly.config(['$routeProvider', function($routeProvider) {
   $routeProvider
@@ -16,10 +16,21 @@ Evenly.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'views/home.html',
       controller: 'HomeCtrl'
     })
+    .when('/login', {
+      templateUrl: 'views/login.html',
+      controller: 'LoginCtrl'
+    })
     .otherwise({
       redirectTo: '/home'
     });
-}]);
+  }])
+  // .run(['$rootScope', '$location', function($rootScope, $location) {
+  //   if ($rootScope.authenticationToken == null) {
+  //     $location.path('/login');
+  //   } else {
+  //     $location.path('/home');
+  //   }
+  // }]);
 
 Evenly.config(['$httpProvider', function($httpProvider) {
   $httpProvider.defaults.useXDomain = true;

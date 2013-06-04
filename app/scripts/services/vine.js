@@ -1,9 +1,18 @@
 'use strict';
 
-Evenly.factory('Session', ['Restangular', function(Restangular) {
+Evenly.factory('Session', ['Restangular', '$rootScope', '$cookieStore', function(Restangular, $rootScope, $cookieStore) {
   return {
     create: function(email, password) {
-      return Restangular.all('sessions').post({email:email, password: password});
+      return Restangular
+        .all('sessions')
+        .post({email:email, password: password})
+        .then(function(result) {
+          console.debug("Session retrieved: " + result.authentication_token);
+
+          $cookieStore.put('vine_token', result.authentication_token);
+          $rootScope.authenticationToken = result.authentication_token;
+          return result;
+        });
     },
     destroy: function() {
       return Restangular.one('sessions', '').remove();
@@ -24,3 +33,24 @@ Evenly.factory('User', ['Restangular', function(Restangular) {
     }
   }
 }]);
+
+Evenly.factory('Me', ['Restangular', '$rootScope', '$http', '$cookieStore', function(Restangular, $rootScope, $http, $cookieStore) {
+  var base = Restangular.one('me', '');
+
+  var authenticationToken = null;
+  if ($cookieStore.get('vine_token') !== null) {
+    authenticationToken = $cookieStore.get('vine_token');
+  } else {
+    authenticationToken = $rootScope.authenticationToken;
+  }
+  $http.defaults.headers.common['Authorization'] = authenticationToken;
+
+  return {
+    timeline: function(params) {
+      return base.getList('timeline');
+    },
+    newsfeed: function(params) {
+      return base.getList('newsfeed');
+    }
+  }
+}])
