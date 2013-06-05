@@ -3,10 +3,28 @@
     <h3>Send</h3>
   </div>
   <div class="modal-body">
-    <form>
+    <form name="form">
       <p>You owe <eve-autocomplete></eve-autocomplete>
-      $<input type="text" ng-model="payment.amount" placeholder="$0.00"> for 
-      <input type="text" ng-model="payment.description" placeholder="for...">
+      $<input 
+        type="text" 
+        name="amount"
+        placeholder="$0.00" 
+        required
+        ng-model="payment.amount" 
+        ui-validate="{currency: 'isCurrency($value)', gte: 'isGte($value)'}"> for 
+      <input 
+        type="text" 
+        placeholder="for..."
+        ng-model="payment.description">
+
+        <p>
+          errors {"currency": {{!!form.amount.$error.currency}}, 
+                  "required": {{!!form.amount.$error.required}},
+                  "gte"     : {{!!form.amount.$error.gte}}}
+          <br>
+          valid? {{!form.amount.$error.currency && !form.amount.$error.required && !form.amount.$error.gte}}
+        </p>
+
     </form>
   </div>
   <div class="modal-footer">

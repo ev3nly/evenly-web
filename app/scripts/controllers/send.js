@@ -16,4 +16,14 @@ angular.module('evenlyApp')
 
       // Payment.create({amount:'1', description:'Making a website', to:{email:'justin@paywithivy.com'}});
     };
+
+    $scope.isCurrency = function(value) {
+      return /^\$?[0-9][0-9\,]*(\.\d{1,2})?$|^\$?[\.]([\d][\d]?)$/.test(value);
+    };
+
+    $scope.isGte = function(value) {
+      if (value === undefined) { return false; };
+      return value.replace(/[^0-9\.]/g,'') >= 0.50;
+    }
+
   }]);
