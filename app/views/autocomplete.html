@@ -1,0 +1,5 @@
+<input 
+  type="text" 
+  placeholder="Name, Email, or Phone Number"
+  ng-model="autocomplete.recipient" 
+  typeahead="user.name for user in users | filter:$viewValue">

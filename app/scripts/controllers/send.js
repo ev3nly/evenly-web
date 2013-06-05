@@ -10,7 +10,7 @@ angular.module('evenlyApp')
 
     $scope.sendMoney = function() {
       console.log("You owe " 
-        + $scope.payment.recipient + " $" 
+        + $scope.autocomplete.recipient + " $" 
         + $scope.payment.amount + " for "
         + $scope.payment.description);
 
