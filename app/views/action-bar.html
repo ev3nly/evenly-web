@@ -1,0 +1,12 @@
+<div class="row" ng-controller="ActionBarCtrl">
+  <ul class="nav nav-pills pull-right">
+    <li>
+      <a ng-click="showSendModal()">Send</a>
+      <ng-include src="'views/send.html'"></ng-include>
+    </li>
+    <li>
+      <a ng-click="showRequestModal()">Request</a>
+      <ng-include src="'views/request.html'"></ng-include>
+    </li>
+  </ul>
+</div>

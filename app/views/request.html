@@ -1,0 +1,16 @@
+<div modal="requestShouldBeOpen" close="hideRequestModal()" options="opts" ng-controller="RequestCtrl">
+  <div class="modal-header">
+    <h3>Request</h3>
+  </div>
+  <div class="modal-body">
+    <form>
+      <p><input type="text" ng-model="request.recipient" placeholder="Name, Email, or Phone Number">
+      owes you $<input type="text" ng-model="request.amount" placeholder="$0.00"> for 
+      <input type="text" ng-model="request.description" placeholder="for...">
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" ng-click="hideRequestModal()">Cancel</button>
+    <button class="btn btn-primary" ng-click="requestMoney()">Request</button>
+  </div>
+</div>

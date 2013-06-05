@@ -26,12 +26,12 @@ Evenly.factory('User', ['Restangular', function(Restangular) {
       return Restangular.all('users').post(params);
     },
     all: function(query) {
-      return Restangular.all('users').getList();
+      return Restangular.all('users').getList({query: query});
     },
     me: function() {
       return Restangular.one('me', '').get();
     }
-  }
+  };
 }]);
 
 Evenly.factory('Me', ['Restangular', '$rootScope', '$http', '$cookieStore', function(Restangular, $rootScope, $http, $cookieStore) {
@@ -52,5 +52,21 @@ Evenly.factory('Me', ['Restangular', '$rootScope', '$http', '$cookieStore', func
     newsfeed: function(params) {
       return base.getList('newsfeed');
     }
+  };
+}]);
+
+Evenly.factory('Payment', ['Restangular', function(Restangular) {
+  return {
+    create: function(params) {
+      return Restangular.all('payments').post(params);
+    }
+  };
+}]);
+
+Evenly.factory('Request', ['Restangular', function(Restangular) {
+  return {
+    create: function(params) {
+      return Restangular.all('charges').post(params);
+    }
   }
-}])
+}]);

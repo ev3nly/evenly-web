@@ -1,0 +1,21 @@
+<div modal="sendShouldBeOpen" close="hideSendModal()" options="opts" ng-controller="SendCtrl">
+  <div class="modal-header">
+    <h3>Send</h3>
+  </div>
+  <div class="modal-body">
+    <form>
+      <p>You owe 
+        <input 
+          type="text" 
+          placeholder="Name, Email, or Phone Number"
+          ng-model="payment.recipient" 
+          typeahead="user.name for user in users | filter:$viewValue">
+      $<input type="text" ng-model="payment.amount" placeholder="$0.00"> for 
+      <input type="text" ng-model="payment.description" placeholder="for...">
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" ng-click="hideSendModal()">Cancel</button>
+    <button class="btn btn-primary" ng-click="sendMoney()">Send</button>
+  </div>
+</div>

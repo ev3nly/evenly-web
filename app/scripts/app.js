@@ -1,6 +1,6 @@
 'use strict';
 
-window.Evenly = angular.module('evenlyApp', ['restangular', 'ngCookies']);
+window.Evenly = angular.module('evenlyApp', ['restangular', 'ngCookies', 'ui.bootstrap']);
 
 Evenly.config(['$routeProvider', function($routeProvider) {
   $routeProvider
