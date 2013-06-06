@@ -116,7 +116,7 @@ angular.module('evenlyApp')
     };
 
     $scope.classForSendButton = function() {
-      return $scope.invalidForm() ? "disabled" : "";
+      return $scope.invalidForm() ? "disabled" : "btn-primary";
     }
 
   }]);
