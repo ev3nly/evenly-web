@@ -36,14 +36,14 @@
       <br>
       <br>description.required    {{form.description.$error.required}}
 
-      <div class="alert alert-error" ng-show="invalidForm()">
-        <p ng-show="!!form.amount.$error.currency">
+      <div class="alert alert-error" ng-show="showErrors()">
+        <p ng-show="showAmountCurrencyError()">
           must enter a valid dollar amount
         </p>
-        <p ng-show="!!form.amount.$error.gte">
+        <p ng-show="showAmountGteError()">
           amount must be greater than $0.50
         </p>
-        <p ng-show="!!form.description.$error.required">
+        <p ng-show="showDescriptionRequiredError()">
           must have a description
         </p>
       </div>
@@ -52,6 +52,6 @@
   </div>
   <div class="modal-footer">
     <button class="btn" ng-click="hideSendModal()">Cancel</button>
-    <button class="btn btn-primary" ng-click="sendMoney()">Send</button>
+    <button class="btn btn-primary" ng-click="sendMoney()" ng-class="classForSendButton()">Send</button>
   </div>
 </div>
