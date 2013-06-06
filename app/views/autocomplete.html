@@ -1,5 +1,8 @@
 <input 
+  name="recipient"
   type="text" 
+  autocomplete="off"
   placeholder="Name, Email, or Phone Number"
   ng-model="autocomplete.recipient" 
-  typeahead="user.name for user in users | filter:$viewValue">
+  required
+  typeahead="user.name for user in users | filter:$viewValue"></input>
