@@ -1,9 +1,7 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('SendCtrl', ['$scope', 'User', function ($scope, User) {
-    
-
+  .controller('SendCtrl', ['$scope', 'Payment', function ($scope, Payment) {
     $scope.sendMoney = function() {
       $scope.submitAttempted = true;
 
@@ -17,7 +15,10 @@ angular.module('evenlyApp')
         + $scope.payment.amount + " for "
         + $scope.payment.description);
 
-      // Payment.create({amount:'1', description:'Making a website', to:{email:'justin@paywithivy.com'}});
+      Payment.create({
+        amount:$scope.payment.amount, 
+        description:$scope.payment.description, 
+        to:{email:$scope.autocomplete.recipient}});
     };
 
     /* Validations */
