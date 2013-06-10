@@ -1,14 +1,21 @@
 <ng-include src="'views/nav.html'"></ng-include>
 <ng-include src="'views/action-bar.html'"></ng-include>
 
-<div class="row main">
-  <div class="span8">
-    <p ng-repeat='story in newsfeed'>
-      {{story.subject_name}} {{story.verb}} {{story.target_name}} for {{story.description}}
-    </p>
-  </div>
+<div class="row">
+  <div class="span12 offset0 content">
+    <div class="span8 offset0 main">
+      <div class="story" ng-repeat='story in newsfeed'>
+        <div class="profile-picture"></div>
+        <div>
+          <p>{{story.subject_name}} {{story.verb}} {{story.target_name}}</p>
+          <p>for {{story.description}}</p>
+          <p>NOW</p>
+        </div>
+      </div>
+    </div>
 
-  <div class="span4 sidebar">
-    <ng-include src="'views/bottom-nav.html'"></ng-include>
+    <div class="span4 offset0 sidebar">
+      <ng-include src="'views/bottom-nav.html'"></ng-include>
+    </div>
   </div>
 </div>

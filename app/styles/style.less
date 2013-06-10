@@ -1,0 +1,78 @@
+@background-color: white;
+@border-color: rgb(215, 215, 215);
+@main-background-color: rgb(249, 248, 246);
+@sidebar-background-color: rgb(244, 243, 240);
+
+@unit: 10px;
+
+.bordered() {
+  border-style: solid;
+  border-width: 1px;
+  border-color: @border-color;
+}
+
+.rounded-corners(@radius: 5px) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+      -ms-border-radius: @radius;
+       -o-border-radius: @radius;
+          border-radius: @radius;
+}
+
+.image-content-fill(@path) {
+  background: url(@path) no-repeat;
+  background-size: 100%;
+}
+
+.navbar-inner {
+  background-color: @background-color;
+}
+
+.offset0 {
+  margin-left: 0px;
+}
+
+.content {
+  width: 921px;
+  background-color: @sidebar-background-color;
+
+  .bordered;
+  .rounded-corners;
+}
+
+.main {
+  background-color: @main-background-color;
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: @border-color;
+}
+
+.sidebar {
+  /*height: 100%;*/
+}
+
+.story {
+  background-color: white;
+  margin: (2 * @unit) (4 * @unit);
+  padding: @unit;
+
+  .bordered;
+  .rounded-corners;
+
+  div.profile-picture {
+    width: 80px;
+    height: 80px;
+    float: left;
+    
+    .image-content-fill('../../dawwww.jpg');
+    .bordered;
+    .rounded-corners;
+  }
+
+  div.story-text {
+    float: right;
+    p {
+      padding: 20px;
+    }
+  }
+}
