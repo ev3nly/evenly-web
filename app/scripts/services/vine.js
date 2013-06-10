@@ -1,5 +1,15 @@
 'use strict';
 
+var defaultSuccessHandler = function(result) {
+  return result;
+};
+
+var defaultErrorHandler = function(response) {
+  console.error(response.status);
+  console.error(response.data);
+  alert(response.data.message);
+};
+
 Evenly.factory('Session', ['Restangular', '$rootScope', '$cookieStore', function(Restangular, $rootScope, $cookieStore) {
   return {
     create: function(email, password) {
@@ -12,10 +22,12 @@ Evenly.factory('Session', ['Restangular', '$rootScope', '$cookieStore', function
           $cookieStore.put('vine_token', result.authentication_token);
           $rootScope.authenticationToken = result.authentication_token;
           return result;
-        });
+        }, defaultErrorHandler);
     },
     destroy: function() {
-      return Restangular.one('sessions', '').remove();
+      return Restangular.one('sessions', '')
+        .remove()
+        .then(defaultSuccessHandler, defaultErrorHandler);
     }
   };
 }]);
@@ -23,13 +35,19 @@ Evenly.factory('Session', ['Restangular', '$rootScope', '$cookieStore', function
 Evenly.factory('User', ['Restangular', function(Restangular) {
   return {
     create: function(params) {
-      return Restangular.all('users').post(params);
+      return Restangular.all('users')
+        .post(params)
+        .then(defaultSuccessHandler, defaultErrorHandler);
     },
     all: function(query) {
-      return Restangular.all('users').getList({query: query});
+      return Restangular.all('users')
+        .getList({query: query})
+        .then(defaultSuccessHandler, defaultErrorHandler);
     },
     me: function() {
-      return Restangular.one('me', '').get();
+      return Restangular.one('me', '')
+        .get()
+        .then(defaultSuccessHandler, defaultErrorHandler);
     }
   };
 }]);
@@ -47,10 +65,22 @@ Evenly.factory('Me', ['Restangular', '$rootScope', '$http', '$cookieStore', func
 
   return {
     timeline: function(params) {
-      return base.getList('timeline');
+      return base
+        .getList('timeline')
+        .then(defaultSuccessHandler, defaultErrorHandler);
     },
-    newsfeed: function(params) {
-      return base.getList('newsfeed');
+    newsfeed: function(params, success, error) {
+      if (!success) {
+        success = defaultSuccessHandler;
+      }
+
+      if (!error) {
+        error = defaultErrorHandler;
+      }
+
+      return base
+        .getList('newsfeed')
+        .then(success, error);
     }
   };
 }]);
@@ -58,7 +88,9 @@ Evenly.factory('Me', ['Restangular', '$rootScope', '$http', '$cookieStore', func
 Evenly.factory('Payment', ['Restangular', function(Restangular) {
   return {
     create: function(params) {
-      return Restangular.all('payments').post(params);
+      return Restangular.all('payments')
+        .post(params)
+        .then(defaultSuccessHandler, defaultErrorHandler);
     }
   };
 }]);
@@ -66,7 +98,9 @@ Evenly.factory('Payment', ['Restangular', function(Restangular) {
 Evenly.factory('Request', ['Restangular', function(Restangular) {
   return {
     create: function(params) {
-      return Restangular.all('charges').post(params);
+      return Restangular.all('charges')
+        .post(params)
+        .then(defaultSuccessHandler, defaultErrorHandler);
     }
   }
 }]);

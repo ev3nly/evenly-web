@@ -31,7 +31,7 @@ Evenly.config(['$routeProvider', function($routeProvider) {
     .otherwise({
       redirectTo: '/home'
     });
-  }])
+  }]);
   // .run(['$rootScope', '$location', function($rootScope, $location) {
   //   if ($rootScope.authenticationToken == null) {
   //     $location.path('/login');
@@ -46,5 +46,10 @@ Evenly.config(['$httpProvider', function($httpProvider) {
 }]);
 
 Evenly.config(['RestangularProvider', function(RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://localhost\\:5000/api/v2');
+  RestangularProvider.setBaseUrl('http://localhost\\:5000/api/v1');
+  // RestangularProvider.setResponseExtractor(function(response, operation, what, url) {
+  //   console.log("hello dude!");
+  //   alert("sheit up");
+  //   return response.data;
+  // });
 }]);
