@@ -1,12 +1,12 @@
 <div modal="sendShouldBeOpen" close="hideSendModal()" options="opts" ng-controller="SendCtrl">
   <div class="modal-header">
+    <button class="close" ng-click="hideSendModal()">×</button>
     <h3>Send</h3>
   </div>
   <div class="modal-body">
     <eve-send-form></eve-send-form>
   </div>
   <div class="modal-footer">
-    <button class="btn" ng-click="hideSendModal()">Cancel</button>
     <button class="btn" ng-click="sendMoney()" ng-class="classForButton()">Send</button>
   </div>
 </div>

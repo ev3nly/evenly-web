@@ -13,6 +13,6 @@ angular.module('evenlyApp')
       dialogFade: true
     };
 
-    // $scope.showSendModal();
+    $scope.showSendModal();
 
   }]);
