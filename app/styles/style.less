@@ -1,38 +1,12 @@
-@red-color: rgb(253, 99, 81);
-@green-color: rgb(34, 194, 173);
-@gray-color: rgb(215, 215, 215);
+@import "colors";
+@import "mixin";
 
-@background-color: white;
-@border-color: @gray-color;
-@main-background-color: rgb(249, 248, 246);
-@sidebar-background-color: rgb(244, 243, 240);
+@import "nav";
+@import "home";
+@import "wallet";
 
 @unit: 10px;
-
 @big-font-size: 24px;
-
-.bordered() {
-  border-style: solid;
-  border-width: 1px;
-  border-color: @border-color;
-}
-
-.rounded-corners(@radius: 5px) {
-  -webkit-border-radius: @radius;
-     -moz-border-radius: @radius;
-      -ms-border-radius: @radius;
-       -o-border-radius: @radius;
-          border-radius: @radius;
-}
-
-.image-content-fill(@path) {
-  background: url(@path) no-repeat;
-  background-size: 100%;
-}
-
-.navbar-inner {
-  background-color: @background-color;
-}
 
 .offset0 {
   margin-left: 0px;
@@ -55,69 +29,4 @@
 
 .sidebar {
   /*height: 100%;*/
-}
-
-@vertical-line-margin-left: (8 * @unit);
-@story-margin-left: (4 * @unit - @vertical-line-margin-left);
-
-.vertical-line {
-  margin-top:(-2 * @unit);
-  margin-left: @vertical-line-margin-left;
-  padding-top: 1px; //to get it to have a padding?
-
-  border-left-style: solid;
-  border-left-width: 1px;
-  border-left-color: @border-color;
-}
-
-.story {
-  .bordered;
-  .rounded-corners;
-
-  background-color: white;
-  margin: (2 * @unit) (4 * @unit);
-  margin-left: @story-margin-left;
-  padding: @unit;
-
-  div.profile-picture {
-    .bordered;
-    .rounded-corners;
-
-    width: 80px;
-    height: 80px;
-    float: left;
-    margin-right: @unit;
-    
-    .image-content-fill('../../dawwww.jpg');
-  }
-}
-
-.story-balance {
-  .bordered;
-  .rounded-corners;
-
-  background-color: white;
-  margin: (2 * @unit) (4 * @unit);
-  padding: @unit;
-  width: 100px;
-
-  p { margin: 0; }
-
-  .story-balance-header {
-    color: @gray-color;
-  }
-
-  .story-balance-value {
-    color: @green-color;
-    font-size: @big-font-size;
-  }
-}
-
-.receipt {
-  .bordered;
-  .rounded-corners;
-
-  background-color: white;
-  margin: (2 * @unit) (4 * @unit);
-  padding: @unit;
 }

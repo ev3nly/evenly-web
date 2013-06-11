@@ -1,0 +1,55 @@
+@vertical-line-margin-left: (8 * @unit);
+@story-margin-left: (4 * @unit - @vertical-line-margin-left);
+
+.vertical-line {
+  margin-top:(-2 * @unit);
+  margin-left: @vertical-line-margin-left;
+  padding-top: 1px; //to get it to have a padding?
+
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: @border-color;
+}
+
+.story {
+  .bordered;
+  .rounded-corners;
+
+  background-color: white;
+  margin: (2 * @unit) (4 * @unit);
+  margin-left: @story-margin-left;
+  padding: @unit;
+
+  div.profile-picture {
+    .bordered;
+    .rounded-corners;
+
+    width: 80px;
+    height: 80px;
+    float: left;
+    margin-right: @unit;
+    
+    .image-content-fill('../../dawwww.jpg');
+  }
+}
+
+.story-balance {
+  .bordered;
+  .rounded-corners;
+
+  background-color: white;
+  margin: (2 * @unit) (4 * @unit);
+  padding: @unit;
+  width: 100px;
+
+  p { margin: 0; }
+
+  .story-balance-header {
+    color: @gray-color;
+  }
+
+  .story-balance-value {
+    color: @green-color;
+    font-size: @big-font-size;
+  }
+}
