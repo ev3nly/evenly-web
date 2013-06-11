@@ -6,12 +6,21 @@
 <div class="row" id="foo">
   <div class="span12 offset0 content">
     <div class="span8 offset0 main">
+
+      <div class="story-balance">
+        <p class="story-balance-header">Cash Balance</p>
+        <p class="story-balance-value">$1.00</p>
+      </div>
+
+      <div class="vertical-line">
       
-      <div class="story" ng-repeat='story in newsfeed'>
-        <div class="profile-picture"></div>
-        <p>{{story.subject_name}} {{story.verb}} {{story.target_name}}</p>
-        <p>for {{story.description}}</p>
-        <p>NOW</p>
+        <div class="story" ng-repeat='story in newsfeed'>
+          <div class="profile-picture"></div>
+          <p>{{story.subject_name}} {{story.verb}} {{story.target_name}}</p>
+          <p>for {{story.description}}</p>
+          <p>NOW</p>
+        </div>
+
       </div>
 
     </div>
