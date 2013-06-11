@@ -2,7 +2,7 @@
 
 angular.module('evenlyApp')
   .controller('NavCtrl', ['$scope', '$location', function ($scope, $location) {
-    $scope.name = "Sean";
+    $scope.name = "Jabroni";
 
     $scope.stateForItem = function(item) {
       var currentPath = $location.path().substring(1);

@@ -1,15 +1,5 @@
 'use strict';
 
-var defaultSuccessHandler = function(result) {
-  return result;
-};
-
-var defaultErrorHandler = function(response) {
-  console.error(response.status);
-  console.error(response.data);
-  alert(response.data.message);
-};
-
 Evenly.factory('Session', ['Restangular', '$rootScope', '$cookieStore', function(Restangular, $rootScope, $cookieStore) {
   return {
     create: function(email, password) {
@@ -22,12 +12,11 @@ Evenly.factory('Session', ['Restangular', '$rootScope', '$cookieStore', function
           $cookieStore.put('vine_token', result.authentication_token);
           $rootScope.authenticationToken = result.authentication_token;
           return result;
-        }, defaultErrorHandler);
+        });
     },
     destroy: function() {
       return Restangular.one('sessions', '')
-        .remove()
-        .then(defaultSuccessHandler, defaultErrorHandler);
+        .remove();
     }
   };
 }]);
@@ -36,18 +25,15 @@ Evenly.factory('User', ['Restangular', function(Restangular) {
   return {
     create: function(params) {
       return Restangular.all('users')
-        .post(params)
-        .then(defaultSuccessHandler, defaultErrorHandler);
+        .post(params);
     },
     all: function(query) {
       return Restangular.all('users')
-        .getList({query: query})
-        .then(defaultSuccessHandler, defaultErrorHandler);
+        .getList({query: query});
     },
     me: function() {
       return Restangular.one('me', '')
-        .get()
-        .then(defaultSuccessHandler, defaultErrorHandler);
+        .get();
     }
   };
 }]);
@@ -66,21 +52,11 @@ Evenly.factory('Me', ['Restangular', '$rootScope', '$http', '$cookieStore', func
   return {
     timeline: function(params) {
       return base
-        .getList('timeline')
-        .then(defaultSuccessHandler, defaultErrorHandler);
+        .getList('timeline');
     },
-    newsfeed: function(params, success, error) {
-      if (!success) {
-        success = defaultSuccessHandler;
-      }
-
-      if (!error) {
-        error = defaultErrorHandler;
-      }
-
+    newsfeed: function(params) {
       return base
-        .getList('newsfeed')
-        .then(success, error);
+        .getList('newsfeed');
     }
   };
 }]);
@@ -89,8 +65,7 @@ Evenly.factory('Payment', ['Restangular', function(Restangular) {
   return {
     create: function(params) {
       return Restangular.all('payments')
-        .post(params)
-        .then(defaultSuccessHandler, defaultErrorHandler);
+        .post(params);
     }
   };
 }]);
@@ -99,8 +74,7 @@ Evenly.factory('Request', ['Restangular', function(Restangular) {
   return {
     create: function(params) {
       return Restangular.all('charges')
-        .post(params)
-        .then(defaultSuccessHandler, defaultErrorHandler);
+        .post(params);
     }
   }
 }]);

@@ -3,6 +3,8 @@
 @main-background-color: rgb(249, 248, 246);
 @sidebar-background-color: rgb(244, 243, 240);
 
+@red-color: rgb(253, 99, 81);
+
 @unit: 10px;
 
 .bordered() {
@@ -69,4 +71,13 @@
     .bordered;
     .rounded-corners;
   }
+}
+
+.receipt {
+  background-color: white;
+  margin: (2 * @unit) (4 * @unit);
+  padding: @unit;
+
+  .bordered;
+  .rounded-corners;
 }

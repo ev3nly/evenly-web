@@ -12,4 +12,7 @@ angular.module('evenlyApp')
       backdropFade: true,
       dialogFade: true
     };
+
+    // $scope.showSendModal();
+
   }]);

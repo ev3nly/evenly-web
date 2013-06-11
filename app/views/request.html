@@ -3,14 +3,12 @@
     <h3>Request</h3>
   </div>
   <div class="modal-body">
-    <form>
-      <p><eve-autocomplete></eve-autocomplete>
-      owes you $<input type="text" ng-model="request.amount" placeholder="$0.00"> for 
-      <input type="text" ng-model="request.description" placeholder="for...">
-    </form>
+    
+    <eve-send-form></eve-send-form>
+
   </div>
   <div class="modal-footer">
     <button class="btn" ng-click="hideRequestModal()">Cancel</button>
-    <button class="btn btn-primary" ng-click="requestMoney()">Request</button>
+    <button class="btn" ng-click="requestMoney()" ng-class="classForButton()">Request</button>
   </div>
 </div>

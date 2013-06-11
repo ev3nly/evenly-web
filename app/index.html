@@ -14,6 +14,7 @@
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="components/bootstrap/docs/assets/css/bootstrap.css">
     <link rel="stylesheet" href="components/flat-ui/css/flat-ui.css">
+    <link rel="stylesheet" href="components/toastr/toastr.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/css/style.css">
     <!-- endbuild -->
@@ -32,6 +33,9 @@
     <!-- Add your site or application content here -->
     <div class="container" ng-view></div>
 
+    <script src="components/jquery/jquery.js"></script>
+    <script src="components/toastr/toastr.js"></script>
+    <script src="components/spin.js/spin.js"></script>
     <script src="components/angular/angular.js"></script>
     <script src="components/angular-cookies/angular-cookies.js"></script>
     <script src="components/angular-resource/angular-resource.js"></script>
@@ -54,7 +58,10 @@
     <script src="scripts/services/vine.js"></script>
     <script src="scripts/controllers/actionBar.js"></script>
     <script src="scripts/controllers/request.js"></script>
-    <script src="scripts/directives/eveAutocomplete.js"></script>
+    
+    <script src="scripts/directives/eveRecipient.js"></script>
+    <script src="scripts/directives/eveAmount.js"></script>
+    <script src="scripts/directives/eveSendForm.js"></script>
     <!-- endbuild -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
