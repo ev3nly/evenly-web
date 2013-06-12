@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('SendCtrl', ['$scope', 'Payment', function ($scope, Payment) {
+  .controller('PaymentCtrl', ['$scope', 'Payment', function ($scope, Payment) {
     $scope.sendMoney = function() {
       $scope.submitAttempted = true;
 

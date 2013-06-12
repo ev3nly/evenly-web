@@ -1,13 +1,19 @@
 <div class="row" ng-controller="ActionBarCtrl">
   <ul class="nav nav-pills pull-right">
-    <li>
-      <a class="btn btn-primary" ng-click="showSendModal()"><i class="fui-heart"> Send</i></a>
-      <ng-include src="'views/send.html'"></ng-include>
+    
+    <li ng-controller="PaymentCtrl">
+      <a class="btn btn-primary" ng-click="showPaymentModal()"><i class="fui-heart"> Send</i></a>
+      <!-- <ng-include src="'views/send.html'"></ng-include> -->
+      
+        <eve-exchange-modal type="payment" open-bool="paymentShouldBeOpen">
+      
     </li>
-    <li>
+
+    <li ng-controller="RequestCtrl">
       <a class="btn btn-primary" ng-click="showRequestModal()"><i class="fui-eye"> Request</i></a>
       <ng-include src="'views/request.html'"></ng-include>
     </li>
+
   </ul>
  <!--  <div class="btn-toolbar">
     <div class="btn-group">
