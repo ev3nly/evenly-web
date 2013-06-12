@@ -1,8 +1,9 @@
 <input 
+  class="modal-input"
   name="recipient"
   type="text" 
   autocomplete="off"
-  placeholder="Name, Email, or Phone Number"
+  placeholder="Name, Email, Phone #"
   ng-model="recipient" 
   required
   typeahead="user.name for user in getUsers($viewValue)"

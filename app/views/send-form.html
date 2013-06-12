@@ -1,24 +1,25 @@
 <form name="form">
-  <div class="control-group" ng-class="classForRecipient()">
+  <div class="control-group row-1" ng-class="classForRecipient()">
+    <span class="help-inline">Pay</span>
     <eve-recipient></eve-recipient>
     <eve-amount></eve-amount>
   </div>
 
-  <div class="control-group" ng-class="classForDescription()">
+  <div class="control-group row-2" ng-class="classForDescription()">
     <span class="help-inline">for</span>
     <textarea 
       type="text" 
       name="description"
-      placeholder="for..."
+      placeholder="Dinner, Taxi, Drinks, or anything else..."
       ng-model="description"
       required>
     </textarea>
   </div>
 
-  <br>amount.currencyError    {{form.amount.$error.currency}}
+  <!-- <br>amount.currencyError    {{form.amount.$error.currency}}
   <br>amount.gteError         {{form.amount.$error.gte}}
   <br>
-  <br>description.required    {{form.description.$error.required}}
+  <br>description.required    {{form.description.$error.required}} -->
 
   <div class="alert alert-error" ng-show="showErrors()">
     <p ng-show="showAmountCurrencyError()">

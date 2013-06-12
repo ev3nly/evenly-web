@@ -1,3 +1,16 @@
+/* Mixins */
+
+.modal-input() {
+  .rounded-corners(0);
+
+  // background-color: red;
+
+  border: none;
+  margin: 0;
+  height: (2 * @unit);
+  font-size: @big-font-size;
+}
+
 .modal-header {
   .rounded-corners-top;
   .bordered(2px, white);
@@ -6,4 +19,41 @@
 
   h3 {color: white;}
   button {font-size: @big-font-size}
+}
+
+.modal-body {padding: 0px;}
+
+.help-inline {
+  margin: 0;
+  font-size: @big-font-size;
+}
+
+input[name="recipient"] {
+  .modal-input;
+  display: inline;
+  width: 300px;
+}
+
+input[name="amount"] {
+  .modal-input;
+  float: right;
+  width: 100px;
+  text-align: right;
+}
+
+textarea[name="description"] {
+  .modal-input;
+  // padding: 0;
+  resize: none;
+  width: 400px;
+  height: 100px;
+}
+
+.control-group.row-1 {
+  .bordered-bottom;
+}
+
+.info-button {
+  float: left;
+  margin-left: (0.5 * @unit);
 }

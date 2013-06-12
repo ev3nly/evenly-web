@@ -80,7 +80,7 @@ angular.module('evenlyApp')
         };
 
         scope.classForButton = function() {
-          return scope.invalidForm() ? "disabled" : "btn-primary";
+          return scope.invalidForm() ? "btn-primary disabled" : "btn-primary";
         }
       }
     };
