@@ -23,11 +23,11 @@ angular.module('evenlyApp')
         }
 
         scope.help3 = "for";
-        scope.title = "TITLE";
-        scope.help1 = "HELP-1";
-        scope.help2 = "HELP-2";
-        scope.help3 = "HELP-3";
-        scope.submitMessage = "SUBMIT";
+        // scope.title = "TITLE";
+        // scope.help1 = "HELP-1";
+        // scope.help2 = "HELP-2";
+        // scope.help3 = "HELP-3";
+        // scope.submitMessage = "SUBMIT";
       }
     };
   });

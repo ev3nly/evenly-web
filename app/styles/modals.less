@@ -2,34 +2,52 @@
 
 .modal-input() {
   .rounded-corners(0);
-
-  // background-color: red;
-
   border: none;
   margin: 0;
   height: (2 * @unit);
   font-size: @big-font-size;
 }
 
+/* Styles */
+
+.modal-header-request {background-color: @green;}
+.modal-header-payment {background-color: @red;}
+
 .modal-header {
   .rounded-corners-top;
   .bordered(2px, white);
 
   h3 {
+    // background-color: red;
     color: white;
     font-size: @big-font-size;
     font-weight: 100;
+    display: inline;
   }
   button {font-size: @big-font-size}
 }
 
-.modal-header-request {
-  background-color: @green;
-}
+// .friend-group-control {
+//   // background-color: black;
+//   display: inline-block;
+//   padding: 0;
+//   margin-left: 115px;
+//   // float: right;
+// }
 
-.modal-header-payment {
-  background-color: @red;
-}
+// .nav-pills {
+//   // float: right;
+//   // background-color: red;
+//   margin: 0;
+
+//   li > a {
+//     padding: 12px 21px 13px;
+//     // margin: 0px;
+//     padding: 0;
+//     padding: 5px 5px;
+//     margin-top: 5px;
+//   }
+// }
 
 .modal-body {padding: 0px;}
 
@@ -38,29 +56,56 @@
   font-size: @big-font-size;
 }
 
-input[name="recipient"] {
-  .modal-input;
-  display: inline;
-  width: 300px;
-}
-
-input[name="amount"] {
-  .modal-input;
-  float: right;
-  width: 100px;
-  text-align: right;
-}
-
-textarea[name="description"] {
-  .modal-input;
-  // padding: 0;
-  resize: none;
-  width: 400px;
-  height: 100px;
-}
-
-.control-group.row-1 {
+// first Row in the modal: Recipient and Amount inputs;
+.control-group:first-child {
   .bordered-bottom;
+
+  // first group, containing help1, help2, and recipient input
+  div:first-child {
+    width: 440px;
+    display: inline-block;
+  }
+
+  .help-inline:first-child {float: left;} // first inline "Pay"
+  .help-inline:nth-child(2) {float: right;} // second inline "owes me"
+
+  // recipient and amount inputs
+  div {
+    overflow: hidden;
+
+    input[name="recipient"] {
+      .modal-input;
+      display: inline;
+      width: 100%
+    }
+  }
+
+  input[name="amount"] {
+    .modal-input;
+    float: right;
+    width: 100px;
+    text-align: right;
+  }
+
+}
+
+// Second Row in the Modal: Description textarea;
+.control-group:nth-child(2) {
+  .help-inline {float: left;}
+
+  div:last-child {
+    overflow: hidden;
+
+    textarea[name="description"] {
+      .modal-input;
+
+      overflow: hidden;
+      display: inline;
+      resize: none;
+      width: 100%;
+      height: 100px;
+    }
+  }
 }
 
 .info-button {
