@@ -1,68 +1,16 @@
-<div modal="paymentShouldBeOpen" close="hideSendModal()" options="opts">
-  <div class="modal-header modal-header-{{type}}">
+<div class="modal-header modal-header-{{type}}">
+  <button class="close" ng-click="hideModal()">×</button>
+  <h3>{{title}}</h3>
+  <ul class="nav nav-pills" ng-show="type == 'request'">
+    <li class="active"><a>Friend</a></li>
+    <li><a>Group</a></li>
+  </ul>
+</div>
 
-    <button class="close" ng-click="hideSendModal()">×</button>
-    <h3>{{title}}</h3>
+<div class="modal-body">
+  <eve-exchange-form></eve-exchange-form>
+</div>
 
-  </div>
-  <div class="modal-body">
-    
-    <form name="form">
-      <div class="control-group row-1" ng-class="classForRecipient()">
-        <span class="help-inline">{{help1}}</span>
-        <eve-recipient></eve-recipient>
-        <span class="help-inline">{{help2}}</span>
-        <eve-amount></eve-amount>
-      </div>
-
-      <div class="control-group row-2" ng-class="classForDescription()">
-        <span class="help-inline">{{help3}}</span>
-        <textarea 
-          type="text" 
-          name="description"
-          placeholder="Dinner, Taxi, Drinks, or anything else..."
-          ng-model="description"
-          required>
-        </textarea>
-      </div>
-
-      <!-- <br>amount.currencyError    {{form.amount.$error.currency}}
-      <br>amount.gteError         {{form.amount.$error.gte}}
-      <br>
-      <br>description.required    {{form.description.$error.required}} -->
-
-      <div class="alert alert-error" ng-show="showErrors()">
-        <p ng-show="showAmountCurrencyError()">
-          must enter a valid dollar amount
-        </p>
-        <p ng-show="showAmountGteError()">
-          amount must be greater than $0.50
-        </p>
-        <p ng-show="showDescriptionRequiredError()">
-          must have a description
-        </p>
-      </div>
-
-    </form>
-
-  </div>
-  <div class="modal-footer">
-    
-    <div class="btn-group pull-left">
-      <i class="dropdown-arrow dropdown-arrow-inverse"></i>
-      <a class="btn"><span class="fui-user"></span> Friend</a>
-      <a class="btn dropdown-toggle" data-toggle="dropdown">
-        <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu dropdown-inverse">
-        <li class="pull-left"><a><span class="fui-radio-checked"></span> Network</a></li>
-        <li class="pull-left"><a><span class="fui-lock"></span> Private</a></li>
-      </ul>
-    </div>
-
-    <button class="btn info-button"><span class="fui-info "></span></button>
-
-    <button class="btn btn-primary" ng-click="sendMoney()" ng-class="classForButton()">{{submitMessage}}</button>
-
-  </div>
+<div class="modal-footer">
+  <eve-exchange-buttons></eve-exchange-buttons>
 </div>

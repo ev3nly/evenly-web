@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .directive('eveSendForm', function () {
+  .directive('eveExchangeForm', function () {
     return {
-      templateUrl: 'views/send-form.html',
+      templateUrl: 'views/exchange-form.html',
       restrict: 'E',
       replace: true,
       link: function postLink(scope, element, attrs) {

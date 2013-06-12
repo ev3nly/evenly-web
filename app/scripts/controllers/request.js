@@ -28,4 +28,8 @@ angular.module('evenlyApp')
           toastr.error(response.data, "Vine");
         })
     };
+
+    $scope.hideModal = function() {
+      $scope.hideRequestModal();
+    }
   }]);

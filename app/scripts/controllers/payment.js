@@ -30,4 +30,8 @@ angular.module('evenlyApp')
         });
     };
 
+    $scope.hideModal = function() {
+      $scope.hidePaymentModal();
+    }
+
   }]);

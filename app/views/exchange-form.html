@@ -1,12 +1,13 @@
 <form name="form">
   <div class="control-group row-1" ng-class="classForRecipient()">
-    <span class="help-inline">Pay</span>
+    <span class="help-inline">{{help1}}</span>
     <eve-recipient></eve-recipient>
+    <span class="help-inline">{{help2}}</span>
     <eve-amount></eve-amount>
   </div>
 
   <div class="control-group row-2" ng-class="classForDescription()">
-    <span class="help-inline">for</span>
+    <span class="help-inline">{{help3}}</span>
     <textarea 
       type="text" 
       name="description"
