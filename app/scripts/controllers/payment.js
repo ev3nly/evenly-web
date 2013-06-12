@@ -2,7 +2,7 @@
 
 angular.module('evenlyApp')
   .controller('PaymentCtrl', ['$scope', 'Payment', function ($scope, Payment) {
-    $scope.sendMoney = function() {
+    $scope.makePayment = function() {
       $scope.submitAttempted = true;
 
       if ($scope.invalidForm()) {
@@ -29,9 +29,5 @@ angular.module('evenlyApp')
           toastr.error(response.data, "Vine");
         });
     };
-
-    $scope.hideModal = function() {
-      $scope.hidePaymentModal();
-    }
 
   }]);

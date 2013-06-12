@@ -2,7 +2,7 @@
 
 angular.module('evenlyApp')
   .controller('RequestCtrl', ['$scope', 'Request', function ($scope, Request) {
-    $scope.requestMoney = function() {
+    $scope.makeRequest = function() {
       $scope.submitAttempted = true;
 
       if ($scope.invalidForm()) {
@@ -29,7 +29,4 @@ angular.module('evenlyApp')
         })
     };
 
-    $scope.hideModal = function() {
-      $scope.hideRequestModal();
-    }
   }]);

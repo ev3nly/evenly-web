@@ -8,6 +8,15 @@ angular.module('evenlyApp')
       // replace: true,
       link: function postLink(scope, element, attrs) {
         scope.type = attrs.type;
+        scope.openBool = "openBool";
+
+        scope.submit = function() {
+          scope.$eval(attrs.submit);
+        }
+
+        scope.hide = function() {
+          scope.$eval(attrs.hide);
+        }
 
         if (scope.type === "request") {
           scope.title = "Request";

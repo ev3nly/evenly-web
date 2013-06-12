@@ -5,7 +5,8 @@
       <a class="btn btn-primary" ng-click="showPaymentModal()"><i class="fui-heart"> Send</i></a>
 
       <div modal="paymentShouldBeOpen" close="hidePaymentModal()" options="opts">
-        <eve-exchange-modal type="payment"></eve-exchange-modal>
+        <eve-exchange-modal type="payment" submit="makePayment()" hide="hidePaymentModal()">
+        </eve-exchange-modal>
       </div>
 
     </li>
@@ -14,7 +15,8 @@
       <a class="btn btn-primary" ng-click="showRequestModal()"><i class="fui-eye"> Request</i></a>
 
       <div modal="requestShouldBeOpen" close="hideRequestModal()" options="opts">
-        <eve-exchange-modal type="request"></eve-exchange-modal>
+        <eve-exchange-modal type="request" submit="makeRequest()" hide="hideRequestModal()">
+        </eve-exchange-modal>
       </div>
 
     </li>
