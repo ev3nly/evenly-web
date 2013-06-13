@@ -20,6 +20,7 @@
         name="description"
         placeholder="Dinner, Taxi, Drinks, or anything else..."
         ng-model="description"
+        ng-disabled="submitting"
         required>
       </textarea>
     </div>
@@ -39,6 +40,9 @@
     </p>
     <p ng-show="showDescriptionRequiredError()">
       must have a description
+    </p>
+    <p ng-show="serverError">
+      {{serverError}}
     </p>
   </div>
 

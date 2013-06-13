@@ -8,15 +8,40 @@ angular.module('evenlyApp')
       // replace: true,
       link: function postLink(scope, element, attrs) {
         scope.type = attrs.type;
-        scope.openBool = "openBool";
-
-        scope.submit = function() {
-          scope.$eval(attrs.submit);
-        }
 
         scope.hide = function() {
           scope.$eval(attrs.hide);
         }
+
+        scope.submit = function() {
+          scope.submitAttempted = true;
+
+          if (scope.invalidForm()) {
+            console.log("form is invalid!");
+            return;
+          }
+
+          scope.submitting = true;
+          scope.$eval(attrs.submit);
+        }
+
+        scope.reset = function() {
+          scope.submitAttempted = false;
+          scope.submitting = false;
+          scope.serverError = undefined;
+          scope.amount = null;
+          scope.recipient = null;
+          scope.description = null;
+        }
+
+        scope.$watch('submitting', function(){
+          if (scope.submitting) {
+            scope.oldSubmitMessage = scope.submitMessage;
+            scope.submitMessage = "Sending " + scope.type + "...";
+          } else if (scope.oldSubmitMessage !== undefined) {
+            scope.submitMessage = scope.oldSubmitMessage;
+          }
+        });
 
         if (scope.type === "request") {
           scope.title = "Request";

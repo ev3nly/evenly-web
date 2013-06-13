@@ -7,6 +7,7 @@ angular.module('evenlyApp')
       restrict: 'E',
       replace: true,
       link: function postLink(scope, element, attrs) {
+        
         /* Invalids */
 
         scope.invalidRecipient = function() {
@@ -54,7 +55,8 @@ angular.module('evenlyApp')
         scope.showErrors = function() {
           var errors = scope.showAmountCurrencyError() 
             || scope.showAmountGteError() 
-            || scope.showDescriptionRequiredError();
+            || scope.showDescriptionRequiredError()
+            || scope.serverError
 
           return scope.submitAttempted && errors;
         }
@@ -80,6 +82,9 @@ angular.module('evenlyApp')
         };
 
         scope.classForButton = function() {
+          if (scope.submitting) {
+            return "btn-primary disabled";
+          }
           return scope.invalidForm() ? "btn-primary disabled" : "btn-primary";
         }
       }

@@ -18,7 +18,7 @@ angular.module('evenlyApp')
           min = min || 0.50;
           if (value === undefined) { return false; };
           return value.replace(/[^0-9\.]/g,'') >= min;
-        }
+        };
       }
     };
   });

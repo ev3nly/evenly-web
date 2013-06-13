@@ -1,13 +1,13 @@
 'use strict';
 
-describe('Directive: eveSendForm', function () {
+describe('Directive: eveRecipient', function () {
   beforeEach(module('evenlyApp'));
 
   var element;
 
   it('should make hidden element visible', inject(function ($rootScope, $compile) {
-    element = angular.element('<eve-send-form></eve-send-form>');
+    element = angular.element('<eve-autocomplete></eve-autocomplete>');
     element = $compile(element)($rootScope);
-    expect(element.text()).toBe('this is the eveSendForm directive');
+    expect(element.text()).toBe('this is the eveRecipient directive');
   }));
 });
