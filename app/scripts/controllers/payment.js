@@ -2,9 +2,9 @@
 
 angular.module('evenlyApp')
   .controller('PaymentCtrl', ['$scope', 'Payment', function ($scope, Payment) {
-    $scope.recipient = "rhea@friend.edu";
-    $scope.amount = "100000";
-    $scope.description = "failure";
+    // $scope.recipient = "rhea@friend.edu";
+    // $scope.amount = "100000";
+    // $scope.description = "failure";
 
     $scope.makePayment = function() {
       console.log("You owe " 

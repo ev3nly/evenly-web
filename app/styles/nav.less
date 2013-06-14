@@ -1,3 +1,28 @@
 .navbar-inner {
   background-color: @background-color;
 }
+
+.bottom-nav {
+  .bordered-top;
+  padding-top: @unit;
+  margin-top: @unit;
+
+  div {
+    margin: @unit;
+    a {width: 32%;}
+  }
+
+  div:last-child {
+    margin-left: 70px;
+  }
+
+  a {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+
+    text-align: center;
+    font-weight: bold;
+    color: @dark-gray;
+  }
+}

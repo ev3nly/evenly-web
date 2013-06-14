@@ -57,6 +57,10 @@ Evenly.factory('Me', ['Restangular', '$rootScope', '$http', '$cookieStore', func
     newsfeed: function(params) {
       return base
         .getList('newsfeed');
+    },
+    history: function(params) {
+      return base
+        .getList('history');
     }
   };
 }]);

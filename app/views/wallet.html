@@ -5,9 +5,16 @@
   <div class="span12 offset0 content">
     <div class="span8 offset0 main">
       
-      <div class="receipt" ng-repeat='receipt in receipts'>
-        <p>{{receipt.subject_name}} {{receipt.verb}} {{receipt.target_name}}<p>
-        <p>for {{receipt.description}}</p>
+      <div class="history-item" ng-repeat='item in history'>
+        <div class="history-item-amount">
+          <p class="{{item.amountClass}}">{{item.amountString}}</p>
+        </div>
+        <div class="history-item-date">
+          <p ng-class="">{{item.formattedDate.toString('MMM dd').toUpperCase()}}</p>
+        </div>
+        <div class="history-item-content">
+          <p>{{item.topic}}</p>
+        </div>
       </div>
 
     </div>
@@ -15,7 +22,7 @@
     <div class="span4 offset0 sidebar">
 
       <div class="wallet-contents">
-        <h3>Your Wallet</h3>
+        <h3>Wallet</h3>
         <table>
           <tr>
             <td>Cash</td>
@@ -38,7 +45,7 @@
       </div>
 
       <div class="stats">
-        <h3>Your Stats</h3>
+        <h3>Stats</h3>
         <table>
           <tr>
             <td>Member Since</td>

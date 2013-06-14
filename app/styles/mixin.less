@@ -10,6 +10,12 @@
   border-bottom-color: @color;
 }
 
+.bordered-top(@width: 1px; @color: @border-color;) {
+  border-top-style: solid;
+  border-top-width: @width;
+  border-top-color: @color;
+}
+
 .rounded-corners(@radius: 5px) {
   -webkit-border-radius: @radius;
      -moz-border-radius: @radius;
@@ -36,4 +42,9 @@
 .image-content-fill(@path) {
   background: url(@path) no-repeat;
   background-size: 100%;
+}
+
+.black-and-bold() {
+  color: @black;
+  font-weight: bold;
 }
