@@ -1,0 +1,35 @@
+.history-item {
+  .bordered;
+  .rounded-corners;
+
+  background-color: white;
+  margin: (2 * @unit) (4 * @unit);
+  padding: @unit;
+}
+
+.history-item-date {
+  margin-right: @unit;
+  p {
+    .black-and-bold;
+  }
+}
+
+.history-item-amount {
+  float: right;
+}
+
+.history-item-amount-received {
+  color: @green;
+}
+
+.history-item-amount-sent {
+  color: @red;
+  font-weight: bold;
+}
+
+.history-item-content {
+  p {
+    color: @dark-gray;
+    margin: 0;
+  }
+}

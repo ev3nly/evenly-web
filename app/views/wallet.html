@@ -21,30 +21,30 @@
 
     <div class="span4 offset0 sidebar">
 
-      <div class="wallet-contents">
+      <div class="wallet">
         <h3>Wallet</h3>
         <table>
           <tr>
             <td>Cash</td>
-            <td>$1.00</td>
-            <td>Deposit</td>
+            <td class="wallet-balance">$1.00</td>
+            <td><button class="btn btn-mini">Deposit</button></td>
           </tr>
 
           <tr>
             <td>Cards</td>
-            <td>Visa 3773</td>
-            <td>Edit/Add</td>
+            <td><span class="wallet-brand">VISA</span> 3773</td>
+            <td><button class="btn btn-mini">Change</button></td>
           </tr>
 
           <tr>
             <td>Banks</td>
-            <td>Chase 1290</td>
-            <td>Edit/Add</td>
+            <td><span class="wallet-brand">CHASE</span> 1290</td>
+            <td><button class="btn btn-mini">Change</button></td>
           </tr>
         </table>
       </div>
 
-      <div class="stats">
+      <!-- <div class="stats">
         <h3>Stats</h3>
         <table>
           <tr>
@@ -60,7 +60,7 @@
           <tr>
           </tr>
         </table>
-      </div>
+      </div> -->
 
       <ng-include src="'views/bottom-nav.html'"></ng-include>
 

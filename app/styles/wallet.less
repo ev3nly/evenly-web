@@ -1,39 +1,34 @@
-.history-item {
-  .bordered;
-  .rounded-corners;
-
-  background-color: white;
-  margin: (2 * @unit) (4 * @unit);
+.wallet {
   padding: @unit;
-}
 
-.history-item-date {
-  margin-right: @unit;
-  p {
-    .black-and-bold;
+  h3 {font-size: @big-font-size;}
+
+  table {
+    width: 100%;
+
+    tr {
+      td {
+        padding: (1.5 * @unit);
+        padding-left: 0;
+      }
+
+      td:first-child {
+        font-size: @medium-font-size;
+      }
+
+      td:last-child, td:nth-last-child(2) {text-align: right;}
+    }
   }
 }
 
-.history-item-amount {
-  float: right;
-}
-
-.history-item-amount-received {
+.wallet-balance {
+  font-size: @medium-font-size;
+  font-weight: bold;
   color: @green;
 }
 
-.history-item-amount-sent {
-  color: @red;
-  font-weight: bold;
-}
-
-.history-item-content {
-  p {
-    color: @dark-gray;
-    margin: 0;
-  }
-}
-
-p {
-  // background-color: red;
+.wallet-brand {
+  .bordered(2px, @dark-gray);
+  .rounded-corners(5px);
+  padding: 2px 4px;
 }
