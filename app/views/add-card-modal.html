@@ -1,4 +1,4 @@
-<div modal="addCardShouldBeOpen" close="hideAddCardModal()" options="opts">
+<div modal="addCardShouldBeOpen" close="hideAddCardModal()" options="opts" ng-controller="AddCardCtrl">
   <div class="modal-header">
     <button class="close" ng-click="hideAddCardModal()">×</button>
     <h3>Credit or Debit Card</h3>
@@ -50,7 +50,7 @@
   </div>
 
   <div class="modal-footer">
-    <button class="btn btn-primary">Add Card</button>
+    <button class="btn btn-primary" ng-click="addCard()">Add Card</button>
   </div>
 
   <script>

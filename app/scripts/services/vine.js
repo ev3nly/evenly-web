@@ -82,3 +82,12 @@ Evenly.factory('Request', ['Restangular', function(Restangular) {
     }
   }
 }]);
+
+Evenly.factory('CreditCard', ['Restangular', function(Restangular) {
+  return {
+    all: function() {
+      return Restangular.all('creditcards')
+        .getList();
+    }
+  }
+}]);
