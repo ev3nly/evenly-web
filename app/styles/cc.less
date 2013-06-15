@@ -1,0 +1,24 @@
+@cc-modal-width: 410px;
+
+body .cc-modal { 
+  width: @cc-modal-width;
+  margin-left: (-0.5 * @cc-modal-width);
+}
+
+.cc-form {
+  padding: (2 * @unit);
+
+  input[ng-model="card.number"] {
+    margin-right: @unit;
+    background-image: url(../../images/brands/visa.png);
+  }
+
+  input[ng-model="card.expiry"] {
+    width: 60px;
+    margin-right: @unit;
+  }
+
+  input[ng-model="card.cvc"] {
+    width: 50px;
+  }
+}

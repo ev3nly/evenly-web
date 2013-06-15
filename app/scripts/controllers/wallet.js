@@ -27,4 +27,20 @@ angular.module('evenlyApp')
         });
 
       });
+
+    $scope.showAddCardModal = function() {
+      $scope.addCardShouldBeOpen = true;
+    };  
+
+    $scope.hideAddCardModal = function() {
+      $scope.addCardShouldBeOpen = false;
+    }
+
+    $scope.opts = {
+      backdropFade: true,
+      dialogFade: true,
+      dialogClass: 'modal cc-modal'
+    };
+
+    $scope.showAddCardModal();
   }]);

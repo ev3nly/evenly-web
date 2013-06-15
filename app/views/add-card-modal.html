@@ -1,0 +1,61 @@
+<div modal="addCardShouldBeOpen" close="hideAddCardModal()" options="opts">
+  <div class="modal-header">
+    <button class="close" ng-click="hideAddCardModal()">×</button>
+    <h3>Credit or Debit Card</h3>
+  </div>
+
+  <div class="modal-body">
+    <form name="form" class="cc-form">
+      <input 
+        type="text" 
+        name="number"
+        placeholder="Card Number"
+        pattern="\d*"
+        x-autocompletetype="cc-number"
+        ng-model="card.number"
+        format-card-number
+        card-number
+        restrict-numeric
+        >
+      
+      <input 
+        type="text" 
+        name="expiry"
+        placeholder="MM/YY" 
+        pattern="\d*"
+        x-autocompletetype="cc-exp"
+        ng-model="card.expiry"
+        format-card-expiry
+        card-expiry
+        restrict-numeric>
+
+      <input
+        type="text"
+        name="cvc"
+        placeholder="CVC"
+        pattern="\d*"
+        x-autocompletetype="cc-csc"
+        ng-model="card.cvc"
+        format-card-cvc
+        card-cvc
+        restrict-numeric
+        autocomplete="off">
+    </form>
+
+    <ul>
+      <li ng-show="form.number.$error.cardNumber">invalid number</li>
+      <li ng-show="form.cvc.$error.cardCVC">invalid cvc</li>
+      <li ng-show="form.expiry.$error.cardExpiry">invalid expiry</li>
+    </ul>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-primary">Add Card</button>
+  </div>
+
+  <script>
+    jQuery(function($) {
+      $('[data-numeric]').payment('restrictNumeric');
+    });
+  </script>
+</div>
