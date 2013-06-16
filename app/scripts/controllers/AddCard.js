@@ -16,6 +16,12 @@ angular.module('evenlyApp')
     }
 
     $scope.validForm = function() {
+      if ($scope.form.number === undefined || 
+          $scope.form.cvc === undefined || 
+          $scope.form.expiry === undefined) {
+        return false;
+      }
+      
       return !$scope.form.number.$error.cardNumber &&
         !$scope.form.number.$error.required &&
         !$scope.form.cvc.$error.cardCVC &&

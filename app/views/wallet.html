@@ -40,7 +40,8 @@
           <tr>
             <td>Banks</td>
             <td><span class="wallet-brand">CHASE</span> 1290</td>
-            <td><button class="btn btn-mini">Change</button></td>
+            <td><button class="btn btn-mini" ng-click="showAddBankAccountModal()">Change</button></td>
+            <ng-include src="'views/add-bank-account-modal.html'"></ng-include>
           </tr>
         </table>
       </div>
