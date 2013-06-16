@@ -11,6 +11,10 @@ angular.module('evenlyApp')
       }
     }
 
+    $scope.cardType = function(num) {
+      return $.payment.cardType(num);
+    }
+
     $scope.validForm = function() {
       return !$scope.form.number.$error.cardNumber &&
         !$scope.form.number.$error.required &&
@@ -21,6 +25,6 @@ angular.module('evenlyApp')
     }
 
     $scope.classForButton = function() {
-      return $scope.validForm() ? "btn btn-primary" : "btn btn-primary disabled"
+      return $scope.validForm() ? "btn btn-primary" : "btn btn-primary disabled";
     }
   }]);
