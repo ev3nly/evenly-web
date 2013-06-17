@@ -24,4 +24,19 @@ angular.module('evenlyApp')
       dialogFade: true,
       dialogClass: 'modal cc-modal'
     };
+
+    $scope.selectHistory = function() {
+      console.log("show history");
+      $scope.showHistory = true;
+      $scope.showCards = false;
+    };
+
+    $scope.selectCards = function() {
+      console.log("show cards");
+      $scope.showHistory = false;
+      $scope.showCards = true;
+    };
+
+    $scope.showCards = true;
+
   }]);

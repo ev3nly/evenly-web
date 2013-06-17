@@ -80,7 +80,7 @@ Evenly.factory('Request', ['Restangular', function(Restangular) {
       return Restangular.all('charges')
         .post(params);
     }
-  }
+  };
 }]);
 
 Evenly.factory('CreditCard', ['Restangular', function(Restangular) {
@@ -93,7 +93,7 @@ Evenly.factory('CreditCard', ['Restangular', function(Restangular) {
       return Restangular.all('creditcards')
         .post(params);
     }
-  }
+  };
 }]);
 
 Evenly.factory('BankAccount', ['Restangular', function(Restangular) {
@@ -106,5 +106,5 @@ Evenly.factory('BankAccount', ['Restangular', function(Restangular) {
       return Restangular.all('bankaccounts')
         .post(params);
     }
-  }
+  };
 }]);

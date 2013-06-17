@@ -5,7 +5,8 @@
   <div class="span12 offset0 content">
     <div class="span8 offset0 main">
       
-      <ng-include src="'views/history.html'"></ng-include>
+      <ng-include src="'views/history.html'" ng-show="showHistory"></ng-include>
+      <ng-include src="'views/cards.html'" ng-show="showCards"></ng-include>
 
     </div>
 
@@ -14,13 +15,13 @@
       <div class="wallet">
         <h3>Wallet</h3>
         <table>
-          <tr>
+          <tr ng-click="selectHistory()">
             <td>Cash</td>
             <td class="wallet-balance">$1.00</td>
             <td><button class="btn btn-mini">Deposit</button></td>
           </tr>
 
-          <tr>
+          <tr ng-click="selectCards()">
             <td>Cards</td>
             <td><span class="wallet-brand">VISA</span> 3773</td>
             <td><button class="btn btn-mini" ng-click="showAddCardModal()">Change</button></td>
