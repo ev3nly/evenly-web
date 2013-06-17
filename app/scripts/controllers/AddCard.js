@@ -13,13 +13,13 @@ angular.module('evenlyApp')
                 console.log(result);
               }, function(response) {
                 console.log("Failed to add credit card to Vine");
-              })
+              });
           }
         });
       } else {
         $scope.showErrors = true;
       }
-    }
+    };
 
     $scope.cardType = function(num) {
       return $.payment.cardType(num);
