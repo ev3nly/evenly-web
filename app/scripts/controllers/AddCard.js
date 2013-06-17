@@ -5,7 +5,17 @@ angular.module('evenlyApp')
     $scope.addCard = function() {
       if ($scope.validForm()) {
         console.log("adding card");
-        balanced.tokenizeCard($scope.card, null);
+        balanced.tokenizeCard($scope.card, function(response) {
+          if (response.status === 201) {
+            CreditCard.create({uri: response.data.uri})
+              .then(function(result) {
+                console.log("Added credit card!");
+                console.log(result);
+              }, function(response) {
+                console.log("Failed to add credit card to Vine");
+              })
+          }
+        });
       } else {
         $scope.showErrors = true;
       }
@@ -21,7 +31,7 @@ angular.module('evenlyApp')
           $scope.form.expiry === undefined) {
         return false;
       }
-      
+
       return !$scope.form.number.$error.cardNumber &&
         !$scope.form.number.$error.required &&
         !$scope.form.cvc.$error.cardCVC &&
