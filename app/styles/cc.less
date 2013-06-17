@@ -1,3 +1,31 @@
+// .cc-list, .cc-list tr, .cc-list tr td {
+//   background-color: @background-color;
+// }
+
+.cc-list {
+  margin: (2 * @unit) (4 * @unit);
+}
+
+.cc {
+  .bordered;
+  .rounded-corners;
+  background-color: @background-color;
+  margin: @unit 0;
+  padding: @unit;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.cc.selected {
+  .bordered(1px, @green);
+}
+
+.cc-brand {
+  .bordered(2px, @dark-gray);
+  .rounded-corners(5px);
+  padding: 2px 4px;
+}
+
 @cc-modal-width: 410px;
 
 body .cc-modal { 
