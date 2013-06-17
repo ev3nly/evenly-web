@@ -95,3 +95,16 @@ Evenly.factory('CreditCard', ['Restangular', function(Restangular) {
     }
   }
 }]);
+
+Evenly.factory('BankAccount', ['Restangular', function(Restangular) {
+  return {
+    all: function() {
+      return Restangular.all('bankaccounts')
+        .getList();
+    },
+    create: function(params) {
+      return Restangular.all('bankaccounts')
+        .post(params);
+    }
+  }
+}]);

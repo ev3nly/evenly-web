@@ -47,6 +47,20 @@ angular.module('evenlyApp')
             callback(response);
           }
         });
+      },
+      tokenizeBankAccount: function(bankAccount, callback) {
+        var bankAccountData = {
+          name:           bankAccount.name,
+          account_number: bankAccount.accountNumber,
+          routing_number: bankAccount.routingNumber
+        };
+
+        balanced.bankAccount.create(bankAccountData, function(response) {
+          defaultCallback(response);
+          if (callback) {
+            callback(response);
+          }
+        });
       }
     }
   }]);

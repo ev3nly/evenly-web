@@ -8,7 +8,14 @@
     <form name="form" class="cc-form">
       <input 
         type="text" 
-        name="number"
+        name="name"
+        placeholder="Account Holder's Name"
+        ng-model="bankAccount.name"
+        required>
+
+      <input 
+        type="text" 
+        name="routingNumber"
         placeholder="Routing Number"
         pattern="\d*"
         ng-model="bankAccount.routingNumber"
@@ -17,7 +24,7 @@
       
       <input 
         type="text" 
-        name="expiry"
+        name="accountNumber"
         placeholder="Account Number" 
         pattern="\d*"
         ng-model="bankAccount.accountNumber"
@@ -35,7 +42,7 @@
   <div class="modal-footer">
     <button 
       class="btn btn-primary" 
-      ng-click="addCard()"
+      ng-click="addBankAccount()"
       ng-class="classForButton()">Add Card</button>
   </div>
 
