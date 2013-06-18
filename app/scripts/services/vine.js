@@ -117,6 +117,10 @@ Evenly.factory('BankAccount', ['Restangular', function(Restangular) {
     destroy: function(id) {
       return Restangular.one('bankaccounts', id)
         .remove();
+    },
+    activate: function(id) {
+      return Restangular.one('bankaccounts', id)
+        .customPUT('activate');
     }
   };
 }]);

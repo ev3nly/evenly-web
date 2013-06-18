@@ -7,6 +7,7 @@
       
       <ng-include src="'views/history.html'" ng-show="showHistory"></ng-include>
       <ng-include src="'views/cards.html'" ng-show="showCards"></ng-include>
+      <ng-include src="'views/bank-accounts.html'" ng-show="showBankAccounts"></ng-include>
 
     </div>
 
@@ -28,7 +29,7 @@
             <ng-include src="'views/add-card-modal.html'"></ng-include>
           </tr>
 
-          <tr>
+          <tr ng-click="selectBankAccounts()">
             <td>Banks</td>
             <td><span class="wallet-brand">CHASE</span> 1290</td>
             <td><button class="btn btn-mini" ng-click="showAddBankAccountModal()">Change</button></td>

@@ -1,0 +1,23 @@
+.ba-list {
+  margin: (2 * @unit) (4 * @unit);
+}
+
+.ba {
+  .bordered;
+  .rounded-corners;
+  background-color: @background-color;
+  margin: @unit 0;
+  padding: @unit;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.ba.selected {
+  .bordered(1px, @green);
+}
+
+.ba-brand {
+  .bordered(2px, @dark-gray);
+  .rounded-corners(5px);
+  padding: 2px 4px;
+}
