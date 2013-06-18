@@ -5,3 +5,4 @@ app/components
 .DS_Store
 
 app/styles/css/*
+app/styles/test.css/*
