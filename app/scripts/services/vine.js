@@ -83,6 +83,15 @@ Evenly.factory('Request', ['Restangular', function(Restangular) {
   };
 }]);
 
+Evenly.factory('Deposit', ['Restangular', function(Restangular) {
+  return {
+    create: function(params) {
+      return Restangular.all('withdrawals')
+        .post(params);
+    }
+  };
+}]);
+
 Evenly.factory('CreditCard', ['Restangular', function(Restangular) {
   return {
     all: function() {

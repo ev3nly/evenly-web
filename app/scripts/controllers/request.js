@@ -3,18 +3,9 @@
 angular.module('evenlyApp')
   .controller('RequestCtrl', ['$scope', 'Request', function ($scope, Request) {
     $scope.makeRequest = function() {
-      $scope.submitAttempted = true;
-
-      if ($scope.invalidForm()) {
-        console.log("form is invalid!");
-        return;
-      }
-
       console.log($scope.recipient + " owes you $"
         + $scope.amount + " for "
         + $scope.description);
-
-      toastr.info("Sending...");
 
       Request
         .create({
@@ -23,9 +14,12 @@ angular.module('evenlyApp')
           to:           {email: $scope.recipient}})
         .then(function() {
           $scope.hideRequestModal();
-          toastr.success("Requested!");
+          toastr.success("$" + $scope.amount + " requested from " + $scope.recipient + " for " + $scope.description);
+          $scope.reset();
         }, function(response) {
-          toastr.error(response.data, "Vine");
+          $scope.serverError = response.data;
+          $scope.submitting = false;
+          $scope.showRequestModal();
         })
     };
 
