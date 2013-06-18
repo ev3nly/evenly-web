@@ -151,13 +151,18 @@ module.exports = function (grunt) {
         compile: true
       },
       dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/styles',
-          src: '{,*/}*.less',
-          dest: 'app/styles/test.css',
-          ext: '.css'
-        }]
+        // files: [{
+        //   expand: true,
+        //   cwd: '<%= yeoman.app %>/styles',
+        //   src: '{,*/}*.less',
+        //   dest: 'app/styles/test.css',
+        //   ext: '.css'
+        // }]
+        files: {
+          'app/styles/test.css/style.css' : [
+            '<%= yeoman.app %>/styles/style.less'
+          ]
+        }
       }
     },
     concat: {
@@ -198,7 +203,7 @@ module.exports = function (grunt) {
         files: {
           '<%= yeoman.dist %>/styles/main.css': [
             '.tmp/styles/{,*/}*.css',
-            '<%= yeoman.app %>/styles/{,*/}*.css'
+            '<%= yeoman.app %>/styles/css/style.css'
           ]
         }
       }
