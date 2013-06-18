@@ -1,4 +1,6 @@
 'use strict';
+/*global toastr:false */
+/*jshint unused: vars */
 
 angular.module('evenlyApp')
   .controller('RequestCtrl', ['$scope', 'Request', function ($scope, Request) {

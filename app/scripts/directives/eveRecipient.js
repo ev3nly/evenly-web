@@ -1,4 +1,6 @@
 'use strict';
+/*global _:false */
+/*jshint unused: vars */
 
 angular.module('evenlyApp')
   .directive('eveRecipient', ['User', function (User) {

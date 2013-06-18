@@ -1,4 +1,5 @@
 'use strict';
+/*global toastr:false */
 
 angular.module('evenlyApp')
   .controller('PaymentCtrl', ['$scope', 'Payment', function ($scope, Payment) {

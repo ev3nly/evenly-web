@@ -1,4 +1,5 @@
 'use strict';
+/*jshint unused: vars */
 
 angular.module('evenlyApp')
   .directive('eveAmount', function () {

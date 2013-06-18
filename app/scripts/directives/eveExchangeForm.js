@@ -1,4 +1,5 @@
 'use strict';
+/*jshint unused: vars */
 
 angular.module('evenlyApp')
   .directive('eveExchangeForm', function () {
@@ -85,7 +86,7 @@ angular.module('evenlyApp')
             return 'btn-primary disabled';
           }
           return scope.invalidForm() ? 'btn-primary disabled' : 'btn-primary';
-        }
+        };
       }
     };
   });

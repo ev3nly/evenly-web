@@ -1,4 +1,8 @@
 'use strict';
+/*jshint sub: true */
+/*global Evenly:false */
+/*jshint unused: vars */
+/* jshint camelcase: false */
 
 Evenly.factory('Session', ['Restangular', '$rootScope', '$cookieStore', function(Restangular, $rootScope, $cookieStore) {
   return {

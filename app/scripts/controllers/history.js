@@ -1,4 +1,6 @@
 'use strict';
+/*global _:false */
+/*jshint camelcase: false */
 
 angular.module('evenlyApp')
   .controller('HistoryCtrl', ['$scope', 'Me', function ($scope, Me) {

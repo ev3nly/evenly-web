@@ -1,4 +1,5 @@
 'use strict';
+/*global $:false */
 
 angular.module('evenlyApp')
   .controller('AddCardCtrl', ['$scope', 'CreditCard', 'balanced', function ($scope, CreditCard, balanced) {

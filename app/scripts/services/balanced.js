@@ -1,4 +1,6 @@
 'use strict';
+/*global balanced:false */
+/*jshint camelcase: false */
 
 var defaultCallback = function(response) {
   switch (response.status) {
