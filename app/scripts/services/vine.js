@@ -92,6 +92,14 @@ Evenly.factory('CreditCard', ['Restangular', function(Restangular) {
     create: function(params) {
       return Restangular.all('creditcards')
         .post(params);
+    },
+    destroy: function(id) {
+      return Restangular.one('creditcards', id)
+        .remove();
+    },
+    activate: function(id) {
+      return Restangular.one('creditcards', id)
+        .customPUT('activate');
     }
   };
 }]);
@@ -105,6 +113,10 @@ Evenly.factory('BankAccount', ['Restangular', function(Restangular) {
     create: function(params) {
       return Restangular.all('bankaccounts')
         .post(params);
+    },
+    destroy: function(id) {
+      return Restangular.one('bankaccounts', id)
+        .remove();
     }
   };
 }]);
