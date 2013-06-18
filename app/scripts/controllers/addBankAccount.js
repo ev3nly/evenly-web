@@ -4,15 +4,16 @@ angular.module('evenlyApp')
   .controller('AddBankAccountCtrl', ['$scope', 'BankAccount', 'balanced', function ($scope, BankAccount, balanced) {
     $scope.addBankAccount = function() {
       if ($scope.validForm()) {
-        console.log("adding bank account");
+        console.log('adding bank account');
         balanced.tokenizeBankAccount($scope.bankAccount, function(response) {
           if (response.status === 201) {
             BankAccount.create({uri: response.data.uri})
               .then(function(result) {
-                console.log("Added bank account!");
+                console.log('Added bank account!');
                 console.log(result);
               }, function(response) {
-                console.log("Failed to add bank account to Vine");
+                console.log('Failed to add bank account to Vine');
+                console.log(response);
               });
           }
         });
@@ -22,8 +23,8 @@ angular.module('evenlyApp')
     };
 
     $scope.validForm = function() {
-      if ($scope.form.name === undefined || 
-          $scope.form.routingNumber === undefined || 
+      if ($scope.form.name === undefined ||
+          $scope.form.routingNumber === undefined ||
           $scope.form.accountNumber === undefined) {
         return false;
       }
@@ -34,6 +35,6 @@ angular.module('evenlyApp')
     };
 
     $scope.classForButton = function() {
-      return $scope.validForm() ? "btn btn-primary" : "btn btn-primary disabled";
-    }
+      return $scope.validForm() ? 'btn btn-primary' : 'btn btn-primary disabled';
+    };
   }]);

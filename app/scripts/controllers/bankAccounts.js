@@ -10,26 +10,28 @@ angular.module('evenlyApp')
         }, function(response) {
           console.error(response);
         });
-    }
+    };
 
     $scope.deleteBankAccount = function(bankAccountId) {
       BankAccount.destroy(bankAccountId)
         .then(function(result) {
-          console.log("destroyed!");
+          console.log('destroyed!');
           console.log(result);
-        }, function(result) {
-          console.log("fucked up");
+        }, function(response) {
+          console.log('fucked up');
+          console.log(response);
         });
     };
 
     $scope.activateBankAccount = function(bankAccountId) {
       BankAccount.activate(bankAccountId)
         .then(function(result) {
-          console.log("activated!");
+          console.log('activated!');
           console.log(result);
           $scope.loadBankAccounts();
-        }, function(result) {
-          console.log("fucked up");
+        }, function(response) {
+          console.log('fucked up');
+          console.log(response);
         });
     };
 

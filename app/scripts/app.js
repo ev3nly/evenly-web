@@ -1,6 +1,6 @@
 'use strict';
 
-window.Evenly = angular.module('evenlyApp', ['restangular', 'ngCookies', 'ui.bootstrap', 'ui.validate', 'Payment']);
+var Evenly = angular.module('evenlyApp', ['restangular', 'ngCookies', 'ui.bootstrap', 'ui.validate', 'Payment']);
 
 Evenly.config(['$routeProvider', function($routeProvider) {
   $routeProvider
@@ -31,7 +31,7 @@ Evenly.config(['$routeProvider', function($routeProvider) {
     .otherwise({
       redirectTo: '/home'
     });
-  }]);
+}]);
   // .run(['$rootScope', '$location', function($rootScope, $location) {
   //   if ($rootScope.authenticationToken == null) {
   //     $location.path('/login');
@@ -42,7 +42,7 @@ Evenly.config(['$routeProvider', function($routeProvider) {
 
 Evenly.config(['$httpProvider', function($httpProvider) {
   $httpProvider.defaults.useXDomain = true;
-  delete $httpProvider.defaults.headers.common["X-Requested-With"]
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
 
 Evenly.config(['RestangularProvider', function(RestangularProvider) {
@@ -53,3 +53,5 @@ Evenly.config(['RestangularProvider', function(RestangularProvider) {
   //   return response.data;
   // });
 }]);
+
+window.Evenly = Evenly;
