@@ -7,7 +7,7 @@ angular.module('evenlyApp')
       restrict: 'E',
       // replace: true,
       link: function postLink(scope, element, attrs) {
-        
+        console.log('linking eveExchangeButtons ' + scope + ' ' + element + ' ' + attrs);
       }
     };
   });

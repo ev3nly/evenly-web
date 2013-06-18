@@ -7,7 +7,7 @@ Evenly.factory('Session', ['Restangular', '$rootScope', '$cookieStore', function
         .all('sessions')
         .post({email:email, password: password})
         .then(function(result) {
-          console.debug("Session retrieved: " + result.authentication_token);
+          console.debug('Session retrieved: ' + result.authentication_token);
 
           $cookieStore.put('vine_token', result.authentication_token);
           $rootScope.authenticationToken = result.authentication_token;

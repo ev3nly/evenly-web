@@ -15,7 +15,8 @@ angular.module('evenlyApp')
       Session
         .create(email, password)
         .then(function(result) {
+          console.log(result);
           $location.path('/home');
         });
-    }
+    };
   }]);
