@@ -19,6 +19,14 @@ angular.module('evenlyApp')
       $scope.addBankAccountShouldBeOpen = false;
     }
 
+    $scope.showDepositModal = function() {
+      $scope.depositShouldBeOpen = true;
+    }
+
+    $scope.hideDepositModal = function() {
+      $scope.depositShouldBeOpen = false;
+    }
+
     $scope.opts = {
       backdropFade: true,
       dialogFade: true,
