@@ -1,4 +1,5 @@
 'use strict';
+/* global _: false */
 
 angular.module('evenlyApp')
   .controller('LoginCtrl', ['$scope', 'Session', function ($scope, Session) {
