@@ -6721,9 +6721,14 @@ input.search-query {
   font-weight: bold;
   color: #22c2ad;
 }
-.evenly-brand {
+.evenly-brand img,
+.evenly-brand p {
+  display: inline;
+}
+.evenly-brand p {
   font-size: 52px;
   font-color: #282828;
+  vertical-align: middle;
 }
 /* Mixins */
 /* Styles */
