@@ -1,5 +1,25 @@
-<p>This is the login view.</p>
+<div class="login-page">
+  <div class="left">
+    <p class="brand">Evenly</p>
+  </div>
 
-<input type="text" ng-model="email" placeholder="Email" />
-<input type="password" ng-model="password" placeholder="Password"/>
-<button ng-click='login(email, password)'>Login</button>
+  <div class="right">
+    <form class="login" name="form">
+      <div class="help-inline">Log in to Evenly</div>
+      <input type="text" ng-model="email" placeholder="Email" />
+      <input type="password" ng-model="password" placeholder="Password"/>
+      <button class="btn btn-primary btn-block" ng-click='login(email, password)'>Login</button>
+      <div class="help-inline">Don't have an account? 
+        <a>Sign up here.</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    var screenHeight = $(document).height();
+    var screenWidth = $(document).width();
+
+    $('.container').css('width', '100%');
+    $('.login-page').css('height', screenHeight);
+  </script>
+</div>

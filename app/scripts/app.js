@@ -46,7 +46,8 @@ Evenly.config(['$httpProvider', function($httpProvider) {
 }]);
 
 Evenly.config(['RestangularProvider', function(RestangularProvider) {
-  RestangularProvider.setBaseUrl('http://localhost\\:5000/api/v1');
+  // RestangularProvider.setBaseUrl('http://localhost\\:5000/api/v1');
+  RestangularProvider.setBaseUrl('https://germ.herokuapp.com/api/v1');
   // RestangularProvider.setResponseExtractor(function(response, operation, what, url) {
   //   console.log("hello dude!");
   //   alert("sheit up");
