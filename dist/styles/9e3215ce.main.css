@@ -6545,6 +6545,21 @@ input.search-query {
 .navbar-inner {
   background-color: #ffffff;
 }
+.nav.action-bar {
+  margin-left: 230px;
+}
+.nav.action-bar img {
+  margin-left: auto;
+  margin-right: auto;
+  width: 32px;
+  display: block;
+}
+.nav.action-bar a {
+  color: #d7d7d7 !important;
+}
+.nav.action-bar a:hover {
+  color: #8f8b8b !important;
+}
 .bottom-nav {
   border-top-style: solid;
   border-top-width: 1px;
@@ -6589,7 +6604,7 @@ input.search-query {
   width: 50%;
   height: 100%;
 }
-.login-page .brand {
+.login-page .evenly-brand {
   margin: 300px 40px;
   float: right;
 }
@@ -6648,7 +6663,7 @@ input.search-query {
   height: 80px;
   float: left;
   margin-right: 10px;
-  background: url('../../images/b18491ac.dawwww.jpg') no-repeat;
+  background: url('/images/b18491ac.dawwww.jpg') no-repeat;
   background-size: 100%;
 }
 .story p {
@@ -6706,7 +6721,7 @@ input.search-query {
   font-weight: bold;
   color: #22c2ad;
 }
-.brand {
+.evenly-brand {
   font-size: 52px;
   font-color: #282828;
 }

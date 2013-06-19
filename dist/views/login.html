@@ -1,6 +1,6 @@
 <div class="login-page">
   <div class="left">
-    <p class="brand">Evenly</p>
+    <p class="evenly-brand">Evenly</p>
   </div>
 
   <div class="right">
@@ -16,10 +16,15 @@
   </div>
 
   <script>
-    var screenHeight = $(document).height();
-    var screenWidth = $(document).width();
-
     $('.container').css('width', '100%');
-    $('.login-page').css('height', screenHeight);
+
+    var resize = function() {
+      var screenHeight = $(document).height();
+      $('.login-page').css('height', screenHeight);
+    }
+
+    window.onresize = resize;
+    resize();
+
   </script>
 </div>
