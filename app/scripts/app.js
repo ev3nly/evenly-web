@@ -41,8 +41,31 @@ Evenly.config(['$routeProvider', function($routeProvider) {
   // }]);
 
 Evenly.config(['$httpProvider', function($httpProvider) {
-  $httpProvider.defaults.useXDomain = true;
-  delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  $httpProvider.defaults.useXDomain = true; // CORS
+  delete $httpProvider.defaults.headers.common['X-Requested-With']; // CORS
+
+  var interceptor = ['$rootScope', '$q', '$cookieStore', function($rootScope, $q, $cookieStore) {
+    var success = function(response) {
+      console.log(response.config.method + ' ' + response.config.url + ' Successful');
+      return response;
+    };
+
+    var error = function(response) {
+      var status = response.status;
+      // $log.error(response.config.method + ' ' + response.config.url + ' failed with ' + status);
+      if (status === 401) {
+        $cookieStore.remove('vine_token');
+        $rootScope.$broadcast('event:loginRequired');
+      }
+      return $q.reject(response);
+    };
+
+    return function(promise) {
+      return promise.then(success, error);
+    };
+  }];
+
+  $httpProvider.responseInterceptors.push(interceptor);
 }]);
 
 Evenly.config(['RestangularProvider', function(RestangularProvider) {
@@ -55,11 +78,17 @@ Evenly.config(['RestangularProvider', function(RestangularProvider) {
   // });
 }]);
 
-Evenly.run(['$location', '$cookieStore', function($location, $cookieStore) {
+Evenly.run(['$location', '$cookieStore', '$rootScope', function($location, $cookieStore, $rootScope) {
   if (!$cookieStore.get('vine_token')) {
+    console.warn('NOT LOGGED IN');
+    // $rootScope.$broadcast('event:loginRequired'); /* too slow... */
     $location.path('/login');
-    console.log("LOGGED IN");
   }
+
+  $rootScope.$on('event:loginRequired', function() {
+    console.warn('Login Required!');
+    $location.path('/login');
+  });
 }]);
 
 window.Evenly = Evenly;

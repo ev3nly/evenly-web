@@ -8,7 +8,7 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$location',
         s.publishedString = moment(s.published_at).fromNow();
       });
     }, function(response) {
-      $location.path('/login');
+      
     });
 
   // $scope.test = function() {
