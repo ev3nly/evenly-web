@@ -4,7 +4,9 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', function ($s
   Me.newsfeed()
     .then(function(stories) {
       $scope.newsfeed = stories;
-      // _.each(stories, function(s) { console.log(s); });
+      _.each(stories, function(s) { 
+        s.publishedString = moment(s.published_at).fromNow();
+      });
     });
 
   // $scope.test = function() {
