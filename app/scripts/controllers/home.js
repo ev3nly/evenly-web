@@ -1,14 +1,15 @@
 'use strict';
+/* jshint camelcase: false */
+/* global _: false */
+/* global moment: false */
 
-angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$location', function ($scope, Me, $location) {
+angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', function ($scope, Me) {
   Me.newsfeed()
     .then(function(stories) {
       $scope.newsfeed = stories;
-      _.each(stories, function(s) { 
+      _.each(stories, function(s) {
         s.publishedString = moment(s.published_at).fromNow();
       });
-    }, function(response) {
-      
     });
 
   // $scope.test = function() {

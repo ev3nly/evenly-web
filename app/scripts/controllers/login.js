@@ -17,7 +17,7 @@ angular.module('evenlyApp')
         .then(function(result) {
           console.log(result);
           // $location.path('/home');
-          window.location.href = "/";
+          window.location.href = '/';
         });
     };
   }]);
