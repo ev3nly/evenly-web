@@ -1,14 +1,14 @@
 <nav class="navbar" ng-controller="NavCtrl">
   <div class="navbar-inner">
     <a class="brand evenly-brand" href="#/home">
-      <img src="images/logo.png"></img>
+      <img src="/images/logo.png"></img>
       Evenly
     </a>
 
     <ul class="nav action-bar" ng-controller="ActionBarCtrl">
       
       <li ng-controller="PaymentCtrl">
-        <a ng-click="showPaymentModal()"><img src="images/cash-negative.png"></img>Send</a>
+        <a ng-click="showPaymentModal()"><img src="/images/cash-negative.png"></img>Send</a>
 
         <div modal="paymentShouldBeOpen" close="hidePaymentModal()" options="opts">
           <eve-exchange-modal type="payment" submit="makePayment()" hide="hidePaymentModal()">
@@ -18,7 +18,7 @@
       </li>
 
       <li ng-controller="RequestCtrl">
-        <a ng-click="showRequestModal()"><img src="images/cash-positive.png"></img>Request</a>
+        <a ng-click="showRequestModal()"><img src="/images/cash-positive.png"></img>Request</a>
 
         <div modal="requestShouldBeOpen" close="hideRequestModal()" options="opts">
           <eve-exchange-modal type="request" submit="makeRequest()" hide="hideRequestModal()">
