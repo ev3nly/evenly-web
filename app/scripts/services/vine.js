@@ -13,7 +13,7 @@ Evenly.factory('Session', ['Restangular', '$rootScope', '$cookieStore', function
         .then(function(result) {
           console.debug('Session retrieved: ' + result.authentication_token);
 
-          $cookieStore.put('vine_token', result.authentication_token);
+          $cookieStore.put('__evvt', result.authentication_token);
           $rootScope.authenticationToken = result.authentication_token;
           return result;
         });
@@ -46,8 +46,8 @@ Evenly.factory('Me', ['Restangular', '$rootScope', '$http', '$cookieStore', func
   var base = Restangular.one('me', '');
 
   var authenticationToken = null;
-  if ($cookieStore.get('vine_token') !== null) {
-    authenticationToken = $cookieStore.get('vine_token');
+  if ($cookieStore.get('__evvt') !== null) {
+    authenticationToken = $cookieStore.get('__evvt');
   } else {
     authenticationToken = $rootScope.authenticationToken;
   }

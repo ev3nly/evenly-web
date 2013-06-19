@@ -54,7 +54,7 @@ Evenly.config(['$httpProvider', function($httpProvider) {
       var status = response.status;
       // $log.error(response.config.method + ' ' + response.config.url + ' failed with ' + status);
       if (status === 401) {
-        $cookieStore.remove('vine_token');
+        $cookieStore.remove('__evvt');
         $rootScope.$broadcast('event:loginRequired');
       }
       return $q.reject(response);
@@ -79,7 +79,7 @@ Evenly.config(['RestangularProvider', function(RestangularProvider) {
 }]);
 
 Evenly.run(['$location', '$cookieStore', '$rootScope', function($location, $cookieStore, $rootScope) {
-  if (!$cookieStore.get('vine_token')) {
+  if (!$cookieStore.get('__evvt')) {
     console.warn('NOT LOGGED IN');
     // $rootScope.$broadcast('event:loginRequired'); /* too slow... */
     $location.path('/login');
