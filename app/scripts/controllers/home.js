@@ -1,12 +1,14 @@
 'use strict';
 
-angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', function ($scope, Me) {
+angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$location', function ($scope, Me, $location) {
   Me.newsfeed()
     .then(function(stories) {
       $scope.newsfeed = stories;
       _.each(stories, function(s) { 
         s.publishedString = moment(s.published_at).fromNow();
       });
+    }, function(response) {
+      $location.path('/login');
     });
 
   // $scope.test = function() {

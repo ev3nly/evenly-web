@@ -55,4 +55,11 @@ Evenly.config(['RestangularProvider', function(RestangularProvider) {
   // });
 }]);
 
+Evenly.run(['$location', '$cookieStore', function($location, $cookieStore) {
+  if (!$cookieStore.get('vine_token')) {
+    $location.path('/login');
+    console.log("LOGGED IN");
+  }
+}]);
+
 window.Evenly = Evenly;
