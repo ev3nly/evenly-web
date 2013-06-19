@@ -16,7 +16,8 @@ angular.module('evenlyApp')
         .create(email, password)
         .then(function(result) {
           console.log(result);
-          $location.path('/home');
+          // $location.path('/home');
+          window.location.href = "/";
         });
     };
   }]);
