@@ -1,23 +1,16 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('LoginCtrl', ['$scope', '$location', 'Session', function ($scope, $location, Session) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-
-    $scope.email = 'sean@paywithivy.com';
-    $scope.password = 'haisean';
+  .controller('LoginCtrl', ['$scope', 'Session', function ($scope, Session) {
 
     $scope.login = function(email, password) {
       Session
         .create(email, password)
         .then(function(result) {
           console.log(result);
-          // $location.path('/home');
-          window.location.href = '/';
+          var pathComponents = window.location.href.split('/');
+          pathComponents = _.initial(pathComponents, 2);
+          window.location.href = pathComponents.join('/');
         });
     };
   }]);
