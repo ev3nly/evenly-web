@@ -32,13 +32,6 @@ Evenly.config(['$routeProvider', function($routeProvider) {
       redirectTo: '/home'
     });
 }]);
-  // .run(['$rootScope', '$location', function($rootScope, $location) {
-  //   if ($rootScope.authenticationToken == null) {
-  //     $location.path('/login');
-  //   } else {
-  //     $location.path('/home');
-  //   }
-  // }]);
 
 Evenly.config(['$httpProvider', function($httpProvider) {
   $httpProvider.defaults.useXDomain = true; // CORS
@@ -71,6 +64,7 @@ Evenly.config(['$httpProvider', function($httpProvider) {
 Evenly.config(['RestangularProvider', function(RestangularProvider) {
   // RestangularProvider.setBaseUrl('http://localhost\\:5000/api/v1');
   RestangularProvider.setBaseUrl('https://germ.herokuapp.com/api/v1');
+  
   // RestangularProvider.setResponseExtractor(function(response, operation, what, url) {
   //   console.log("hello dude!");
   //   alert("sheit up");
@@ -78,7 +72,7 @@ Evenly.config(['RestangularProvider', function(RestangularProvider) {
   // });
 }]);
 
-Evenly.run(['$location', '$cookieStore', '$rootScope', function($location, $cookieStore, $rootScope) {
+Evenly.run(['$location', '$cookieStore', '$rootScope', 'Me', function($location, $cookieStore, $rootScope, Me) {
   if (!$cookieStore.get('__evvt')) {
     console.warn('NOT LOGGED IN');
     // $rootScope.$broadcast('event:loginRequired'); /* too slow... */
@@ -89,6 +83,18 @@ Evenly.run(['$location', '$cookieStore', '$rootScope', function($location, $cook
     console.warn('Login Required!');
     $location.path('/login');
   });
+
+  $rootScope.refreshMe = function() {
+    Me.get()
+      .then(function(me) {
+        $rootScope.me = me;
+        $rootScope.me.firstName = function() {
+          return $rootScope.me.name.split(' ')[0];
+        };
+      });
+  };
+
+  $rootScope.refreshMe();
 }]);
 
 window.Evenly = Evenly;

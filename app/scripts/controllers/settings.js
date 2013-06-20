@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('SettingsCtrl', ['$scope', function ($scope) {
-    $scope.me = {
-      name: 'Jabroni',
-      email: 'jabroni@gmail.com',
-      phone_number: '8503987609'
-    };
+  .controller('SettingsCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
+    // $scope.me = {
+    //   name: $rootScope.me.name,
+    //   email: $rootScope.me.email,
+    //   phone: $rootScope.me.phone_number
+    // };
   }]);

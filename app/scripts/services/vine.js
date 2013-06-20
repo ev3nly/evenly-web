@@ -34,10 +34,6 @@ Evenly.factory('User', ['Restangular', function(Restangular) {
     all: function(query) {
       return Restangular.all('users')
         .getList({query: query});
-    },
-    me: function() {
-      return Restangular.one('me', '')
-        .get();
     }
   };
 }]);
@@ -54,6 +50,9 @@ Evenly.factory('Me', ['Restangular', '$rootScope', '$http', '$cookieStore', func
   $http.defaults.headers.common['Authorization'] = authenticationToken;
 
   return {
+    get: function() {
+      return base.get();
+    },
     timeline: function(params) {
       return base
         .getList('timeline');
