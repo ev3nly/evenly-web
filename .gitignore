@@ -3,6 +3,7 @@ node_modules
 .sass-cache
 app/components
 .DS_Store
+dist
 
 app/styles/css/*
 app/styles/test.css/*
