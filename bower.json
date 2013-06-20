@@ -15,8 +15,7 @@
     "angular-bootstrap": "latest",
     "angular-ui-utils": "latest",
     "underscore": "latest",
-    "datejs": "latest",
-    "https://github.com/paulgraff/angular-jquery.payment": "latest"
+    "datejs": "latest"
   },
   "devDependencies": {
     "angular-mocks": "~1.0.5",

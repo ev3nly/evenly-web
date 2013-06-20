@@ -53,6 +53,6 @@ angular.module('evenlyApp')
       $scope.showBankAccounts = true;
     };
 
-    $scope.showBankAccounts = true;
+    $scope.showHistory = true;
 
   }]);

@@ -1,0 +1,95 @@
+@settings-height: 180px;
+@settings-border: 1px;
+@settings-section-margin: (3 * @unit);
+
+.settings {
+  margin: (2 * @unit);
+
+  .btn-huge {
+    margin-top: @settings-section-margin;
+    width: 100%;
+  }
+}
+
+.settings-user {
+  .bordered;
+  .rounded-corners;
+
+  height: @settings-height;
+  background-color: white;
+
+  div.profile-picture {
+    .bordered-right;
+    .rounded-corners-left;
+
+    width: (@settings-height - 1);
+    height: (@settings-height);
+    float: left;
+    
+    .image-content-fill('/images/dawwww.jpg');
+  }
+
+  div {
+    overflow: hidden;
+
+    input {
+      display: block;
+      width: 100%;
+      height: (@settings-height / 3.0 - @settings-border);
+      margin: 0;
+      padding: 0;
+
+      border-width: 0px;
+      border-bottom-width: @settings-border;
+      border-radius: 0;
+      border-color: @border-color;
+    }
+
+    input:first-child {
+      .rounded-corners-top-right;
+    }
+
+    input:last-child {
+      .rounded-corners-bottom-right;
+      border-width: 0px;
+    }
+  }
+}
+
+.settings-fb {
+  margin-top: @settings-section-margin;
+
+  div:first-child {
+    float: left;
+    display: inline-block;
+    width: 50%;
+    p {
+      font-size: @small-font-size;
+    }
+  }
+
+  div:last-child {
+    float: right;
+  }
+
+
+}
+
+.settings-notifications {
+  clear: both;
+  margin-top: (4 * @settings-section-margin);
+
+  .settings-notifications-list {
+    .bordered;
+    .rounded-corners;
+
+    background: @background-color;
+    padding: (2 * @unit);
+
+    .settings-notifications-setting {
+      p {
+        font-size: @small-font-size;
+      }
+    }
+  }
+}
