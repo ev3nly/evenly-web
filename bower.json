@@ -1,0 +1,25 @@
+{
+  "name": "evenly",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "~1.0.5",
+    "json3": "~3.2.4",
+    "es5-shim": "~2.0.8",
+    "toastr": "latest",
+    "moment": "latest",
+    "bootstrap": "latest",
+    "spin.js": "latest",
+    "angular-cookies": "latest",
+    "angular-resource": "latest",
+    "restangular": "latest",
+    "angular-bootstrap": "latest",
+    "angular-ui-utils": "latest",
+    "underscore": "latest",
+    "datejs": "latest",
+    "https://github.com/paulgraff/angular-jquery.payment": "latest"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.0.5",
+    "angular-scenario": "~1.0.5"
+  }
+}
