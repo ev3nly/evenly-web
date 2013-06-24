@@ -1,1 +1,64 @@
-<p>This is the splash view.</p>
+<div class="splash">
+  <nav>
+    <div class="evenly-brand">
+      <img src="/images/logo.png"></img>
+      <p>Evenly</p>
+    </div>
+    <div class="buttons">
+      <button class="btn btn-splash btn-splash-inverse">LEARN MORE</button>
+      <button class="btn btn-splash">SIGN IN</button>
+    </div>
+  </nav>
+
+  <carousel interval="myInterval">
+    <slide ng-repeat="slide in slides" active="slide.active">
+      <img ng-src="{{slide.image}}" style="margin:auto;">
+      <!-- <div class="carousel-caption">
+        <h4>Slide {{$index}}</h4>
+        <p>{{slide.text}}</p>
+      </div> -->
+    </slide>
+  </carousel>
+
+  <div class="brochures">
+    <div class="brochures">
+      <div ng-repeat="brochure in brochures" class="brochure">
+        <h3>{{brochure.title}}</h3>
+        <!-- <img src="/images/dawwww.jpg"></img> -->
+        <p>{{brochure.description}}</p>
+        <p class="splash-free">FREE</p>
+      </div>
+    </div>
+  </div>
+
+  <nav class="splash-bottom-nav">
+    <div class="pull-left">
+      <ul class="navbar">
+        <li><a href="">© EVENLY 2013. ALL RIGHTS RESERVED.</a></li>
+      </ul>
+    </p>
+      </ul>
+    </div>
+    <div class="pull-right">
+      <ul class="navbar">
+        <li><a href="/story">STORY</a></li>
+        <li><a href="/blog">BLOG</a></li>
+        <li><a href="/contact">CONTACT</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/job">JOBS</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <script>
+    $('.container').css('width', '100%');
+
+    var resize = function() {
+      var screenHeight = $(document).height();
+      $('.login-page').css('height', screenHeight);
+    }
+
+    window.onresize = resize;
+    resize();
+  </script>
+</div>

@@ -1,0 +1,95 @@
+.splash {
+  .evenly-brand {
+    float: left;
+    margin: 10px;
+    p {
+      color: @white;
+      font-size: @big-font-size;
+    }
+  }
+}
+
+.buttons {
+  float: right;
+}
+
+.carousel {
+  position: static;
+  background: @black;
+
+  .carousel-indicators {
+    position: absolute;
+    bottom: 15px;
+    top: 100px;
+  }
+}
+
+.btn-splash {
+  .rounded-corners(400px);
+
+  margin: 10px;
+  width: 150px;
+  background: @white;
+  color: @black;
+  font-weight: 800;
+}
+
+.btn-splash-inverse {
+  .bordered(2px, @white);
+  background: @black;
+  color: @white;
+}
+
+@splash-body-margin: (5 * @unit);
+
+.brochures {
+  margin: @splash-body-margin;
+}
+
+.brochure {
+  vertical-align: top;
+  width: 33%;
+  padding: 0;
+  display: inline-block;
+
+  h3 {
+    color: @black;
+    font-size: @big-font-size;
+  }
+
+  p {
+    color: @dark-gray;
+  }
+
+  .splash-free {
+    .rounded-corners;
+    .bordered(2px, @green);
+    color: @green;
+    padding: 2px 5px;
+    display: inline;
+  }
+}
+
+nav.splash-bottom-nav {
+  .bordered-top;
+  
+  margin: (@splash-body-margin);
+  padding-top: @unit;
+
+  ul {
+    display: inline-block;
+    width: 100%;
+    list-style: none;
+    float: right;
+
+    li {
+      float: left;
+      padding: 0 20px;
+      text-align: center;
+
+      a {
+        color: @dark-gray;
+      }
+    }
+  }
+}

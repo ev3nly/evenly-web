@@ -76,12 +76,12 @@ Evenly.run(['$location', '$cookieStore', '$rootScope', 'Me', function($location,
   if (!$cookieStore.get('__evvt')) {
     console.warn('NOT LOGGED IN');
     // $rootScope.$broadcast('event:loginRequired'); /* too slow... */
-    $location.path('/login');
+    $location.path('/splash');
   }
 
   $rootScope.$on('event:loginRequired', function() {
     console.warn('Login Required!');
-    $location.path('/login');
+    $location.path('/splash');
   });
 
   $rootScope.refreshMe = function() {
