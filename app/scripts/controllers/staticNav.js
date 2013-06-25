@@ -6,4 +6,6 @@ angular.module('evenlyApp')
       var currentPath = $location.path().substring(1);
       return (item === currentPath) ? 'active' : '';
     }
+
+    $('nav.static-nav').affix();
   }]);
