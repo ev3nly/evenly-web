@@ -22,6 +22,14 @@ command :deploy do |c|
     speak_and_say 'building distribution files'
     `grunt build --force`
     say 'build complete'
+
+    say 'deleting all files in github.io repo'
+
+    # Dir.foreach('ev3nly.github.io') do |file|
+    #   if file != '.' and file != '..'
+    #     puts file
+    #   end
+    # end
     
     speak_and_say 'moving distribution files to github.io repo'
 
