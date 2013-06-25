@@ -1,24 +1,52 @@
 <div class="splash">
-  <nav>
-    <div class="evenly-brand">
-      <img src="/images/logo.png"></img>
-      <p>Evenly</p>
-    </div>
-    <div class="buttons">
-      <button class="btn btn-splash btn-splash-inverse">LEARN MORE</button>
-      <button class="btn btn-splash">SIGN IN</button>
-    </div>
-  </nav>
+  
+  <div class="header">
+    <nav>
+      <div class="evenly-brand">
+        <img src="/images/logo.png"></img>
+        <p>Evenly</p>
+      </div>
+      <div class="buttons">
+        <button class="btn btn-splash btn-splash-inverse">LEARN MORE</button>
+        <a href="/login" class="btn btn-splash">SIGN IN</a>
+      </div>
+    </nav>
 
-  <carousel interval="myInterval">
-    <slide ng-repeat="slide in slides" active="slide.active">
-      <img ng-src="{{slide.image}}" style="margin:auto;">
-      <!-- <div class="carousel-caption">
-        <h4>Slide {{$index}}</h4>
-        <p>{{slide.text}}</p>
-      </div> -->
-    </slide>
-  </carousel>
+    <!-- <carousel interval="myInterval"> -->
+    <div class="centerpiece">
+      <div class="tagline">
+        <h1>
+          Money Made Easy. <br>
+          Share Expenses With Evenly.
+        </h1>
+
+        <button href="" class="btn btn-huge btn-embossed btn-social-facebook">
+          <i class="fui-facebook"></i>
+          Sign Up with Facebook
+        </button>
+        <a href="">Sign up with email instead.</a>
+      </div>
+      <div class="iphone-white">
+        <!-- <slide ng-repeat="slide in slides" active="slide.active"> -->
+          <!-- <img ng-src="{{slide.image}}" style="margin:auto;"> -->
+          <!-- <div class="carousel-caption">
+            <h4>Slide {{$index}}</h4>
+            <p>{{slide.text}}</p>
+          </div> -->
+          <div class="iphone-content"></div>
+          <a class="carousel-control left">&lsaquo;</a>
+          <a class="carousel-control right">&rsaquo;</a>
+        <!-- </slide> -->
+
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+      </div>
+    </div>
+    <!-- </carousel> -->
+  </div>
 
   <div class="brochures">
     <div class="brochures">

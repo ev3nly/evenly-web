@@ -1,26 +1,85 @@
+@splash-body-margin: (5 * @unit);
+
 .splash {
-  .evenly-brand {
-    float: left;
-    margin: 10px;
-    p {
-      color: @white;
-      font-size: @big-font-size;
+  min-width: 1300px;
+
+  .header {
+    background: @black;
+
+    nav {
+      background: @black;
+
+      .evenly-brand {
+        float: left;
+        display: inline-block;
+        margin: 10px;
+        p {
+          color: @white;
+          font-size: @big-font-size;
+        }
+      }
+
+      .buttons {
+        float: right;
+      }
     }
   }
 }
 
-.buttons {
-  float: right;
-}
-
-.carousel {
-  position: static;
-  background: @black;
+.centerpiece {
+  clear: both;
 
   .carousel-indicators {
-    position: absolute;
-    bottom: 15px;
-    top: 100px;
+    @carousel-indicators-width: 100px;
+    // position: absolute;
+    top: 70%;
+    left: 50%;
+    margin-left: (-0.5 * @carousel-indicators-width);
+    width: @carousel-indicators-width;
+  }
+
+  @centerpiece-height: 500px;
+
+  .tagline {
+    display: inline-block;
+    margin-left: @splash-body-margin;
+    padding: (6 * @unit);
+    height: @centerpiece-height;
+    
+    h1 {
+      color: @white;
+      font-weight: normal;
+      font-size: @huge-font-size;
+    }
+
+    a {
+      display: block;
+      color: @white;
+      margin-top: @unit;
+    }
+  }
+
+  .iphone-white {
+    // background: red;
+    display: inline-block;
+    float: right;
+    width: 400px;
+    height: @centerpiece-height;
+    margin-left: auto;
+    margin-right: 150px;
+
+    .iphone-content {
+      background: @black;
+      width: 324px;
+      height: 366px;
+      overflow: hidden;
+
+      padding: 0;
+
+      margin-left: 38px;
+      margin-top: 134px;
+      position: absolute;
+    }
   }
 }
 
@@ -40,8 +99,6 @@
   color: @white;
 }
 
-@splash-body-margin: (5 * @unit);
-
 .brochures {
   margin: @splash-body-margin;
 }
@@ -49,7 +106,7 @@
 .brochure {
   vertical-align: top;
   width: 33%;
-  padding: 0;
+  padding: @unit;
   display: inline-block;
 
   h3 {
