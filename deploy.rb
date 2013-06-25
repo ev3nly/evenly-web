@@ -35,7 +35,7 @@ command :deploy do |c|
 
     Dir.glob(File.join(File.expand_path("./dist"), '*')).each do |file|
       if File.exists?(file)
-        FileUtils.move(file, "ev3nly.github.io/#{File.basename(file)}", verbose: true, force: true)
+        FileUtils.cp_r(file, "ev3nly.github.io/#{File.basename(file)}", verbose: true)
       end
     end
 
