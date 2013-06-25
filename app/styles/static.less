@@ -1,12 +1,14 @@
+@static-padding: (5 * @unit);
+
 .static {
   .static-nav {
     float: left;
     width: 33%;
     height: 100%;
-    padding-top: (5 * @unit);
+    padding-top: @static-padding;
 
     .evenly-brand {
-      margin: 0 (5 * @unit);
+      margin: 0 @static-padding;
       font-size: @huge-font-size;
       color: @black;
     }
@@ -21,6 +23,10 @@
     a {
       color: @dark-gray;
     }
+
+    a:hover {
+      .rounded-corners(0);
+    }
   }
 
   .static-content {
@@ -30,5 +36,19 @@
     background: @main-background-color;
     width: 67%;
     height: 100%;
+
+    padding-top: @static-padding;
+    padding-left: @static-padding;
+    padding-right: 200px;
+
+    h1 {
+      font-size: @huge-font-size;
+      margin-bottom: (5 * @unit);
+    }
+
+    p {
+      font-size: @medium-font-size;
+      color: @dark-gray;
+    }
   }
 }
