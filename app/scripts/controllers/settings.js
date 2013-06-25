@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('SettingsCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
+  .controller('SettingsCtrl', ['$scope', function ($scope) {
     // $scope.me = {
     //   name: $rootScope.me.name,
     //   email: $rootScope.me.email,
