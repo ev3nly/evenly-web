@@ -50,5 +50,34 @@
       font-size: @medium-font-size;
       color: @dark-gray;
     }
+
+    table {
+      margin-top: -3px;
+
+      tr {
+
+        td:first-child {
+          padding-right: 10px;
+        }
+
+        td {
+          color: @dark-gray;
+          padding: 3px;
+
+          .btn {
+            @btn-radius: 31px;
+            background: @dark-gray;
+            border-radius: 50%;
+            width: @btn-radius;
+            height: @btn-radius;
+
+            span {
+              margin-left: -4px;
+              margin-top: -5px;
+            }
+          }
+        }
+      }
+    }
   }
 }
