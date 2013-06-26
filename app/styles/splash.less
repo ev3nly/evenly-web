@@ -13,6 +13,7 @@
     background: @black;
 
     nav {
+      .max-width-centered;
       .evenly-brand {
         display: inline-block;
         margin: 10px;
@@ -28,57 +29,53 @@
 .centerpiece {
   .max-width-centered;
 
-  @centerpiece-height: 500px;
+  margin-top: 50px;
+
+  @centerpiece-height: 350px;
 
   .tagline {
     display: inline-block;
     height: @centerpiece-height;
-    
-    h1 {
-      color: @white;
-      font-weight: normal;
-      font-size: @huge-font-size;
+
+    .item {
+      width: 600px;
+      height: 300px;
+
+      h1 {
+        color: @white;
+        font-weight: normal;
+        font-size: @large-font-size;
+      }
+
+      a {
+        display: block;
+        color: @white;
+        margin-top: @unit;
+      }
+
+      p {
+        color: @white;
+      }
+
+      button, a {
+        display: none;
+      }
     }
-
-    a {
-      display: block;
-      color: @white;
-      margin-top: @unit;
-    }
-
-    // .carousel {
-    //   .item {
-    //     -webkit-transition: opacity 2s ease-in-out;
-    //     -moz-transition: opacity 2s ease-in-out;
-    //     -ms-transition: opacity 2s ease-in-out;
-    //     -o-transition: opacity 2s ease-in-out;
-    //     transition: opacity 2s ease-in-out;
-    //   }
-
-    //   .active.left, .active.right {
-    //     left: 0;
-    //     z-index: 2;
-    //     opacity: 0;
-    //     filter: alpha(opacity=0);
-    //   }
-
-    //   .next, .prev {
-    //     left: 0;
-    //     z-index: 1;
-    //   }
-    // }
   }
 
   .iphone-white {
     float: right;
-    width: 400px;
+    width: 300px;
     height: @centerpiece-height;
     .image-content-fill('/images/white-iphone.png');
 
+    @iphone-width: 242px;
+    @iphone-height: 250px;
+
     .iphone-content {
       background: @black;
-      width: 324px;
-      height: 366px;
+      width: @iphone-width;
+      height: @iphone-height;
     }
 
     .splash-carousel-1 {.image-content-fill('/images/splash-carousel-1.gif');}
@@ -86,10 +83,10 @@
     .splash-carousel-3 {.image-content-fill('/images/splash-carousel-3.gif');}
 
     .carousel {
-      width: 324px;
-      height: 366px;
-      margin-left: 38px;
-      margin-top: 134px;
+      width: @iphone-width;
+      height: @iphone-height;
+      margin-left: 29px;
+      margin-top: 101px;
 
       .carousel-indicators {
         @carousel-indicators-width: 50px;
