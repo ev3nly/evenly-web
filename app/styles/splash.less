@@ -1,16 +1,19 @@
 @splash-body-margin: (5 * @unit);
 
+.max-width-centered(@width: 960px) {
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .splash {
-  min-width: 1300px;
+  min-width: 960px;
 
   .header {
     background: @black;
 
     nav {
-      background: @black;
-
       .evenly-brand {
-        float: left;
         display: inline-block;
         margin: 10px;
         p {
@@ -18,21 +21,16 @@
           font-size: @big-font-size;
         }
       }
-
-      .buttons {
-        float: right;
-      }
     }
   }
 }
 
 .centerpiece {
-  clear: both;
+  .max-width-centered;
 
   .carousel-indicators {
     @carousel-indicators-width: 100px;
-    // position: absolute;
-    top: 70%;
+    top: 550px;
     left: 50%;
     margin-left: (-0.5 * @carousel-indicators-width);
     width: @carousel-indicators-width;
@@ -42,8 +40,6 @@
 
   .tagline {
     display: inline-block;
-    margin-left: @splash-body-margin;
-    padding: (6 * @unit);
     height: @centerpiece-height;
     
     h1 {
@@ -60,28 +56,19 @@
   }
 
   .iphone-white {
-    // background: red;
-    display: inline-block;
     float: right;
     width: 400px;
     height: @centerpiece-height;
-    margin-left: auto;
-    margin-right: 150px;
 
     .iphone-content {
       background: @black;
       width: 324px;
       height: 366px;
-      overflow: hidden;
-
-      padding: 0;
-
       margin-left: 38px;
       margin-top: 134px;
-      position: absolute;
 
-      // .image-content-fill('/images/dawwww.jpg');
-      .image-content-fill('/images/splash-carousel-1.gif');
+      .image-content-fill('/images/dawwww.jpg');
+      // .image-content-fill('/images/splash-carousel-1.gif');
     }
   }
 }
@@ -103,7 +90,8 @@
 }
 
 .brochures {
-  margin: @splash-body-margin;
+  .max-width-centered;
+  margin-top: @splash-body-margin;
 }
 
 .brochure {
@@ -132,12 +120,12 @@
 
 nav.splash-bottom-nav {
   .bordered-top;
+  .max-width-centered;
   
-  margin: (@splash-body-margin);
+  margin-top: (@splash-body-margin);
   padding-top: @unit;
 
   ul {
-    display: inline-block;
     width: 100%;
     list-style: none;
     float: right;
@@ -145,11 +133,8 @@ nav.splash-bottom-nav {
     li {
       float: left;
       padding: 0 20px;
-      text-align: center;
 
-      a {
-        color: @dark-gray;
-      }
+      a {color: @dark-gray;}
     }
   }
 }
