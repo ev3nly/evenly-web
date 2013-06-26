@@ -12,47 +12,70 @@
       </div>
     </nav>
 
-    <!-- <carousel interval="myInterval"> -->
     <div class="centerpiece">
+      
       <div class="tagline">
-        <h1>
-          Money Made Easy. <br>
-          Share Expenses With Evenly.
-        </h1>
+        <div id="tagline-carousel" class="carousel slide carousel-fade">
+          <div class="carousel-inner">
+            
+            <div class="item active">
+              <h1>
+                Money Made Easy. <br>
+                Share Expenses With Evenly.
+              </h1>
 
-        <button href="" class="btn btn-huge btn-embossed btn-social-facebook">
-          <i class="fui-facebook"></i>
-          Sign Up with Facebook
-        </button>
-        <a href="">Sign up with email instead.</a>
+              <button href="" class="btn btn-huge btn-embossed btn-social-facebook">
+                <i class="fui-facebook"></i>
+                Sign Up with Facebook
+              </button>
+              <a href="">Sign up with email instead.</a>
+            </div>
+
+            <div class="item">
+              <h1>
+                SHUT UP AND <br>
+                Share Expenses With Evenly.
+              </h1>
+
+              <button href="" class="btn btn-huge btn-embossed btn-social-facebook">
+                <i class="fui-facebook"></i>
+                Sign Up with Facebook
+              </button>
+              <a href="">Sign up with email instead.</a>
+            </div>
+
+            <div class="item">
+              <h1>
+                HEY THERE, GO <br>
+                Share Expenses With Evenly.
+              </h1>
+
+              <button href="" class="btn btn-huge btn-embossed btn-social-facebook">
+                <i class="fui-facebook"></i>
+                Sign Up with Facebook
+              </button>
+              <a href="">Sign up with email instead.</a>
+            </div>
+
+          </div>
+        </div>
       </div>
-      <div class="iphone-white">
-        <!-- <slide ng-repeat="slide in slides" active="slide.active"> -->
-          <!-- <img ng-src="{{slide.image}}" style="margin:auto;"> -->
-          <!-- <div class="carousel-caption">
-            <h4>Slide {{$index}}</h4>
-            <p>{{slide.text}}</p>
-          </div> -->
-          <div class="iphone-content"></div>
-          <a class="carousel-control left">&lsaquo;</a>
-          <a class="carousel-control right">&rsaquo;</a>
-        <!-- </slide> -->
 
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
+      <div class="iphone-white">
+        <carousel interval="carouselInterval">
+          <slide ng-repeat="slide in slides" active="slide.active">
+            <div class="iphone-content {{'splash-carousel-' + ($index + 1)}}"></div>
+          </slide>
+        </carousel>
       </div>
     </div>
-    <!-- </carousel> -->
   </div>
 
   <div class="brochures">
     <div class="brochures">
       <div ng-repeat="brochure in brochures" class="brochure">
         <h3>{{brochure.title}}</h3>
-        <!-- <img src="/images/dawwww.jpg"></img> -->
+        <div class="onboarding-{{$index + 1}}"></div>
         <p>{{brochure.description}}</p>
         <p class="splash-free">FREE</p>
       </div>
@@ -89,4 +112,13 @@
 
   window.onresize = resize;
   resize();
+
+  !function($) {
+    $(function() {
+      // carousel demo
+      $('#tagline-carousel').carousel({
+        interval: 10000
+      });
+    });
+  }(window.jQuery);
 </script>

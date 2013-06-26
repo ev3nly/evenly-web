@@ -28,14 +28,6 @@
 .centerpiece {
   .max-width-centered;
 
-  .carousel-indicators {
-    @carousel-indicators-width: 100px;
-    top: 550px;
-    left: 50%;
-    margin-left: (-0.5 * @carousel-indicators-width);
-    width: @carousel-indicators-width;
-  }
-
   @centerpiece-height: 500px;
 
   .tagline {
@@ -53,6 +45,28 @@
       color: @white;
       margin-top: @unit;
     }
+
+    // .carousel {
+    //   .item {
+    //     -webkit-transition: opacity 2s ease-in-out;
+    //     -moz-transition: opacity 2s ease-in-out;
+    //     -ms-transition: opacity 2s ease-in-out;
+    //     -o-transition: opacity 2s ease-in-out;
+    //     transition: opacity 2s ease-in-out;
+    //   }
+
+    //   .active.left, .active.right {
+    //     left: 0;
+    //     z-index: 2;
+    //     opacity: 0;
+    //     filter: alpha(opacity=0);
+    //   }
+
+    //   .next, .prev {
+    //     left: 0;
+    //     z-index: 1;
+    //   }
+    // }
   }
 
   .iphone-white {
@@ -65,11 +79,35 @@
       background: @black;
       width: 324px;
       height: 366px;
+    }
+
+    .splash-carousel-1 {.image-content-fill('/images/splash-carousel-1.gif');}
+    .splash-carousel-2 {.image-content-fill('/images/splash-carousel-2.gif');}
+    .splash-carousel-3 {.image-content-fill('/images/splash-carousel-3.gif');}
+
+    .carousel {
+      width: 324px;
+      height: 366px;
       margin-left: 38px;
       margin-top: 134px;
 
-      .image-content-fill('/images/dawwww.jpg');
-      // .image-content-fill('/images/splash-carousel-1.gif');
+      .carousel-indicators {
+        @carousel-indicators-width: 50px;
+        position: absolute;
+        top: 330px;
+        left: -50%;
+        margin-left: (-0.5 * @carousel-indicators-width);
+        width: @carousel-indicators-width;
+      }
+
+      .carousel-control {
+        display: none;
+        z-index: 3000;
+        position: absolute;
+        top: 25%;
+        right: -150px;
+        background-color: red;
+      }
     }
   }
 }
@@ -104,18 +142,30 @@
   h3 {
     color: @black;
     font-size: @big-font-size;
+    text-align: center;
   }
+
+  div {
+    width: 200px;
+    height: 300px;
+    margin: (4 * @unit) auto 0;
+  }
+
+  .onboarding-1 {.image-content-fill('/images/onboarding-1.png');}
+  .onboarding-2 {.image-content-fill('/images/onboarding-2.png');}
+  .onboarding-3 {.image-content-fill('/images/onboarding-3.png');}
 
   p {
     color: @dark-gray;
+    text-align: center;
   }
 
   .splash-free {
     .rounded-corners;
     .bordered(2px, @green);
     color: @green;
-    padding: 2px 5px;
-    display: inline;
+    margin: 0 auto;
+    width: 60px;
   }
 }
 
