@@ -25,10 +25,10 @@
 @import url("//hello.myfonts.net/count/27833c");
 
   
-@font-face {font-family: 'AvenirLTStd-Black';src: url('webfonts/27833C_0_0.eot');src: url('webfonts/27833C_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/27833C_0_0.woff') format('woff'),url('webfonts/27833C_0_0.ttf') format('truetype');}
+@font-face {font-family: 'AvenirLTStd-Black';src: url('fonts/27833C_0_0.eot');src: url('fonts/27833C_0_0.eot?#iefix') format('embedded-opentype'),url('fonts/27833C_0_0.woff') format('woff'),url('fonts/27833C_0_0.ttf') format('truetype');}
  
   
-@font-face {font-family: 'AvenirLTStd-Roman';src: url('webfonts/27833C_1_0.eot');src: url('webfonts/27833C_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/27833C_1_0.woff') format('woff'),url('webfonts/27833C_1_0.ttf') format('truetype');}
+@font-face {font-family: 'AvenirLTStd-Roman';src: url('fonts/27833C_1_0.eot');src: url('fonts/27833C_1_0.eot?#iefix') format('embedded-opentype'),url('fonts/27833C_1_0.woff') format('woff'),url('fonts/27833C_1_0.ttf') format('truetype');}
  
 strong {
   font-family: AvenirLTStd-Black !important;
