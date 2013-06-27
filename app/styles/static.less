@@ -42,21 +42,34 @@
     padding-left: @static-padding;
     padding-right: 200px;
 
+    a.btn-huge {
+      width: 100%;
+      margin-top: 30px;
+    }
+
     h1 {
-      font-size: @huge-font-size;
-      margin-bottom: (5 * @unit);
+      font-size: @big-font-size;
+      font-weight: 200;
+      color: @mid-gray;
+      text-align: justify;
+    }
+
+    h2 {
+      font-size: @big-font-size;
+      color: @mid-gray;
     }
 
     p {
       font-size: @medium-font-size;
       color: @dark-gray;
+      text-align: justify;
+      margin: (2 * @unit) 0;
     }
 
     table {
       margin-top: -3px;
 
       tr {
-
         td:first-child {
           padding-right: 10px;
         }
@@ -67,7 +80,7 @@
 
           .btn {
             @btn-radius: 31px;
-            background: @dark-gray;
+            background: @blue;
             border-radius: 50%;
             width: @btn-radius;
             height: @btn-radius;
@@ -78,7 +91,40 @@
             }
           }
         }
+
+        td:last-child {
+          a {color: @blue;}
+          a:hover {text-decoration: underline;}
+        }
       }
+    }
+  }
+}
+
+.jobs {
+  ul {
+    width: 100%;
+    list-style: none;
+    margin: 0;
+
+    li {
+      display: inline;
+      float: right;
+      width: 50%;
+
+      p {
+        margin: 5px 0;
+      }
+    }
+
+    @li-padding: (2 * @unit);
+
+    li:first-child {
+      padding-left: @li-padding;
+    }
+
+    li:last-child {
+      padding-right: @li-padding;
     }
   }
 }

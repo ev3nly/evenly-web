@@ -30,6 +30,10 @@
   
 @font-face {font-family: 'AvenirLTStd-Roman';src: url('webfonts/27833C_1_0.eot');src: url('webfonts/27833C_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/27833C_1_0.woff') format('woff'),url('webfonts/27833C_1_0.ttf') format('truetype');}
  
-* {
-  font-family: AvenirLTStd-Roman;
+strong {
+  font-family: AvenirLTStd-Black !important;
+}
+
+h1, h2, h3, h4, h5, p, a {
+  font-family: AvenirLTStd-Roman !important;
 }

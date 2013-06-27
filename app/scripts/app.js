@@ -40,6 +40,10 @@ Evenly.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'views/jobs.html',
       controller: 'JobsCtrl'
     })
+    .when('/faq', {
+      templateUrl: 'views/faq.html',
+      controller: 'FaqCtrl'
+    })
     .otherwise({
       redirectTo: '/home'
     });
