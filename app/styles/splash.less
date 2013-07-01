@@ -13,13 +13,16 @@
     background: @black;
 
     nav {
-      .max-width-centered;
-      .evenly-brand {
-        display: inline-block;
-        margin: 10px;
-        p {
-          color: @white;
-          font-size: @big-font-size;
+      background: @white;
+      .nav-content {
+        .max-width-centered;
+        .evenly-brand {
+          display: inline-block;
+          margin: 10px;
+          p {
+            color: @black;
+            font-size: @big-font-size;
+          }
         }
       }
     }
@@ -124,15 +127,15 @@
 
   margin: 10px;
   width: 150px;
-  background: @white;
-  color: @black;
+  background: @blue;
+  color: @white;
   font-weight: 800;
 }
 
 .btn-splash-inverse {
   .bordered(2px, @white);
-  background: @black;
-  color: @white;
+  background: white;
+  color: @black;
 }
 
 .brochures {
