@@ -15,7 +15,7 @@
     <div class="centerpiece">
       
       <div class="tagline">
-        <div id="tagline-carousel" class="carousel slide carousel-fade">
+        <div class="carousel slide carousel-fade">
           <div class="carousel-inner">
             
             <div class="item active">
@@ -112,11 +112,38 @@
       </div>
 
       <div class="iphone-white">
-        <carousel interval="carouselInterval">
+        <!-- <carousel interval="carouselInterval">
           <slide ng-repeat="slide in slides" active="slide.active">
             <div class="iphone-content {{'splash-carousel-' + ($index + 1)}}"></div>
           </slide>
-        </carousel>
+        </carousel> -->
+
+        <div class="carousel slide carousel-fade">
+          <div class="carousel-inner">
+
+            <div class="item active">
+              <div class="iphone-content splash-carousel-1"></div>
+            </div>
+
+            <div class="item">
+              <div class="iphone-content splash-carousel-2"></div>
+            </div>
+
+            <div class="item">
+              <div class="iphone-content splash-carousel-3"></div>
+            </div>
+
+            <div class="item">
+              <div class="iphone-content splash-carousel-4"></div>
+            </div>
+
+            <div class="item">
+              <div class="iphone-content splash-carousel-5"></div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -166,7 +193,7 @@
   !function($) {
     $(function() {
       // carousel demo
-      $('#tagline-carousel').carousel({
+      $('.carousel').carousel({
         interval: 7500,
         pause: "false"
       });
