@@ -1,7 +1,7 @@
 @splash-body-margin: (5 * @unit);
 
 .max-width-centered(@width: 960px) {
-  max-width: 960px;
+  max-width: @width;
   margin-left: auto;
   margin-right: auto;
 }
@@ -9,114 +9,18 @@
 .splash {
   min-width: 960px;
 
-  .header {
-    background: @black;
+  nav {
+    background: @white;
 
-    nav {
-      background: @white;
-      .nav-content {
-        .max-width-centered;
-        .evenly-brand {
-          display: inline-block;
-          margin: 10px;
-          p {
-            color: @black;
-            font-size: @big-font-size;
-          }
+    .nav-content {
+      .max-width-centered;
+      .evenly-brand {
+        display: inline-block;
+        margin: 20px 0;
+        p {
+          color: @black;
+          font-size: @big-font-size;
         }
-      }
-    }
-  }
-}
-
-.centerpiece {
-  .max-width-centered;
-
-  margin-top: 50px;
-
-  @centerpiece-height: 350px;
-
-  .tagline {
-    display: inline-block;
-    height: @centerpiece-height;
-
-    .item {
-      width: 600px;
-      height: 300px;
-
-      h1 {
-        color: @white;
-        font-weight: normal;
-        font-size: @large-font-size;
-      }
-
-      a {
-        display: block;
-        color: @white;
-        margin-top: @unit;
-      }
-
-      p {
-        color: @white;
-      }
-
-      button, a {
-        display: none;
-      }
-    }
-  }
-
-  .carousel-control { 
-    // -webkit-box-sizing: content-box;
-    //    -moz-box-sizing: content-box;
-    //         box-sizing: content-box;
-    font-size: @huge-font-size;
-    line-height: @large-font-size;
-  }
-
-  .iphone-white {
-    float: right;
-    width: 300px;
-    height: @centerpiece-height;
-    .image-content-fill('/images/white-iphone.png');
-
-    @iphone-width: 242px;
-    @iphone-height: 250px;
-
-    .iphone-content {
-      background: @black;
-      width: @iphone-width;
-      height: @iphone-height;
-    }
-
-    .splash-carousel-1 {.image-content-fill('/images/splash-carousel-1.gif');}
-    .splash-carousel-2 {.image-content-fill('/images/splash-carousel-2.gif');}
-    .splash-carousel-3 {.image-content-fill('/images/splash-carousel-3.gif');}
-    .splash-carousel-4 {.image-content-fill('/images/splash-carousel-4.jpg');}
-    .splash-carousel-5 {.image-content-fill('/images/splash-carousel-5.jpg');}
-
-    .carousel {
-      width: @iphone-width;
-      height: @iphone-height;
-      margin-left: 29px;
-      margin-top: 101px;
-
-      .carousel-indicators {
-        @carousel-indicators-width: 50px;
-        position: absolute;
-        top: 330px;
-        left: -50%;
-        margin-left: (-0.5 * @carousel-indicators-width);
-        width: @carousel-indicators-width;
-      }
-
-      .carousel-control {
-        display: none;
-        z-index: 3000;
-        position: absolute;
-        top: 25%;
-        right: -150px;
-        background-color: red;
       }
     }
   }
@@ -127,15 +31,196 @@
 
   margin: 10px;
   width: 150px;
+  height: 38px;
   background: @blue;
   color: @white;
   font-weight: 800;
 }
 
 .btn-splash-inverse {
-  .bordered(2px, @white);
+  .bordered(1px, @border-color);
   background: white;
   color: @black;
+}
+
+.centerpiece {
+  margin-top: -10px;
+
+  .item {
+    
+    .tagline-title {
+      background: @blue;
+      height: 100px;
+      padding-top: 20px;
+
+      h1 {
+        .max-width-centered;
+
+        color: @white;
+        font-weight: normal;
+        font-size: @large-font-size;
+        // text-align: center;
+      }
+    }
+
+    .tagline-body {
+      .max-width-centered(1440px);
+
+      padding-top: 20px;
+
+      .tagline-body-text {
+        padding-left: 220px;
+        padding-top: 100px;
+        float: left;
+
+        ul {
+          list-style-type: none;
+          width: 400px;
+        }
+
+        button, a {
+          float: right;
+          display: none;
+        }
+      }
+
+      .iphone-hand {
+        .image-content-fill('/images/iphone-hand.png');
+
+        width: 713px;
+        height: 615px;
+        float: right;
+        display: inline;
+
+        .iphone-content {
+          width: 205px;
+          height: 363px;
+          margin: 77px 0 0 86px;
+        }
+      }
+    }
+  }
+}
+
+.splash-carousel-1 {.image-content-fill('/images/splash-carousel-1.gif');}
+.splash-carousel-2 {.image-content-fill('/images/splash-carousel-2.gif');}
+.splash-carousel-3 {.image-content-fill('/images/splash-carousel-3.gif');}
+.splash-carousel-4 {.image-content-fill('/images/splash-carousel-4.jpg');}
+.splash-carousel-5 {.image-content-fill('/images/splash-carousel-5.jpg');}
+
+// .centerpiece {
+//   // .max-width-centered;
+
+//   margin-top: -10px;
+
+//   // @centerpiece-height: 350px;
+
+//   .tagline {
+//     // display: inline-block;
+//     // height: @centerpiece-height;
+
+//     .item {
+//       // width: 600px;
+//       // height: 300px;
+
+//       .tagline-title {
+//         background: @blue;
+//         height: 100px;
+
+//         h1 {
+//           .max-width-centered;
+
+//           color: @white;
+//           font-weight: normal;
+//           font-size: @large-font-size;
+//           text-align: center;
+//           vertical-align: middle;
+//         }
+//       }
+
+//       a {
+//         display: block;
+//         color: @white;
+//         margin-top: @unit;
+//       }
+
+//       p {
+//         color: @white;
+//       }
+
+//       button, a {
+//         display: none;
+//       }
+//     }
+//   }
+
+//   .carousel-control { 
+//     font-size: @huge-font-size;
+//     line-height: @large-font-size;
+//   }
+
+//   .iphone-white {
+//     float: right;
+//     width: 300px;
+//     // height: @centerpiece-height;
+//     .image-content-fill('/images/white-iphone.png');
+
+//     @iphone-width: 242px;
+//     @iphone-height: 250px;
+
+//     .iphone-content {
+//       background: @black;
+//       width: @iphone-width;
+//       height: @iphone-height;
+//     }
+
+//     .splash-carousel-1 {.image-content-fill('/images/splash-carousel-1.gif');}
+//     .splash-carousel-2 {.image-content-fill('/images/splash-carousel-2.gif');}
+//     .splash-carousel-3 {.image-content-fill('/images/splash-carousel-3.gif');}
+//     .splash-carousel-4 {.image-content-fill('/images/splash-carousel-4.jpg');}
+//     .splash-carousel-5 {.image-content-fill('/images/splash-carousel-5.jpg');}
+
+//     .carousel {
+//       width: @iphone-width;
+//       height: @iphone-height;
+//       margin-left: 29px;
+//       margin-top: 101px;
+
+//       .carousel-inner {
+//       }
+
+//       .carousel-indicators {
+//         @carousel-indicators-width: 50px;
+//         position: absolute;
+//         top: 330px;
+//         left: -50%;
+//         margin-left: (-0.5 * @carousel-indicators-width);
+//         width: @carousel-indicators-width;
+//       }
+
+//       .carousel-control {
+//         display: none;
+//         z-index: 3000;
+//         position: absolute;
+//         top: 25%;
+//         right: -150px;
+//         background-color: red;
+//       }
+//     }
+//   }
+// }
+
+.subtitle {
+  background: @white;
+  padding: 20px;
+
+  .subtitle-content {
+    .max-width-centered;
+
+    h2 {
+      font-size: @big-font-size;
+    }
+  }
 }
 
 .brochures {
@@ -152,13 +237,12 @@
   h3 {
     color: @black;
     font-size: @big-font-size;
-    text-align: center;
   }
 
   div {
-    width: 200px;
-    height: 300px;
-    margin: (4 * @unit) auto 0;
+    width: 280px;
+    height: 200px;
+    margin: (2 * @unit) 0;
   }
 
   .onboarding-1 {.image-content-fill('/images/onboarding-1.png');}
@@ -167,24 +251,27 @@
 
   p {
     color: @dark-gray;
-    text-align: center;
   }
 
   .splash-free {
     .rounded-corners;
     .bordered(2px, @green);
     color: @green;
-    margin: 0 auto;
-    width: 60px;
+    font-size: @small-font-size;
+    width: 47px;
+    padding: 0 5px;
   }
 }
 
 nav.splash-bottom-nav {
-  .bordered-top;
-  .max-width-centered;
-  
+  background: @white;
+  height: 50px;
   margin-top: (@splash-body-margin);
   padding-top: @unit;
+
+  .splash-bottom-nav-content {
+    .max-width-centered;
+  }
 
   ul {
     width: 100%;
