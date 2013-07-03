@@ -9,7 +9,7 @@ program :description, 'Deploy tools for evenly-web project'
 
 @github_url = 'git@github.com:ev3nly/ev3nly.github.io.git'
 
-command :deploy do |c|
+command :github do |c|
   c.summary = 'build distribution and push to github.io'
   c.action do |args, options|
 

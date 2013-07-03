@@ -63,12 +63,12 @@
         color: @white;
         font-weight: normal;
         font-size: @large-font-size;
-        // text-align: center;
+        text-align: center;
       }
     }
 
     .tagline-body {
-      .max-width-centered(1440px);
+      .max-width-centered(1350px);
 
       padding-top: 20px;
 
@@ -78,19 +78,28 @@
         float: left;
 
         ul {
-          // list-style-image: url("/images/checkmark.png");
-          // list-style-position: inside;
           list-style-type: none;
-          width: 400px;
+          width: 350px;
 
           li {
             background: url("/images/checkmark.png") no-repeat 7px 7px transparent;
-            padding: 5px 0px 0px 60px;
+            padding: 5px 0px 0px 35px;
+
+            p {
+
+            }
           }
         }
 
         button, a {
           float: right;
+        }
+
+        a {
+          margin-top: 10px;
+        }
+
+        button.btn-social-facebook, a {
           display: none;
         }
       }
@@ -229,7 +238,8 @@
 .subtitle {
   background: @white;
   padding: 20px;
-  margin-top: -23px;
+  margin-top: -82px;
+  text-align: center;
 
   .subtitle-content {
     .max-width-centered;
@@ -284,12 +294,13 @@
 
 nav.splash-bottom-nav {
   background: @white;
-  height: 50px;
+  height: 66px;
   margin-top: (@splash-body-margin);
   padding-top: @unit;
 
   .splash-bottom-nav-content {
     .max-width-centered;
+    margin-top: @unit;
   }
 
   ul {
