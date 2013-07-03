@@ -128,8 +128,22 @@
 .splash-carousel-5 {.image-content-fill('/images/splash-carousel-5.jpg');}
 
 .carousel-control { 
-  font-size: @huge-font-size;
-  line-height: @large-font-size;
+  .rounded-corners(500px);
+
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  top: 450px;
+  width: 60px;
+  height: 60px;
+  line-height: 55px;
+  cursor: pointer;
+}
+
+.carousel-control.left {
+  left: 10%;
+}
+
+.carousel-control.right {
+  right: 10%;
 }
 
 // .centerpiece {
