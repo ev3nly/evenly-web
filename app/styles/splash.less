@@ -68,25 +68,24 @@
     }
 
     .tagline-body {
-      .max-width-centered(1350px);
+      .max-width-centered(1400px);
 
-      padding-top: 20px;
+      padding-top: 50px;
 
       .tagline-body-text {
         padding-left: 220px;
-        padding-top: 100px;
         float: left;
 
         ul {
           list-style-type: none;
-          width: 350px;
+          width: 425px;
 
           li {
             background: url("/images/checkmark.png") no-repeat 7px 7px transparent;
             padding: 5px 0px 0px 35px;
 
             p {
-
+              font-size: @big-font-size;
             }
           }
         }
@@ -278,17 +277,21 @@
 
   p {
     color: @dark-gray;
-    font-size: @small-font-size;
-    width: 200px;
+    font-size: 16px;
+    width: 260px;
+    text-align: justify;
   }
 
   .splash-free {
     .rounded-corners;
     .bordered(2px, @green);
+
     color: @green;
     font-size: @small-font-size;
+    line-height: @small-font-size;
     width: 47px;
     padding: 0 5px;
+    padding-top: 4px;
   }
 }
 
@@ -312,7 +315,10 @@ nav.splash-bottom-nav {
       float: left;
       padding: 0 20px;
 
-      a {color: @dark-gray;}
+      a {
+        color: @dark-gray;
+        font-size: @small-font-size;
+      }
     }
   }
 }
