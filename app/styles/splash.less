@@ -22,6 +22,10 @@
           font-size: @big-font-size;
         }
       }
+
+      .buttons {
+        margin-top: 25px;
+      }
     }
   }
 }
@@ -74,8 +78,15 @@
         float: left;
 
         ul {
+          // list-style-image: url("/images/checkmark.png");
+          // list-style-position: inside;
           list-style-type: none;
           width: 400px;
+
+          li {
+            background: url("/images/checkmark.png") no-repeat 7px 7px transparent;
+            padding: 5px 0px 0px 60px;
+          }
         }
 
         button, a {
@@ -107,6 +118,11 @@
 .splash-carousel-3 {.image-content-fill('/images/splash-carousel-3.gif');}
 .splash-carousel-4 {.image-content-fill('/images/splash-carousel-4.jpg');}
 .splash-carousel-5 {.image-content-fill('/images/splash-carousel-5.jpg');}
+
+.carousel-control { 
+  font-size: @huge-font-size;
+  line-height: @large-font-size;
+}
 
 // .centerpiece {
 //   // .max-width-centered;
@@ -213,6 +229,7 @@
 .subtitle {
   background: @white;
   padding: 20px;
+  margin-top: -23px;
 
   .subtitle-content {
     .max-width-centered;
@@ -236,11 +253,11 @@
 
   h3 {
     color: @black;
-    font-size: @big-font-size;
+    font-size: @medium-font-size;
   }
 
   div {
-    width: 280px;
+    width: 250px;
     height: 200px;
     margin: (2 * @unit) 0;
   }
@@ -251,6 +268,8 @@
 
   p {
     color: @dark-gray;
+    font-size: @small-font-size;
+    width: 200px;
   }
 
   .splash-free {
