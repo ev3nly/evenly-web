@@ -68,17 +68,33 @@
     }
 
     .tagline-body {
-      .max-width-centered(1400px);
+      .max-width-centered(1425px);
 
       padding-top: 50px;
+      @tagline-body-content-width: 450px;
 
       .tagline-body-text {
         padding-left: 220px;
         float: left;
 
+        .tagline-body-text-slide-1 {
+          width: @tagline-body-content-width;
+          // height: 281px; 
+          text-align: center;
+          padding: 25% 0 20px 50px;
+
+          h3 {
+          }
+
+          h4 {
+
+          }
+        }
+
         ul {
+          height: 281px;
           list-style-type: none;
-          width: 425px;
+          width: @tagline-body-content-width;
 
           li {
             background: url("/images/checkmark.png") no-repeat 7px 7px transparent;
@@ -89,9 +105,18 @@
             }
           }
         }
+      }
 
-        button, a {
-          float: right;
+      .tagline-body-buttons {
+
+        .bordered-top(1px, @gray);
+        width: @tagline-body-content-width;
+        margin: 0 5%;
+
+        button {
+          width: 350px;
+          margin: 20px auto;
+          display: block;
         }
 
         a {
