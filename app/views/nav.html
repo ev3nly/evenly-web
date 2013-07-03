@@ -2,6 +2,9 @@
   <div class="navbar-inner">
     <a class="brand evenly-brand" href="#/home">
       <img src="/images/logo.png"></img>
+      <button class="btn" 
+        ng-controller="PendingCtrl"
+        ng-show="pending">{{pending.length}}</button>
     </a>
 
     <ul class="nav action-bar" ng-controller="ActionBarCtrl">

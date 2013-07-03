@@ -64,6 +64,10 @@ Evenly.factory('Me', ['Restangular', '$rootScope', '$http', '$cookieStore', func
     history: function(params) {
       return base
         .getList('history');
+    },
+    pending: function(params) {
+      return base
+        .getList('pending');
     }
   };
 }]);
