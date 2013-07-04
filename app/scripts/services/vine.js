@@ -64,6 +64,10 @@ Evenly.factory('Me', ['Restangular', '$rootScope', '$http', '$cookieStore', func
     history: function(params) {
       return base
         .getList('history');
+    },
+    pending: function(params) {
+      return base
+        .getList('pending');
     }
   };
 }]);
@@ -82,6 +86,22 @@ Evenly.factory('Request', ['Restangular', function(Restangular) {
     create: function(params) {
       return Restangular.all('charges')
         .post(params);
+    },
+    remind: function(id) {
+      return Restangular.one('charges', id)
+        .customPOST('remind');
+    },
+    cancel: function(id) {
+      return Restangular.one('charges', id)
+        .customPUT('cancel');
+    },
+    complete: function(id) {
+      return Restangular.one('charges', id)
+        .customPUT('complete');
+    },
+    deny: function(id) {
+      return Restangular.one('charges', id)
+        .customPUT('deny');
     }
   };
 }]);
