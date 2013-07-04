@@ -99,6 +99,29 @@ Evenly.run(['$location', '$cookieStore', '$rootScope', 'Me', function($location,
     $location.path('/splash');
   });
 
+  $rootScope.$on('$routeChangeStart', function() {
+    var resizeHeight = function(selector) {
+      var screenHeight = $(document).height();
+      $('.static').css('height', screenHeight);
+      console.log("resizing");
+    }
+
+    console.log("route has changed!");
+
+    switch($location.path()) {
+      case "/story":
+      case "/contact":
+      case "/faq":
+      case "/jobs":
+      case "/login":
+        $('.container').css('width', '100%');
+        break;
+      default:
+        $('.container').css('width', '940px');
+        break;
+    }
+  })
+
   $rootScope.refreshMe = function() {
     Me.get()
       .then(function(me) {

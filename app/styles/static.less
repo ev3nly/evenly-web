@@ -1,4 +1,6 @@
 @static-padding: (5 * @unit);
+@static-content-width: 700px;
+
 
 .static {
   .static-nav {
@@ -13,11 +15,15 @@
       color: @black;
     }
 
+    li {
+      width: 100px;
+    }
+
     li.active {
       a {
-        .rounded-corners-left(100px);
-        background: @dark-gray;
-        color: @white;
+        .avenir-black;
+        background: white;
+        color: @black;
       }
     }
 
@@ -26,11 +32,14 @@
     }
 
     a:hover {
-      .rounded-corners-left(100px);
+      // .rounded-corners-left(100px);
+      background: white;
+      color: @black;
+      text-decoration: underline;
     }
   }
 
-  .static-content {
+  .static-body {
     .bordered-left;
 
     float: right;
@@ -41,6 +50,11 @@
     padding-top: @static-padding;
     padding-left: @static-padding;
     padding-right: 200px;
+
+    .static-content {
+      max-width: @static-content-width;
+      min-height: 400px;
+    }
 
     a.btn-huge {
       width: 100%;
@@ -98,6 +112,23 @@
         }
       }
     }
+  }
+
+  .static-footer {
+    height: 200px;
+    // position: absolute;
+    // bottom: 20px;
+    width: @static-content-width;
+
+    img {
+      padding-top: 50px;
+      margin: auto;
+      display: block;
+    }
+    // background: @main-background-color;
+    // display: block;
+    // width: 100px;
+    // clear: right;
   }
 }
 
