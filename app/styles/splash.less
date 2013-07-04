@@ -11,6 +11,7 @@
 
   nav {
     background: @white;
+    height: 124px;
 
     .nav-content {
       .max-width-centered;
@@ -39,6 +40,7 @@
   background: @blue;
   color: @white;
   font-weight: 800;
+  font-size: 13px;
 }
 
 .btn-splash-inverse {
@@ -55,12 +57,12 @@
     .tagline-title {
       background: @blue;
       height: 100px;
-      padding-top: 20px;
+      padding-top: 23px;
 
       h1 {
         .max-width-centered;
 
-        color: @white;
+        color: white;
         font-weight: normal;
         font-size: @large-font-size;
         text-align: center;
@@ -137,8 +139,8 @@
         display: inline;
 
         .iphone-content {
-          width: 205px;
-          height: 363px;
+          width: 206px;
+          height: 364px;
           margin: 77px 0 0 86px;
         }
       }
@@ -149,8 +151,8 @@
 .splash-carousel-1 {.image-content-fill('/images/splash-carousel-1.gif');}
 .splash-carousel-2 {.image-content-fill('/images/splash-carousel-2.gif');}
 .splash-carousel-3 {.image-content-fill('/images/splash-carousel-3.gif');}
-.splash-carousel-4 {.image-content-fill('/images/splash-carousel-4.jpg');}
-.splash-carousel-5 {.image-content-fill('/images/splash-carousel-5.jpg');}
+.splash-carousel-4 {.image-content-fill('/images/splash-carousel-4.png');}
+.splash-carousel-5 {.image-content-fill('/images/splash-carousel-5.png');}
 
 .carousel-control { 
   .rounded-corners(500px);
@@ -295,9 +297,8 @@
 
 .brochure {
   vertical-align: top;
-  width: 33%;
-  padding: @unit;
   display: inline-block;
+  margin: 0 auto;
 
   h3 {
     color: @black;
@@ -332,6 +333,15 @@
     padding: 0 5px;
     padding-top: 4px;
   }
+}
+
+.brochure:last-child {
+  float: right;
+  width: auto;
+}
+
+.brochure:nth-child(2) {
+  margin-left: 90px;
 }
 
 nav.splash-bottom-nav {

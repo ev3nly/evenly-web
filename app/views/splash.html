@@ -238,10 +238,12 @@
   <div class="brochures">
     <div class="brochures">
       <div ng-repeat="brochure in brochures" class="brochure">
-        <h3>{{brochure.title}}</h3>
-        <div class="onboarding-{{$index + 1}}"></div>
-        <p>{{brochure.description}}</p>
-        <p class="splash-free">FREE</p>
+        <!-- <div class="brochure-content"> -->
+          <h3>{{brochure.title}}</h3>
+          <div class="onboarding-{{$index + 1}}"></div>
+          <p>{{brochure.description}}</p>
+          <p class="splash-free">FREE</p>
+        <!-- </div> -->
       </div>
     </div>
   </div>

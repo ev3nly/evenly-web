@@ -20,18 +20,18 @@ angular.module('evenlyApp')
 
     $scope.brochures = [
       {
-        title: 'No cash? No problem.',
-        description: 'Add a credit or debit card to your Evenly wallet to send money to anyone, anywhere, at any time.',
+        title: 'Pay anyone, safely',
+        description: 'Cash is a pain. Add a card to your Evenly wallet and pay anyone, anywhere, anytime.',
         image: '/images/dawwww.jpg'
       },
       {
-        title: 'Get paid back faster.',
-        description: 'No more hassling friends and groups.  Easily collect money from one person or a hundred.  Track and send reminders with a single tap.',
+        title: 'Collect money, effortlessly.',
+        description: 'Stop hassling friends. Send a request and we\'ll remind your friends until they pay you back.',
         image: '/images/dawwww.jpg'
       },
       {
-        title: 'Deposit in seconds.',
-        description: 'Quickly and easily deposit the cash from your Evenly wallet into your bank account.',
+        title: 'Deposit, instantly.',
+        description: 'With one tap, securely deposit the cash in your Evenly wallet into any bank account.',
         image: '/images/dawwww.jpg'
       }
     ];
