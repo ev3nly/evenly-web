@@ -1,4 +1,6 @@
 @static-padding: (5 * @unit);
+@static-content-width: 700px;
+
 
 .static {
   .static-nav {
@@ -37,7 +39,7 @@
     }
   }
 
-  .static-content {
+  .static-body {
     .bordered-left;
 
     float: right;
@@ -49,8 +51,9 @@
     padding-left: @static-padding;
     padding-right: 200px;
 
-    div:first-child {
-      max-width: 700px;
+    .static-content {
+      max-width: @static-content-width;
+      min-height: 400px;
     }
 
     a.btn-huge {
@@ -109,6 +112,23 @@
         }
       }
     }
+  }
+
+  .static-footer {
+    height: 200px;
+    // position: absolute;
+    // bottom: 20px;
+    width: @static-content-width;
+
+    img {
+      padding-top: 50px;
+      margin: auto;
+      display: block;
+    }
+    // background: @main-background-color;
+    // display: block;
+    // width: 100px;
+    // clear: right;
   }
 }
 
