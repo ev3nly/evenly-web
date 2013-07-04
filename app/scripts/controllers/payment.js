@@ -3,18 +3,22 @@
 
 angular.module('evenlyApp')
   .controller('PaymentCtrl', ['$scope', 'Payment', function ($scope, Payment) {
-    // $scope.recipient = 'rhea@friend.edu';
-    // $scope.amount = '100000';
-    // $scope.description = 'failure';
 
     $scope.makePayment = function() {
       console.log('You owe ' + $scope.recipient + ' $' + $scope.amount + ' for ' + $scope.description);
+
+      var toJSON = null;
+      if ($scope.recipientId) {
+        toJSON = {id: $scope.recipientId}
+      } else {
+        toJSON = {email: $scope.recipient}
+      }
 
       Payment
         .create({
           amount:       $scope.amount,
           description:  $scope.description,
-          to:           {email: $scope.recipient}
+          to:           toJSON
         })
         .then(function() {
           $scope.hidePaymentModal();

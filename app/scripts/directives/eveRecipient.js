@@ -17,7 +17,7 @@ angular.module('evenlyApp')
               return _.map(users, function(u) {
                 return {
                   name: u.name,
-                  email: u.email
+                  id:   u.id
                 };
               });
             });
@@ -27,6 +27,8 @@ angular.module('evenlyApp')
           console.log($item);
           console.log($model);
           console.log($label);
+
+          scope.recipientId = $item.id;
         };
 
       }
