@@ -31,6 +31,15 @@ angular.module('evenlyApp')
           scope.recipientId = $item.id;
         };
 
+        scope.validRecipient = function() {
+          if (scope.recipient == null || scope.recipient.length == 0) { return true; }
+          if (scope.recipientId) { return true; }
+          else {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(scope.recipient);
+          }
+        }
+
       }
     };
   }]);

@@ -82,8 +82,103 @@
         <a ng-click="showRequestModal()"><img src="/images/cash-positive.png"></img>Request</a>
 
         <div modal="requestShouldBeOpen" close="hideRequestModal()" options="opts">
-          <eve-exchange-modal type="request" submit="makeRequest()" hide="hideRequestModal()">
-          </eve-exchange-modal>
+          <!-- <eve-exchange-modal type="request" submit="makeRequest()" hide="hideRequestModal()">
+          </eve-exchange-modal> -->
+          <div class="modal-header">
+            <button class="btn" ng-click="debug()">debug</button>
+            <h3>Request</h3>
+            <button class="btn pull-right" ng-click="next()" ng-class="{disabled: nextDisabled()}">Next</button>
+            <button class="btn pull-right" ng-click="prev()">Back</button>
+          </div>
+
+          <div class="modal-body">
+            <!-- <accordion close-others="false">
+              <accordion-group heading="Who?">
+                <eve-recipient></eve-recipient>
+              </accordion-group>
+
+              <accordion-group heading="How Much?">
+                <eve-amount></eve-amount>
+              </accordion-group>
+
+              <accordion-group heading="For What?">
+                <eve-description>
+              </accordion-group>
+            </accordian> -->
+
+            <div class="carousel slide">
+              <div class="carousel-inner">
+                <div class="item active">
+                  <div class="btn-group">
+                    <button 
+                      class="btn" 
+                      ng-class="{active: requestType == 'friend'}"
+                      ng-click="setFriend()">Friend</button>
+                    <button 
+                      class="btn" 
+                      ng-class="{active: requestType == 'group'}"
+                      ng-click="setGroup()">Group</button>
+                  </div>
+
+                  <eve-recipient></eve-recipient>
+                  <button class="btn" ng-click="addRecipient(recipient)">add</button>
+
+                  <div ng-repeat="recipient in recipients">
+                    <p>{{recipient}}</p>
+                    <button class="close" ng-click="removeRecipientAtIndex($index)">×</button>
+                  </div>
+
+                  <div class="alert alert-error" ng-show="!validRecipient() && step1Attempted">
+                    <p ng-show="!validRecipient()">
+                      must enter an email or select an Evenly user
+                    </p>
+                  </div>
+                </div>
+
+                <div class="item">
+                  <div class="request-amount-friend" ng-show="requestType == 'friend'">
+                    <eve-amount></eve-amount>
+                  </div>
+
+                  <div class="request-amount-friend" ng-show="requestType =='group'">
+                    <tabset>
+                      <tab heading="Same Amount">
+                        <eve-amount></eve-amount>
+                      </tab>
+                      <tab heading="Different Amounts">
+                        
+                        <div class="control-group" ng-repeat="tier in tiers">
+                          <input placeholder="Option {{$index + 1}}">{{tier.name}}</input>
+                          <eve-amount></eve-amount>
+                          <button class="close" ng-click="removeTierAtIndex($index)">×</button>
+                        </div>
+
+                        <button class="btn" ng-click="addTier()">Add Option</button>
+
+                      </tab>
+                  </div>
+                </div>
+
+                <div class="item">
+                  <div class="request-description-friend" ng-show="requestType == 'friend'">
+                    <eve-description></eve-description>
+                  </div>
+
+                  <div class="request-description-group" ng-show="requestType == 'group'">
+                    <input placeholder="Ski Trip"></input>
+                    <eve-description></eve-description>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-primary" 
+              ng-click="finishRequest()">Complete Request</button>
+          </div>
         </div>
 
       </li>
