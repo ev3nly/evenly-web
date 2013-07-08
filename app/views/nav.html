@@ -157,6 +157,12 @@
 
                       </tab>
                   </div>
+
+                  <div class="alert alert-error" ng-show="true">
+                    <p ng-show="!validAmount()">
+                      must enter a valid amount greater than $0.50
+                    </p>
+                  </div>
                 </div>
 
                 <div class="item">

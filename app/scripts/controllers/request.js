@@ -100,7 +100,7 @@ angular.module('evenlyApp')
 
     $scope.addRecipient('justin');
     // $scope.addRecipient('zach');
-    // $scope.next();
+    $scope.next();
 
     $scope.debug = function() {
       console.log("recipients: " + $scope.recipients);

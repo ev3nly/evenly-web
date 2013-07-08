@@ -20,6 +20,10 @@ angular.module('evenlyApp')
           if (value === undefined) { return false; }
           return value.replace(/[^0-9\.]/g,'') >= min;
         };
+
+        scope.validAmount = function() {
+          return scope.isCurrency() && scope.isGte();
+        }
       }
     };
   });

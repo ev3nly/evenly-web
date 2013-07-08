@@ -6,6 +6,9 @@ angular.module('evenlyApp')
       templateUrl: 'views/description.html',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
+        scope.validDescription = function() {
+          return (scope.description !== null);
+        };
       }
     };
   }]);
