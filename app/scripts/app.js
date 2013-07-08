@@ -89,9 +89,9 @@ Evenly.config(['RestangularProvider', function(RestangularProvider) {
 
 Evenly.run(['$location', '$cookieStore', '$rootScope', 'Me', function($location, $cookieStore, $rootScope, Me) {
   if (!$cookieStore.get('__evvt')) {
-    console.warn('NOT LOGGED IN');
+    // console.warn('NOT LOGGED IN');
     // $rootScope.$broadcast('event:loginRequired'); /* too slow... */
-    $location.path('/splash');
+    // $location.path('/splash');
   }
 
   $rootScope.$on('event:loginRequired', function() {
@@ -132,7 +132,18 @@ Evenly.run(['$location', '$cookieStore', '$rootScope', 'Me', function($location,
       });
   };
 
-  $rootScope.refreshMe();
+  switch($location.path()) {
+    case "/story":
+    case "/contact":
+    case "/faq":
+    case "/jobs":
+    case "/login":
+    case "/splash":
+      break;
+    default:
+      $rootScope.refreshMe();
+      break;
+  }
 }]);
 
 window.Evenly = Evenly;
