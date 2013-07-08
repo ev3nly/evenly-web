@@ -25,12 +25,12 @@ angular.module('evenlyApp')
         image: '/images/dawwww.jpg'
       },
       {
-        title: 'Collect money, effortlessly.',
+        title: 'Collect money, effortlessly',
         description: 'Stop hassling friends. Send a request and we\'ll remind your friends until they pay you back.',
         image: '/images/dawwww.jpg'
       },
       {
-        title: 'Deposit, instantly.',
+        title: 'Deposit, instantly',
         description: 'With one tap, securely deposit the cash in your Evenly wallet into any bank account.',
         image: '/images/dawwww.jpg'
       }
