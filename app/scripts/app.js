@@ -45,7 +45,7 @@ Evenly.config(['$routeProvider', function($routeProvider) {
       controller: 'FaqCtrl'
     })
     .otherwise({
-      redirectTo: '/home'
+      redirectTo: '/splash'
     });
 }]);
 

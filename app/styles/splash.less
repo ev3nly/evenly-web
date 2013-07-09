@@ -80,11 +80,14 @@
         padding-left: 220px;
         float: left;
 
+        @tagline-body-text-height: 220px;
+
         .tagline-body-text-slide-1 {
           width: @tagline-body-content-width;
           // height: 281px; 
           text-align: center;
           padding: 25% 0 20px 50px;
+          height: @tagline-body-text-height;
 
           h3 {
           }
@@ -95,7 +98,9 @@
         }
 
         ul {
-          height: 281px;
+          // padding: 0;
+          margin-bottom: 0;
+          height: @tagline-body-text-height;
           list-style-type: none;
           width: @tagline-body-content-width;
 
