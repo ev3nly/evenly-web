@@ -53,6 +53,10 @@ Evenly.factory('Me', ['Restangular', '$rootScope', '$http', '$cookieStore', func
     get: function() {
       return base.get();
     },
+    put: function(params) {
+      return base
+        .put(params);
+    },
     timeline: function(params) {
       return base
         .getList('timeline');
