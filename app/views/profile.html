@@ -12,12 +12,15 @@
             <input type="text" ng-model="email"></input>
             <input type="text" ng-model="phoneNumber"></input>
           </div>
+
+          <input type="password" placeholder="*******" ng-model="password"></input>
+          <input type="password" placeholder="*******" ng-model="passwordConfirmation"></input>
         </div>
 
         <button class="btn btn-embossed btn-huge" 
           ng-class="{disabled: !saveProfileButtonEnabled()}"
           ng-click="saveProfile()">{{saveProfileButtonTitle()}}</button>
-        <button class="btn btn-embossed btn-huge">Change Password</button>
+        <!-- <button class="btn btn-embossed btn-huge">Change Password</button> -->
 
         <div class="settings-fb">
           <div>
@@ -38,17 +41,18 @@
               <table>
                 <tr>
                   <td></td>
-                  <td>Email</td>
-                  <td>Phone</td>
+                  <!-- <td>Email</td> -->
+                  <!-- <td>Phone</td> -->
                 </tr>
 
                 <tr>
                   <td>
-                    <h5>Payments</h5>
-                    <p>For your security, payment notifications are required</p>
+                    <!-- <h5>Payments</h5> -->
+                    <!-- <p>For your security, payment notifications are required</p> -->
+                    <h5>Emails</h5>
                   </td>
 
-                  <td>
+                  <!-- <td>
                     <div class="switch has-switch">
                       <div class="switch-animate switch-on">
                         <input type="checkbox" checked="" data-toggle="switch">
@@ -68,7 +72,14 @@
                         <span class="switch-right">OFF</span>
                       </div>
                     </div>
-                  </td>
+                  </td> -->
+
+                  <td><input type="checkbox" ng-model="emailNotifications"></input></td>
+                </tr>
+
+                <tr>
+                  <td><h5>SMS</h5></td>
+                  <td><input type="checkbox" ng-model="smsNotifications"></input></td>
                 </tr>
               </table>
 

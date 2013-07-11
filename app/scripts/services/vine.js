@@ -57,6 +57,13 @@ Evenly.factory('Me', ['Restangular', '$rootScope', '$http', '$cookieStore', func
       return base
         .put(params);
     },
+    getNotificationSettings: function() {
+      return base
+        .getList('notifications');
+    },
+    putNotificationSettings: function(params) {
+      return base.customPUT('notifications', params)
+    },
     timeline: function(params) {
       return base
         .getList('timeline');
