@@ -44,6 +44,10 @@ Evenly.config(['$routeProvider', function($routeProvider) {
       templateUrl: 'views/faq.html',
       controller: 'FaqCtrl'
     })
+    .when('/signup', {
+      templateUrl: 'views/signup.html',
+      controller: 'SignupCtrl'
+    })
     .otherwise({
       redirectTo: '/splash'
     });
