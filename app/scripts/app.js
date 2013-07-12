@@ -118,6 +118,7 @@ Evenly.run(['$location', '$cookieStore', '$rootScope', 'Me', function($location,
       case "/faq":
       case "/jobs":
       case "/login":
+      case "/signup":
         $('.container').css('width', '100%');
         break;
       default:
@@ -143,6 +144,7 @@ Evenly.run(['$location', '$cookieStore', '$rootScope', 'Me', function($location,
     case "/jobs":
     case "/login":
     case "/splash":
+    case "/signup":
       break;
     default:
       $rootScope.refreshMe();

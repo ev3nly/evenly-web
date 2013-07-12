@@ -29,18 +29,23 @@
   }
 
   .login-form {
-    width: 300px;
+    width: 600px;
     margin: (25 * @unit) (4 * @unit);
 
-    .help-inline:first-child {
+    .help-block:first-child {
       margin-bottom: @unit;
       padding: 0;
+      font-size: @large-font-size;
     }
 
-    .help-inline:last-child {
+    @input-button-width: 250px;
+
+    .help-block:last-child {
       margin-top: @unit;
       padding: 0;
       font-size: @medium-font-size;
+      width: @input-button-width;
+      text-align: justify;
 
       a {
         color: @firm;
@@ -48,10 +53,18 @@
       }
     }
 
+    button {
+      width: @input-button-width;
+    }
+
     input {
       padding: @unit;
-      width: 300px;
+      width: @input-button-width;
       height: 44px;
+    }
+
+    .alert {
+      width: @input-button-width;
     }
   }
 }

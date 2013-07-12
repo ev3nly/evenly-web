@@ -7,27 +7,101 @@
 
   <div class="right">
     <form class="login-form" name="form">
-      <div class="help-inline">Sign Up for Evenly</div>
-      <input type="text" ng-model="name" placeholder="Name" />
-      <input type="text" ng-model="email" placeholder="Email" />
-      <input type="text" ng-model="phoneNumber" placeholder="Phone Number"/>
-      <input type="password" ng-model="password" placeholder="Password"/>
-      <button class="btn btn-primary btn-block btn-embossed" ng-click='login(email, password)'>Login</button>
-      <div class="help-inline">Already have an account? 
-        <a href="/#/login">Log in here.</a>
+      <div class="help-block">Sign Up</div>
+          
+      <div class="control-group" ng-class="form.name.$error">
+        <input type="text" ng-model="name" placeholder="Name" required/>
+        <span ng-show="false" class="help-inline">Inline help text</span>
+      </div>
+
+      <div class="control-group" ng-class="form.email.$error">
+        <input type="email" ng-model="email" placeholder="Email" / required>
+        <span ng-show="false" class="help-inline">Inline help text</span>
+      </div>
+
+      <div class="control-group" ng-class="form.phoneNumber.$error">
+        <input type="tel" ng-model="phoneNumber" placeholder="Phone Number"/ required>
+        <span ng-show="false" class="help-inline">Inline help text</span>
+      </div>
+
+      <div class="control-group" ng-class="form.password.$error">
+        <input type="password" ng-model="password" placeholder="Password"/ required>
+        <span ng-show="false" class="help-inline">Inline help text</span>
+      </div>
+
+      <div class="control-group">
+        <button class="btn btn-primary btn-block btn-embossed" 
+          ng-click='signup()'>Sign Up</button>
+        <div class="help-block">Have an account? 
+          <a href="/#/login">Log in here.</a>
+        </div>
+      </div>
+
+      <div ng-show="serverErrors.length > 0" class="alert alert-error">
+        <p ng-repeat="serverError in serverErrors">
+          {{serverError}}
+        </p>
       </div>
     </form>
+
+    <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
   </div>
-
-  <script>
-
-    var resize = function() {
-      var screenHeight = $(document).height();
-      $('.login').css('height', screenHeight);
-    }
-
-    window.onresize = resize;
-    resize();
-
-  </script>
 </div>
+
+<!-- Facebook Connect -->
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    // init the FB JS SDK
+    FB.init({
+      appId      : '143675335816854',                    // App ID from the app dashboard
+      channelUrl : '//localhost:9000/channel.html',      // Channel file for x-domain comms
+      status     : true,                                 // Check Facebook Login status
+      xfbml      : true                                  // Look for social plugins on the page
+    });
+
+    // Additional initialization code such as adding Event Listeners goes here
+
+    FB.Event.subscribe('auth.authResponseChange', function(response) {
+      console.log("received authResponseChange event");
+      // Here we specify what we do with the response anytime this event occurs. 
+      if (response.status === 'connected') {
+        FB.api('/me', function(response) {
+          console.log('Good to see you, ' + response.name + '.');
+          console.log(response);
+          $('input[ng-model=name]').val(response.name);
+          $('input[ng-model=email]').val(response.email);
+        });
+
+        console.log('connected');
+      } else if (response.status === 'not_authorized') {
+        // In this case, the person is logged into Facebook, but not into the app
+        console.log('not authorized');
+      } else {
+        // In this case, the person is not logged into Facebook
+        console.log('idk');
+      }
+    });
+  };
+
+  // Load the SDK asynchronously
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script>
+
+  var resize = function() {
+    var screenHeight = $(document).height();
+    $('.login').css('height', screenHeight);
+  }
+
+  window.onresize = resize;
+  resize();
+
+</script>
