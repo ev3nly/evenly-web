@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('SignupCtrl', ['$scope', '$location', 'User', function ($scope, $location, User) {
+  .controller('SignupCtrl', ['$scope', '$location', 'User', '$FB', '$timeout', function ($scope, $location, User, $FB, $timeout) {
     $scope.signup = function() {
       User.create({
         name: $scope.name,
@@ -22,4 +22,21 @@ angular.module('evenlyApp')
     };
 
     $scope.serverErrors = [];
+
+    console.log("in SignupCtrl");
+    $timeout(function() {
+      console.log("loading /me");
+      $FB.api('/me', function(response) {
+        $scope.name = response.name;
+        $scope.email = response.email;
+        $scope.$apply();
+        console.log('loaded /me');
+        console.log(response);
+      });
+
+      $scope.facebook_friends = $FB.api('/me/friends', function(response) {
+              $scope.facebook_friends = response.data;
+              console.log("FRIENDS",response);
+            });
+    }, 1000);
   }]);

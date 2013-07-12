@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('SplashCtrl', ['$scope', function ($scope) {
+  .controller('SplashCtrl', ['$scope', '$FB', '$location', function ($scope, $FB, $location) {
     $scope.carouselInterval = 7500;
     
     $scope.slides = [
@@ -35,4 +35,21 @@ angular.module('evenlyApp')
         image: '/images/dawwww.jpg'
       }
     ];
+
+    $scope.facebookContinue = function() {
+      if ($FB.isAuthenticated()) {
+        console.log('Facebook is Authenticated');
+        $location.path('/signup');
+      } else {
+        $FB.login(function(response) {
+          if (response.authResponse) {
+            console.log("logged into Facebook!")
+            $location.path('/signup');
+            $scope.$apply();
+          } else {
+            console.log("failed to login to Facebook");
+          }
+        }, {scope: 'email'});
+      }
+    };
   }]);
