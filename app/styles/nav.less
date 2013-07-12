@@ -1,5 +1,53 @@
 .navbar-inner {
-  background-color: @background-color;
+  background-color: @firm;
+  .rounded-corners(0);
+  .bordered-bottom(1px, @dark-gray);
+  height: 77px;
+
+  .nav-brand {
+    // margin-top: -10px;
+    margin-left: -50px;
+    p {
+      vertical-align: middle;
+      font-size: @big-font-size;
+      color: white;
+      display: inline;
+    }
+    img {
+      display: inline;
+      margin-top: -5px;
+    }
+  }
+
+  .btn-pending {
+    margin-top: -5px;
+    margin-left: -30px;
+    .circle(30px, @dark-blue);
+    // .bordered;
+    p {
+      margin: auto;
+      width: 20px;
+      height: 20px;
+      padding-top: 5px;
+      padding-left: 1px;
+      text-align: center;
+      font-size: @small-font-size;
+    }
+  }
+}
+
+.navbar-contents {
+  .max-width-centered;
+}
+
+.navbar .nav > li > a, 
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover,
+.navbar .nav > li.active > a {
+  color: white !important;
+  img {
+    margin-top: -5px;
+  }
 }
 
 .nav.action-bar {

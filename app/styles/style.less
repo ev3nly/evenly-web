@@ -27,23 +27,29 @@
           box-sizing: border-box;
 }
 
+body {
+  padding-top: 77px;
+  background: @main-background-color;
+}
+
 .offset0 {
   margin-left: 0px;
 }
 
 .content {
-  .bordered;
-  .rounded-corners;  
+  .bordered-left;
+  .bordered-right;
+  // .rounded-corners;  
 
-  background-color: @sidebar-background-color; 
+  background-color: white; 
 }
 
 .main {
-  .rounded-corners-left;
   .bordered-right;
+  // .rounded-corners-left;
 
   min-height: 500px;
-  background-color: @main-background-color;
+  background-color: white;
 }
 
 .sidebar {
