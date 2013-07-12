@@ -35,4 +35,10 @@ angular.module('evenlyApp')
         console.log(response);
       });
     }, 1000);
+
+    $scope.$watch(function() {
+      return $FB.isAuthenticated();
+    }, function(value) {
+      console.log("FB.isAuthenticated() ? " + value);
+    })
   }]);
