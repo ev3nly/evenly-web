@@ -12,51 +12,50 @@
 }
 
 .story {
-  .bordered;
-  .rounded-corners;
+  .bordered-bottom;
+  // .rounded-corners;
 
   background-color: white;
-  margin: (2 * @unit) (4 * @unit);
-  margin-left: @story-margin-left;
-  padding: @unit;
+  // margin: (2 * @unit) (4 * @unit);
+  // margin-left: @story-margin-left;
+  padding: (2 * @unit);
 
-  div.profile-picture {
-    .bordered;
-    .rounded-corners;
+  .story-type {
+    float: right;
+  }
 
-    width: 80px;
-    height: 80px;
+  @story-profile-picture-size: 80px;
+
+  .story-profile-picture {
+    .bordered(1px, @white);
+    .rounded-corners(3px);
+
+    width: @story-profile-picture-size;
+    height: @story-profile-picture-size;
     float: left;
     margin-right: @unit;
     
     .image-content-fill('/images/dawwww.jpg');
   }
 
-  p {
-    .base-text;
+  .story-content {
+    height: @story-profile-picture-size;
+
+    p {
+      .base-text(16px);
+    }
+
+    .story-published {
+      .avenir-black;
+      font-size: @small-font-size;
+      color: @dark-gray;
+    }
   }
 }
 
-.story-balance {
-  .bordered;
-  .rounded-corners;
-
-  background-color: white;
-  margin: (2 * @unit) (4 * @unit);
-  padding: @unit;
-  width: 100px;
-
-  p { 
-    .base-text;
-    margin: 0; 
-  }
-
-  .story-balance-header {
-    color: @gray;
-  }
-
-  .story-balance-value {
-    color: @green;
-    font-size: @big-font-size;
-  }
+.stories-footer {
+  margin: auto;
+  width: 112px;
+  height: 300px;
+  padding-top: 100px;
 }

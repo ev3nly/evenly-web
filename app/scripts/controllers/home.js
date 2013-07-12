@@ -3,12 +3,30 @@
 /* global _: false */
 /* global moment: false */
 
-angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', function ($scope, Me) {
+angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope', function ($scope, Me, $rootScope) {
   Me.newsfeed()
     .then(function(stories) {
       $scope.newsfeed = stories;
       _.each(stories, function(s) {
         s.publishedString = moment(s.published_at).fromNow();
+
+        if (s.subject.id !== $rootScope.me.id && s.target.id !== $rootScope.me.id) {
+          s.imagePath = '/images/cash-transfer.png';
+        } else {
+          if (s.subject.id === $rootScope.me.id) {
+            if (s.verb === 'paid') {
+              s.imagePath = '/images/cash-left.png';
+            } else {
+              s.imagePath = '/images/cash-coming.png';
+            }
+          } else if (s.target.id === $rootScope.me.id) {
+            if (s.verb === 'paid') {
+              s.imagePath = '/images/cash-came.png';
+            } else {
+              s.imagePath = '/images/cash-leaving.png';
+            }
+          }
+        }
       });
     });
 

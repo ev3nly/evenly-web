@@ -1,0 +1,50 @@
+.action-bar {
+  .rounded-corners;
+  .bordered;
+
+  background: @white;
+  height: 50px;
+  padding: 0 50px;
+  // width: 400px;
+  // margin: auto;
+
+  > div:first-child {
+    .bordered-right;
+
+    float: left;
+    // background: red;
+    
+    a { float: left; }
+  }
+
+  > div:last-child {
+    float: right;
+    // background: blue;
+    
+    a { float: right; }
+  }
+
+  > div {
+    width: 50%;
+    height: 100%;
+
+    a {
+      margin: 10px auto;
+      height: 100%;
+      font-size: @medium-font-size;
+      font-weight: 1000;
+      color: @blue;
+
+      img {
+        margin-top: -3px;
+        padding: 0 10px;
+      }
+    }
+  }
+}
+
+.action-bar-container {
+  .bordered-bottom;
+
+  padding: 20px;
+}

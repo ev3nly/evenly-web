@@ -93,9 +93,9 @@
   .rounded-corners-bottom-left(@radius);
 }
 
-.base-text() {
-  font-size: @base-font-size;
-  line-height: @base-line-height;
+.base-text(@font-size: @base-font-size, @line-height: @base-line-height) {
+  font-size: @font-size;
+  line-height: @line-height;
 }
 
 .image-content-fill(@path) {
