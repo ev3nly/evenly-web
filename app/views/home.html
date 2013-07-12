@@ -31,7 +31,9 @@
       </div>
       
       <div class="story" ng-repeat='story in newsfeed'>
-        <div class="story-profile-picture"></div>
+        <div class="story-profile-picture">
+          <img src="{{story.subject.avatar_url}}">
+        </div>
         <div class="story-content">
           <img class="story-type" src="{{story.imagePath}}"></img>
           <p><strong>{{story.subject.name}}</strong> {{story.verb}} <strong>{{story.target.name}} for {{story.description}}</p>
