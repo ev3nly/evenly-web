@@ -50,38 +50,30 @@
   }
 }
 
-.nav.action-bar {
-  margin-left: (15 * @unit);
-
-  img {
-    margin-left: auto;
-    margin-right: auto;
-    width: 32px;
-    display: block;
-  }
-
-  a {
-    color: @gray !important;
-  }
-
-  a:hover {
-    color: @dark-gray !important;
-  }
-}
-
 .bottom-nav {
-  .bordered-top;
   padding-top: @unit;
-  margin-top: @unit;
+  margin-top: (@unit);
   width: (960px / 3 - 1);
 
-  div {
+  .bottom-nav-logo-container {
+    .bordered-top;
+
+    img {
+      display: block;
+      width: 22px;
+      margin: auto;
+      margin-top: -11px;
+    }
+  }
+
+  div:nth-child(2) {
     margin: @unit;
     a {width: 32%;}
   }
 
-  div:last-child {
+  div:nth-child(3) {
     margin-left: 75px;
+    a {width: 32%;}
   }
 
   a {
