@@ -1,14 +1,15 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('SignupCtrl', ['$scope', '$location', 'User', '$FB', '$timeout', function ($scope, $location, User, $FB, $timeout) {
+  .controller('SignupCtrl', ['$scope', '$location', 'User', '$FB', '$timeout', '$rootScope', function ($scope, $location, User, $FB, $timeout, $rootScope) {
     $scope.signup = function() {
       User.create({
         name: $scope.name,
         email: $scope.email,
         phone_number: $scope.phoneNumber,
         password: $scope.password,
-        password_confirmation: $scope.password
+        password_confirmation: $scope.password,
+        facebook_token: $rootScope.fbToken
       }).then(function(user) {
         console.log("created user " + user.name);
       }, function(response) {
@@ -33,10 +34,5 @@ angular.module('evenlyApp')
         console.log('loaded /me');
         console.log(response);
       });
-
-      $scope.facebook_friends = $FB.api('/me/friends', function(response) {
-              $scope.facebook_friends = response.data;
-              console.log("FRIENDS",response);
-            });
     }, 1000);
   }]);
