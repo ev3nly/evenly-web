@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('SplashCtrl', ['$scope', '$FB', '$location', function ($scope, $FB, $location) {
+  .controller('SplashCtrl', ['$scope', '$FB', '$location', '$rootScope', function ($scope, $FB, $location, $rootScope) {
     $scope.carouselInterval = 7500;
     
     $scope.slides = [
@@ -35,6 +35,8 @@ angular.module('evenlyApp')
         image: '/images/dawwww.jpg'
       }
     ];
+
+    $rootScope.isSplash = true;
 
     $scope.facebookContinue = function() {
       if ($FB.isAuthenticated()) {

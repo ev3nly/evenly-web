@@ -14,14 +14,20 @@
     float: left;
     // background: red;
     
-    a { float: left; }
+    a { 
+      float: left; 
+      color: @green;
+    }
   }
 
   > div:last-child {
     float: right;
     // background: blue;
     
-    a { float: right; }
+    a { 
+      float: right; 
+      color: @red;
+    }
   }
 
   > div {
@@ -33,7 +39,7 @@
       height: 100%;
       font-size: @medium-font-size;
       font-weight: 1000;
-      color: @blue;
+      // color: @blue;
 
       img {
         margin-top: -3px;

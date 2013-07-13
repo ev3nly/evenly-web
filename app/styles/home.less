@@ -30,22 +30,13 @@
     .bordered(1px, @white);
     .rounded-corners(3px);
 
-    position: relative;
     width: @story-profile-picture-size;
     height: @story-profile-picture-size;
     float: left;
     margin-right: @unit;
     
     .image-content-fill('/images/dawwww.jpg');
-
-    img {
-      .rounded-corners(3px);
-
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      height: 100%;
-    }
+    background-size: cover;
   }
 
   .story-content {
