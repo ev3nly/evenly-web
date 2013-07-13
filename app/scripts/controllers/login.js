@@ -2,7 +2,7 @@
 /* global _: false */
 
 angular.module('evenlyApp')
-  .controller('LoginCtrl', ['$scope', 'Session', function ($scope, Session) {
+  .controller('LoginCtrl', ['$scope', 'Session', '$rootScope', function ($scope, Session, $rootScope) {
 
     $scope.login = function(email, password) {
       Session
@@ -14,4 +14,6 @@ angular.module('evenlyApp')
           window.location.href = pathComponents.join('/');
         });
     };
+
+    $rootScope.showNav = false;
   }]);

@@ -36,7 +36,7 @@ angular.module('evenlyApp')
       }
     ];
 
-    $rootScope.isSplash = true;
+    $rootScope.showNav = false;
 
     $scope.facebookContinue = function() {
       if ($FB.isAuthenticated()) {

@@ -98,6 +98,15 @@ Evenly.run(['$location', '$cookieStore', '$rootScope', 'Me', function($location,
     // $location.path('/splash');
   }
 
+  $rootScope.showNav = true;
+  $rootScope.$watch('showNav', function(value) {
+    if (value) {
+      $('body').css('padding-top', '77');
+    } else {
+      $('body').css('padding-top', '0');
+    }
+  });
+
   $rootScope.$on('event:loginRequired', function() {
     console.warn('Login Required!');
     $location.path('/splash');
