@@ -6,40 +6,45 @@
 
   <div class="modal-body">
     <form name="form" class="cc-form">
-      <input 
-        type="text" 
-        name="number"
-        placeholder="Card Number"
-        x-autocompletetype="cc-number"
-        ng-model="card.number"
-        format-card-number
-        card-number
-        restrict-numeric
-        required>
       
-      <input 
-        type="text" 
-        name="expiry"
-        placeholder="MM/YY" 
-        x-autocompletetype="cc-exp"
-        ng-model="card.expiry"
-        format-card-expiry
-        card-expiry
-        restrict-numeric
-        required>
+      <div class="control-group">
+        <input 
+          type="text" 
+          name="number"
+          placeholder="Card Number"
+          x-autocompletetype="cc-number"
+          ng-model="card.number"
+          format-card-number
+          card-number
+          restrict-numeric
+          required>
+      </div>
 
-      <input
-        type="text"
-        name="cvc"
-        placeholder="CVC"
-        pattern="\d*"
-        x-autocompletetype="cc-csc"
-        ng-model="card.cvc"
-        format-card-cvc
-        card-cvc
-        restrict-numeric
-        autocomplete="off"
-        required>
+      <div class="control-group">
+        <input 
+          type="text" 
+          name="expiry"
+          placeholder="MM/YY" 
+          x-autocompletetype="cc-exp"
+          ng-model="card.expiry"
+          format-card-expiry
+          card-expiry
+          restrict-numeric
+          required>
+
+        <input
+          type="text"
+          name="cvc"
+          placeholder="CVC"
+          pattern="\d*"
+          x-autocompletetype="cc-csc"
+          ng-model="card.cvc"
+          format-card-cvc
+          card-cvc
+          restrict-numeric
+          autocomplete="off"
+          required>
+      </div>
     </form>
 
     <div class="alert alert-error" ng-show="showErrors">

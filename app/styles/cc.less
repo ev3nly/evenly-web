@@ -26,7 +26,7 @@
   padding: 2px 4px;
 }
 
-@cc-modal-width: 410px;
+@cc-modal-width: 350px;
 
 body .cc-modal { 
   width: @cc-modal-width;
@@ -35,6 +35,12 @@ body .cc-modal {
 
 .cc-form {
   padding: (2 * @unit);
+  height: 120px;
+
+  input {
+    height: 50px;
+    width: 100%;
+  }
 
   input[ng-model="card.number"] {
     margin-right: @unit;
@@ -44,12 +50,12 @@ body .cc-modal {
   }
 
   input[ng-model="card.expiry"] {
-    width: 60px;
+    width: 75px;
     margin-right: @unit;
   }
 
   input[ng-model="card.cvc"] {
-    width: 50px;
+    width: 55px;
   }
 }
 

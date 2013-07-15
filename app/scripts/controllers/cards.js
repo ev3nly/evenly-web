@@ -18,9 +18,11 @@ angular.module('evenlyApp')
         .then(function(result) {
           console.log('destroyed!');
           console.log(result);
+          $scope.loadCards();
         }, function(response) {
           console.log('fucked up');
           console.log(response);
+          toastr.error(response.data);
         });
     };
 
@@ -33,6 +35,7 @@ angular.module('evenlyApp')
         }, function(response) {
           console.log('fucked up');
           console.log(response);
+          toastr.error(response.data);
         });
     };
 
