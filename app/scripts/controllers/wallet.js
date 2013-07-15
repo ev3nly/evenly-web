@@ -54,5 +54,4 @@ angular.module('evenlyApp')
     };
 
     $scope.showHistory = true;
-
   }]);

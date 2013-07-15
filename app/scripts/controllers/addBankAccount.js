@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('AddBankAccountCtrl', ['$scope', 'BankAccount', 'balanced', function ($scope, BankAccount, balanced) {
+  .controller('AddBankAccountCtrl', ['$scope', 'BankAccount', 'balanced', '$rootScope', function ($scope, BankAccount, balanced, $rootScope) {
     $scope.addBankAccount = function() {
       if ($scope.validForm()) {
+        $scope.submitting = true;
         console.log('adding bank account');
         balanced.tokenizeBankAccount($scope.bankAccount, function(response) {
           if (response.status === 201) {
@@ -11,9 +12,14 @@ angular.module('evenlyApp')
               .then(function(result) {
                 console.log('Added bank account!');
                 console.log(result);
+                $scope.submitting = false;
+                $scope.hideAddBankAccountModal();
+                toastr.success('Added Bank Account!');
+                $rootScope.loadBankAccounts();
               }, function(response) {
                 console.log('Failed to add bank account to Vine');
                 console.log(response);
+                $scope.submitting = false;
               });
           }
         });
@@ -21,6 +27,10 @@ angular.module('evenlyApp')
         $scope.showErrors = true;
       }
     };
+
+    $scope.$watch('submitting', function() {
+      $scope.buttonTitle = $scope.submitting ? 'Adding...' : 'Add Bank Account';
+    });
 
     $scope.validForm = function() {
       if ($scope.form.name === undefined ||
@@ -35,6 +45,9 @@ angular.module('evenlyApp')
     };
 
     $scope.classForButton = function() {
+      if ($scope.submitting) {
+        return 'btn btn-primary disabled';
+      }
       return $scope.validForm() ? 'btn btn-primary' : 'btn btn-primary disabled';
     };
   }]);

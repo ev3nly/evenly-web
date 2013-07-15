@@ -2,12 +2,12 @@
 /*global _:false */
 
 angular.module('evenlyApp')
-  .controller('CardsCtrl', ['$scope', 'CreditCard', function ($scope, CreditCard) {
-    $scope.loadCards = function() {
+  .controller('CardsCtrl', ['$scope', 'CreditCard', '$rootScope', function ($scope, CreditCard, $rootScope) {
+    $rootScope.loadCards = function() {
       CreditCard.all()
         .then(function(cards) {
           _.each(cards, function(c) {console.log(c);});
-          $scope.cards = cards;
+          $rootScope.cards = cards;
         }, function(response) {
           console.error(response);
         });

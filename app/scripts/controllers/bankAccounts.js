@@ -3,7 +3,7 @@
 
 angular.module('evenlyApp')
   .controller('BankAccountsCtrl', ['$scope', 'BankAccount', '$rootScope', function ($scope, BankAccount, $rootScope) {
-    $scope.loadBankAccounts = function() {
+    $rootScope.loadBankAccounts = function() {
       BankAccount.all()
         .then(function(bankAccounts) {
           _.each(bankAccounts, function(ba) {console.log(ba);});

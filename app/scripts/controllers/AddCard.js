@@ -2,9 +2,10 @@
 /*global $:false */
 
 angular.module('evenlyApp')
-  .controller('AddCardCtrl', ['$scope', 'CreditCard', 'balanced', function ($scope, CreditCard, balanced) {
+  .controller('AddCardCtrl', ['$scope', 'CreditCard', 'balanced', '$rootScope', function ($scope, CreditCard, balanced, $rootScope) {
     $scope.addCard = function() {
       if ($scope.validForm()) {
+        $scope.submitting = true;
         console.log('adding card');
         balanced.tokenizeCard($scope.card, function(response) {
           if (response.status === 201) {
@@ -12,9 +13,14 @@ angular.module('evenlyApp')
               .then(function(result) {
                 console.log('Added credit card!');
                 console.log(result);
+                $scope.submitting = false;
+                $scope.hideAddCardModal();
+                toastr.success('Added Card!');
+                $rootScope.loadCards();
               }, function(response) {
                 console.log('Failed to add credit card to Vine');
                 console.log(response);
+                $scope.submitting = false;
               });
           }
         });
@@ -22,6 +28,10 @@ angular.module('evenlyApp')
         $scope.showErrors = true;
       }
     };
+
+    $scope.$watch('submitting', function() {
+      $scope.buttonTitle = $scope.submitting ? 'Adding...' : 'Add Card';
+    });
 
     $scope.cardType = function(num) {
       return $.payment.cardType(num);
@@ -43,6 +53,9 @@ angular.module('evenlyApp')
     };
 
     $scope.classForButton = function() {
+      if ($scope.submitting) {
+        return 'btn btn-primary disabled';
+      }
       return $scope.validForm() ? 'btn btn-primary' : 'btn btn-primary disabled';
     };
   }]);

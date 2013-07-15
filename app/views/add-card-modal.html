@@ -10,7 +10,6 @@
         type="text" 
         name="number"
         placeholder="Card Number"
-        pattern="\d*"
         x-autocompletetype="cc-number"
         ng-model="card.number"
         format-card-number
@@ -22,7 +21,6 @@
         type="text" 
         name="expiry"
         placeholder="MM/YY" 
-        pattern="\d*"
         x-autocompletetype="cc-exp"
         ng-model="card.expiry"
         format-card-expiry
@@ -48,6 +46,7 @@
       <p ng-show="form.number.$error.cardNumber">invalid number</p>
       <p ng-show="form.cvc.$error.cardCVC">invalid cvc</p>
       <p ng-show="form.expiry.$error.cardExpiry">invalid expiry</p>
+      <p ng-show="serverError">{{serverError}}</p>
     </div>
   </div>
 
@@ -55,6 +54,6 @@
     <button 
       class="btn btn-primary" 
       ng-click="addCard()"
-      ng-class="classForButton()">Add Card</button>
+      ng-class="classForButton()">{{buttonTitle}}</button>
   </div>
 </div>
