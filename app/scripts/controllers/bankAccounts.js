@@ -2,12 +2,12 @@
 /*global _:false */
 
 angular.module('evenlyApp')
-  .controller('BankAccountsCtrl', ['$scope', 'BankAccount', function ($scope, BankAccount) {
+  .controller('BankAccountsCtrl', ['$scope', 'BankAccount', '$rootScope', function ($scope, BankAccount, $rootScope) {
     $scope.loadBankAccounts = function() {
       BankAccount.all()
         .then(function(bankAccounts) {
           _.each(bankAccounts, function(ba) {console.log(ba);});
-          $scope.bankAccounts = bankAccounts;
+          $rootScope.bankAccounts = bankAccounts;
         }, function(response) {
           console.error(response);
         });

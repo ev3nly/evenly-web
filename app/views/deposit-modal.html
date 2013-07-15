@@ -1,26 +1,49 @@
 <div modal="depositShouldBeOpen" close="hideDepositModal()" options="opts" ng-controller="DepositCtrl">
-  <div class="modal-header">
-    <button class="close" ng-click="hideDepositModal()">×</button>
-    <h3>Deposit</h3>
-  </div>
-
-  <div class="modal-body">
-    <form name="form">
-      <span class="help-inline">I want to deposit </span><eve-amount></eve-amount>
-      <span class="help-inline">into my</span>
-    </form>
-
-    <div class="alert alert-error" ng-show="showErrors">
-      <p ng-show="form.number.$error.cardNumber">invalid number</p>
-      <p ng-show="form.cvc.$error.cardCVC">invalid cvc</p>
-      <p ng-show="form.expiry.$error.cardExpiry">invalid expiry</p>
+  <div class="modal-deposit">
+    <div class="modal-header">
+      <button class="close" ng-click="hideDepositModal()">×</button>
+      <h3>Deposit</h3>
     </div>
-  </div>
 
-  <div class="modal-footer">
-    <button 
-      class="btn btn-primary" 
-      ng-click="makeDeposit()"
-      ng-class="classForButton()">Make Deposit</button>
+    <div class="modal-body">
+      <form name="form">
+        <span class="help-inline">I want to deposit </span><eve-amount></eve-amount>
+        <span class="help-inline" ng-click="test()">into my</span>
+
+        <!-- <li class="dropdown" style="display: inline;">
+          <a class="btn clearfix btn-info dropdown-toggle">
+            Bank Accounts <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li ng-repeat="bank in $scope.test">
+              <a>{{bank}}</a>
+            </li>
+          </ul>
+        </li> -->
+        <li class="dropdown">
+          <a class="dropdown-toggle">
+            Click me for a dropdown, yo!
+          </a>
+          <ul class="dropdown-menu">
+            <li ng-repeat="choice in $scope.test">
+              <a>{{choice}}</a>
+            </li>
+          </ul>
+        </li>
+      </form>
+
+      <div class="alert alert-error" ng-show="showErrors">
+        <p ng-show="form.number.$error.cardNumber">invalid number</p>
+        <p ng-show="form.cvc.$error.cardCVC">invalid cvc</p>
+        <p ng-show="form.expiry.$error.cardExpiry">invalid expiry</p>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button 
+        class="btn btn-primary" 
+        ng-click="makeDeposit()"
+        ng-class="classForButton()">Make Deposit</button>
+    </div>
   </div>
 </div>
