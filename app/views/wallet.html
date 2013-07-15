@@ -2,6 +2,7 @@
   <div class="span12 offset0 content">
     <div class="span8 offset0 main">
       
+      <ng-include src="'views/action-bar.html'"></ng-include>
       <ng-include src="'views/history.html'" ng-show="showHistory"></ng-include>
       <ng-include src="'views/cards.html'" ng-show="showCards"></ng-include>
       <ng-include src="'views/bank-accounts.html'" ng-show="showBankAccounts"></ng-include>
@@ -54,7 +55,7 @@
                 <tr>
                   <td>Cards</td>
                   <td><span class="cc-brand">VISA</span> 3773</td>
-                  <td><button class="btn btn-mini" ng-click="showAddCardModal()">Change</button></td>
+                  <td><button class="btn btn-mini" ng-click="showAddCardModal()">Add</button></td>
                   <ng-include src="'views/add-card-modal.html'"></ng-include>
                 </tr>
               </table>
@@ -66,7 +67,7 @@
                 <tr>
                   <td>Banks</td>
                   <td><span class="wallet-brand">CHASE</span> 1290</td>
-                  <td><button class="btn btn-mini" ng-click="showAddBankAccountModal()">Change</button></td>
+                  <td><button class="btn btn-mini" ng-click="showAddBankAccountModal()">Add</button></td>
                   <ng-include src="'views/add-bank-account-modal.html'"></ng-include>
                 </tr>
               </table>
