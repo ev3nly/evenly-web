@@ -32,7 +32,9 @@ var defaultCallback = function(response) {
 angular.module('evenlyApp')
   .factory('balanced', [function() {
     var devUri = '/v1/marketplaces/TEST-MP6oLyrmIAAsRrnzFWmWAQxo';
-    balanced.init(devUri);
+    var germUri = '/v1/marketplaces/TEST-MP2Hr48FkuOXqouGYxNBibAc';
+    var prodUri = '/v1/marketplaces/MP4KYFmSZjnYzse0tPnu1s7l';
+    balanced.init(germUri);
 
     return {
       tokenizeCard: function(card, callback) {

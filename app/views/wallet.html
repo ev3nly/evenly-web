@@ -12,7 +12,7 @@
 
       <div class="wallet">
         <h3>Wallet</h3>
-        <table>
+        <!-- <table>
           <tr ng-click="selectHistory()">
             <td>Cash</td>
             <td class="wallet-balance">${{$root.me.balance}}</td>
@@ -33,7 +33,46 @@
             <td><button class="btn btn-mini" ng-click="showAddBankAccountModal()">Change</button></td>
             <ng-include src="'views/add-bank-account-modal.html'"></ng-include>
           </tr>
-        </table>
+        </table> -->
+
+        <ul class="nav nav-list">
+          <li ng-class="{active: showHistory}">
+            <a href="" ng-click="selectHistory()">
+              <table>
+                <tr>
+                  <td>Cash</td>
+                  <td class="wallet-balance">${{$root.me.balance}}</td>
+                  <td><button class="btn btn-mini" ng-click="showDepositModal()">Deposit</button></td>
+                  <ng-include src="'views/deposit-modal.html'"></ng-include>
+                </tr>
+              </table>
+            </a>
+          </li>
+          <li ng-class="{active: showCards}">
+            <a href="" ng-click="selectCards()">
+              <table>
+                <tr>
+                  <td>Cards</td>
+                  <td><span class="cc-brand">VISA</span> 3773</td>
+                  <td><button class="btn btn-mini" ng-click="showAddCardModal()">Change</button></td>
+                  <ng-include src="'views/add-card-modal.html'"></ng-include>
+                </tr>
+              </table>
+            </a>
+          </li>
+          <li ng-class="{active: showBankAccounts}">
+            <a href="" ng-click="selectBankAccounts()">
+              <table>
+                <tr>
+                  <td>Banks</td>
+                  <td><span class="wallet-brand">CHASE</span> 1290</td>
+                  <td><button class="btn btn-mini" ng-click="showAddBankAccountModal()">Change</button></td>
+                  <ng-include src="'views/add-bank-account-modal.html'"></ng-include>
+                </tr>
+              </table>
+            </a>
+          </li>
+        </ul>
       </div>
 
       <!-- <div class="stats">
