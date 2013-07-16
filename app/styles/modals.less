@@ -5,9 +5,10 @@
   border: none;
   margin: 0;
   height: (4 * @unit);
-  font-size: @big-font-size;
+  font-size: @medium-font-size;
   padding: 0;
-  padding-top: 20px;
+  padding-top: 10px;
+  padding-right: 10px;
 }
 
 /* Styles */
@@ -36,7 +37,9 @@
 
     .help-inline {
       margin: 0;
-      font-size: @big-font-size;
+      padding-top: 12px;
+      font-size: @medium-font-size;
+      height: (4 * @unit);
     }
 
     // first Row in the modal: Recipient and Amount inputs;
@@ -76,7 +79,10 @@
 
     // Second Row in the Modal: Description textarea;
     .control-group:nth-child(2) {
-      .help-inline {float: left;}
+      .help-inline {
+        float: left;
+        margin-right: 10px;
+      }
 
       div:last-child {
         overflow: hidden;
@@ -93,6 +99,10 @@
 
         textarea[disabled] {background-color: white;}
       }
+    }
+
+    .alert.alert-error {
+      margin: 10px;
     }
   }
 }
