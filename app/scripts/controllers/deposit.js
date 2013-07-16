@@ -5,6 +5,7 @@ angular.module('evenlyApp')
     $scope.makeDeposit = function() {
       if ($scope.submitting) { return; }
       if ($scope.validForm()) {
+        $scope.serverError = null;
         $scope.submitting = true;
         Deposit.create({amount: $scope.amount, bank_account_id: $scope.selectedBankAccount.id})
           .then(function(result) {
@@ -44,7 +45,8 @@ angular.module('evenlyApp')
     })
 
     $scope.validForm = function() {
-      return !$scope.form.amount.$error.currency &&
+      if (!$scope.form.amount) { return; }
+      return !$scope.form.amount.$error.currency && 
         !$scope.form.amount.$error.gte;
     }
 

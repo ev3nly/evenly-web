@@ -6,7 +6,9 @@ angular.module('evenlyApp')
     $rootScope.loadBankAccounts = function() {
       BankAccount.all()
         .then(function(bankAccounts) {
-          // _.each(bankAccounts, function(ba) {console.log(ba);});
+          _.each(bankAccounts, function(ba) {
+            ba.displayName = ba.bank_name.substring(0, 10) + '... ' + ba.account_number;
+          });
           $rootScope.bankAccounts = bankAccounts;
         }, function(response) {
           console.error(response);

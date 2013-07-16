@@ -14,18 +14,18 @@
 
         <div class="btn-group">
           <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="">
-            {{selectedBankAccount.bank_name}} {{selectedBankAccount.account_number}}
+            {{selectedBankAccount.displayName}}
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
             <li ng-repeat="bankAccount in bankAccounts">
-              <a ng-click="selectBankAccountAtIndex($index)">{{bankAccount.bank_name}} {{bankAccount.account_number}}</a>
+              <a ng-click="selectBankAccountAtIndex($index)">{{bankAccount.displayName}}</a>
             </li>
           </ul>
         </div>
       </form>
 
-      <div class="alert alert-error" ng-show="showErrors && !validForm()">
+      <div class="alert alert-error" ng-show="(showErrors && !validForm()) || serverError">
         <p ng-show="!!form.amount.$error.currency">
           must enter a valid dollar amount
         </p>
