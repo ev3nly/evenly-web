@@ -1,3 +1,35 @@
 div[ng-controller="PendingCtrl"] {
   display: inline-block;
 }
+
+.pending-list {
+  width: 400px;
+  height: 400px;
+  overflow: scroll;
+  margin-left: -20px;
+}
+
+.pending-item {
+  .bordered-bottom;
+  margin: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.pending-item:hover {
+  background: @dark-gray;
+  p {
+    color: @white;
+  }
+}
+
+.pending-item:last-child {
+  border-width: 0;
+}
+
+.popover {
+  // top: 67px !important;
+  top: 55px !important;
+  left: -193px !important;
+  max-width: 400px;
+}
