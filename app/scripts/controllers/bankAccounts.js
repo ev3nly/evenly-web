@@ -6,7 +6,7 @@ angular.module('evenlyApp')
     $rootScope.loadBankAccounts = function() {
       BankAccount.all()
         .then(function(bankAccounts) {
-          _.each(bankAccounts, function(ba) {console.log(ba);});
+          // _.each(bankAccounts, function(ba) {console.log(ba);});
           $rootScope.bankAccounts = bankAccounts;
         }, function(response) {
           console.error(response);
@@ -20,7 +20,7 @@ angular.module('evenlyApp')
           console.log(result);
           $scope.loadBankAccounts();
         }, function(response) {
-          console.log('fucked up');
+          console.log('error');
           console.log(response);
           toastr.error(response.data);
         });
@@ -33,7 +33,7 @@ angular.module('evenlyApp')
           console.log(result);
           $scope.loadBankAccounts();
         }, function(response) {
-          console.log('fucked up');
+          console.log('error');
           console.log(response);
           toastr.error(response.data);
         });

@@ -54,4 +54,5 @@ angular.module('evenlyApp')
     };
 
     $scope.showHistory = true;
+    $scope.showDepositModal();
   }]);

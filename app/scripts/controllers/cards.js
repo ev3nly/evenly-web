@@ -6,7 +6,7 @@ angular.module('evenlyApp')
     $rootScope.loadCards = function() {
       CreditCard.all()
         .then(function(cards) {
-          _.each(cards, function(c) {console.log(c);});
+          // _.each(cards, function(c) {console.log(c);});
           $rootScope.cards = cards;
         }, function(response) {
           console.error(response);
@@ -20,7 +20,7 @@ angular.module('evenlyApp')
           console.log(result);
           $scope.loadCards();
         }, function(response) {
-          console.log('fucked up');
+          console.log('error');
           console.log(response);
           toastr.error(response.data);
         });
@@ -33,7 +33,7 @@ angular.module('evenlyApp')
           console.log(result);
           $scope.loadCards();
         }, function(response) {
-          console.log('fucked up');
+          console.log('error');
           console.log(response);
           toastr.error(response.data);
         });

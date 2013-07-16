@@ -4,7 +4,7 @@
 
 angular.module('evenlyApp')
   .controller('HistoryCtrl', ['$scope', 'Me', '$rootScope', function ($scope, Me, $rootScope) {
-    $scope.loadHistory = function() {
+    $rootScope.loadHistory = function() {
       Me.history()
         .then(function(history) {
           $rootScope.history = _.map(history, function(item) {
