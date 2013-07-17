@@ -48,6 +48,10 @@ Evenly.config(['$routeProvider', '$locationProvider', function($routeProvider, $
       templateUrl: 'views/signup.html',
       controller: 'SignupCtrl'
     })
+    .when('/terms', {
+      templateUrl: 'views/terms.html',
+      controller: 'TermsCtrl'
+    })
     .otherwise({
       redirectTo: '/splash'
     });
@@ -130,6 +134,8 @@ Evenly.run(['$location', '$cookieStore', '$rootScope', 'Me', function($location,
       case "/jobs":
       case "/login":
       case "/signup":
+      case "/terms":
+      case "/privacy":
         $('.container').css('width', '100%');
         break;
       default:
@@ -156,6 +162,8 @@ Evenly.run(['$location', '$cookieStore', '$rootScope', 'Me', function($location,
     case "/login":
     case "/splash":
     case "/signup":
+    case "/terms":
+    case "/privacy":
       break;
     default:
       $rootScope.refreshMe();
