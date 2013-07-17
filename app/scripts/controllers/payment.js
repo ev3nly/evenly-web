@@ -18,7 +18,8 @@ angular.module('evenlyApp')
         .create({
           amount:       $scope.amount,
           description:  $scope.description,
-          to:           toJSON
+          to:           toJSON,
+          visibility:   $scope.visibility
         })
         .then(function() {
           $scope.hidePaymentModal();

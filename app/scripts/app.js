@@ -2,7 +2,7 @@
 
 var Evenly = angular.module('evenlyApp', ['restangular', 'ngCookies', 'ui.bootstrap', 'ui.validate', 'Payment']);
 
-Evenly.config(['$routeProvider', function($routeProvider) {
+Evenly.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/main', {
       templateUrl: 'views/main.html',
@@ -51,6 +51,8 @@ Evenly.config(['$routeProvider', function($routeProvider) {
     .otherwise({
       redirectTo: '/splash'
     });
+
+    // $locationProvider.html5Mode(true);
 }]);
 
 Evenly.config(['$httpProvider', function($httpProvider) {

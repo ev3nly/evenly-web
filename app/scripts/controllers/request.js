@@ -7,11 +7,19 @@ angular.module('evenlyApp')
     $scope.makeRequest = function() {
       console.log($scope.recipient + ' owes you $' + $scope.amount + ' for ' + $scope.description);
 
+      var toJSON = null;
+      if ($scope.recipientId) {
+        toJSON = {id: $scope.recipientId}
+      } else {
+        toJSON = {email: $scope.recipient}
+      }
+
       Request
         .create({
           amount:       $scope.amount,
           description:  $scope.description,
-          to:           {email: $scope.recipient}
+          to:           toJSON,
+          visibility:   $scope.visibility
         })
         .then(function() {
           $scope.hideRequestModal();
