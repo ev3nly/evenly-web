@@ -67,7 +67,7 @@ Evenly.config(['$httpProvider', function($httpProvider) {
   $httpProvider.defaults.useXDomain = true; // CORS
   delete $httpProvider.defaults.headers.common['X-Requested-With']; // CORS
 
-  var interceptor = ['$rootScope', '$q', '$cookieStore', function($rootScope, $q, $cookieStore) {
+  var interceptor = ['$rootScope', '$q', function($rootScope, $q) {
     var success = function(response) {
       console.log(response.config.method + ' ' + response.config.url + ' Successful');
       return response;
@@ -77,7 +77,8 @@ Evenly.config(['$httpProvider', function($httpProvider) {
       var status = response.status;
       // $log.error(response.config.method + ' ' + response.config.url + ' failed with ' + status);
       if (status === 401) {
-        $cookieStore.remove('__evvt');
+        alert('Your session has ended.  Please login again');
+        $.removeCookie('__evvt');
         $rootScope.$broadcast('event:loginRequired');
       }
       return $q.reject(response);
@@ -101,12 +102,8 @@ Evenly.config(['RestangularProvider', function(RestangularProvider) {
   // });
 }]);
 
-Evenly.run(['$location', '$cookieStore', '$rootScope', 'Me', function($location, $cookieStore, $rootScope, Me) {
-  if (!$cookieStore.get('__evvt')) {
-    // console.warn('NOT LOGGED IN');
-    // $rootScope.$broadcast('event:loginRequired'); /* too slow... */
-    // $location.path('/splash');
-  }
+Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', function($location, $rootScope, Me, Session, $http) {
+  $http.defaults.headers.common['Authorization'] = Session.getAuthenticationToken();
 
   $rootScope.showNav = true;
   $rootScope.$watch('showNav', function(value) {

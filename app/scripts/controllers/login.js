@@ -2,16 +2,14 @@
 /* global _: false */
 
 angular.module('evenlyApp')
-  .controller('LoginCtrl', ['$scope', 'Session', '$rootScope', function ($scope, Session, $rootScope) {
+  .controller('LoginCtrl', ['$scope', 'Session', '$rootScope', '$location', function ($scope, Session, $rootScope, $location) {
 
     $scope.login = function(email, password) {
       Session
         .create(email, password)
         .then(function(result) {
           console.log(result);
-          var pathComponents = window.location.href.split('/');
-          pathComponents = _.initial(pathComponents, 2);
-          window.location.href = pathComponents.join('/');
+          $location.path('/home');
         });
     };
 

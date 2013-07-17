@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('ProfileCtrl', ['$scope', function ($scope) {
+  .controller('ProfileCtrl', ['$scope', '$rootScope', 'Session', function ($scope, $rootScope, Session) {
     $scope.logout = function() {
       var wantsToLogout = confirm('Are you sure you want to logout?');
       if (wantsToLogout) {
-        alert('should log you out');
+        Session.deleteAuthenticationToken();
+        $rootScope.$broadcast('event:loginRequired');
       } else {
 
       }

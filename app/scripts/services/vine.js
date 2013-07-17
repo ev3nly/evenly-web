@@ -4,7 +4,24 @@
 /*jshint unused: vars */
 /* jshint camelcase: false */
 
-Evenly.factory('Session', ['Restangular', '$rootScope', '$cookieStore', function(Restangular, $rootScope, $cookieStore) {
+Evenly.factory('Session', ['Restangular', '$rootScope', '$http', function(Restangular, $rootScope, $http) {
+  var tokenKey = '__evvt';
+  var setAuthenticationToken = function(token) {
+    var expiry = new Date();
+    var time = expiry.getTime();
+    time += 30 * 60 * 1000;
+    expiry.setTime(time);
+
+    $.cookie(tokenKey, token, { expires: expiry });
+
+    // alert('setting token: ' + token);
+    $http.defaults.headers.common['Authorization'] = token;
+  };
+
+  var getAuthenticationToken = function() {
+    return $.cookie(tokenKey);
+  };
+
   return {
     create: function(email, password) {
       return Restangular
@@ -13,14 +30,22 @@ Evenly.factory('Session', ['Restangular', '$rootScope', '$cookieStore', function
         .then(function(result) {
           console.debug('Session retrieved: ' + result.authentication_token);
 
-          $cookieStore.put('__evvt', result.authentication_token);
-          $rootScope.authenticationToken = result.authentication_token;
+          setAuthenticationToken(result.authentication_token);
           return result;
         });
     },
     destroy: function() {
       return Restangular.one('sessions', '')
         .remove();
+    },
+    setAuthenticationToken: setAuthenticationToken,
+    getAuthenticationToken: getAuthenticationToken,
+    deleteAuthenticationToken: function() {
+      return $.removeCookie(tokenKey);
+    },
+    refreshAuthenticationToken: function() {
+      var token = getAuthenticationToken();
+      setAuthenticationToken(token);
     }
   };
 }]);
@@ -38,16 +63,8 @@ Evenly.factory('User', ['Restangular', function(Restangular) {
   };
 }]);
 
-Evenly.factory('Me', ['Restangular', '$rootScope', '$http', '$cookieStore', function(Restangular, $rootScope, $http, $cookieStore) {
+Evenly.factory('Me', ['Restangular', function(Restangular) {
   var base = Restangular.one('me', '');
-
-  var authenticationToken = null;
-  if ($cookieStore.get('__evvt') !== null) {
-    authenticationToken = $cookieStore.get('__evvt');
-  } else {
-    authenticationToken = $rootScope.authenticationToken;
-  }
-  $http.defaults.headers.common['Authorization'] = authenticationToken;
 
   return {
     get: function() {

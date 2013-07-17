@@ -15,7 +15,8 @@
     "angular-bootstrap": "latest",
     "angular-ui-utils": "latest",
     "underscore": "latest",
-    "datejs": "latest"
+    "datejs": "latest",
+    "jquery.cookie": "latest"
   },
   "devDependencies": {
     "angular-mocks": "~1.0.5",
