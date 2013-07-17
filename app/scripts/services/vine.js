@@ -167,3 +167,16 @@ Evenly.factory('BankAccount', ['Restangular', function(Restangular) {
     }
   };
 }]);
+
+Evenly.factory('Story', ['Restangular', function(Restangular) {
+  return {
+    like: function(storyId) {
+      return Restangular.one('stories', storyId)
+        .customPOST('likes');
+    },
+    unlike: function(storyId) {
+      return Restangular.one('stories', storyId)
+        .customDELETE('likes');
+    }
+  };
+}]);

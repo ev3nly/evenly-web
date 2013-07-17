@@ -15,7 +15,10 @@
           <p><strong>{{story.subject.name}}</strong> {{story.verb}} <strong>{{story.target.name}} for {{story.description}}</p>
           <!-- <p>for {{story.description}}</p> -->
           <p class="story-published">
-            {{story.publishedString}} &middot; <img src="/images/heart.png"> {{story.likes.count}}</img>
+            {{story.publishedString}} &middot; 
+            <a class="heart" href="" ng-click="heartPressed(story)">
+              <img src="{{heartImage(story)}}"> {{story.likesString()}}</img>
+            </a>
           </p>
         </div>
       </div>

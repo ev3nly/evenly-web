@@ -3,13 +3,40 @@
 /* global _: false */
 /* global moment: false */
 
-angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope', function ($scope, Me, $rootScope) {
+angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope', 'Story', function ($scope, Me, $rootScope, Story) {
   $scope.loadNewsfeed = function() {
     Me.newsfeed()
       .then(function(stories) {
         $rootScope.newsfeed = stories;
         _.each(stories, function(s) {
           s.publishedString = moment(s.published_at).fromNow();
+
+          s.likedByUser = function(userId) {
+            var liked = false;
+            _.each(s.likes, function(like) {
+              if (like.liker.id === userId) {
+                liked = true;
+              }
+            });
+            return liked;
+          };
+          
+          s.likesString = function() {
+            if (s.likes.length) {
+              if (s.likedByUser($rootScope.me.id)) {
+                var remainingLikesCount = (s.likes.length - 1);
+                if (remainingLikesCount === 0) {
+                  return 'You';
+                } else {
+                  return 'You + ' + remainingLikesCount.toString();
+                }
+              } else {
+                return s.likes.length.toString();
+              }
+            } else {
+              return "Like";
+            }
+          };
 
           if (s.subject.id !== $rootScope.me.id && s.target.id !== $rootScope.me.id) {
             s.imagePath = '/images/cash-transfer.png';
@@ -29,6 +56,51 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
             }
           }
         });
+      });
+  };
+
+  $scope.heartImage = function(story) {
+    return story.likedByUser($rootScope.me.id) ? '/images/heart-red.png' : '/images/heart.png';
+  };
+
+  $scope.heartPressed = function(story) {
+    if (story.likedByUser($rootScope.me.id)) {
+      $scope.unlike(story);
+    } else {
+      $scope.like(story);
+    }
+  };
+
+  $scope.like = function(story) {
+    var fauxLike = {
+      class: 'Like',
+      liker: {
+        class: 'User',
+        id: $rootScope.me.id,
+        name: $rootScope.me.name
+      }
+    };
+
+    story.likes.push(fauxLike);
+
+    Story.like(story.id)
+      .then(function() {
+
+      }, function(response) {
+        toastr.error(response.data.errors[0]);
+      });
+  };
+
+  $scope.unlike = function(story) {
+    story.likes = _.filter(story.likes, function(like) { 
+      return like.liker.id !== $rootScope.me.id; 
+    });
+
+    Story.unlike(story.id)
+      .then(function() {
+
+      }, function(response) {
+        toastr.error(response.data.message);
       });
   };
 
