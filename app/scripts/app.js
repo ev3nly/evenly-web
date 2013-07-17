@@ -52,6 +52,10 @@ Evenly.config(['$routeProvider', '$locationProvider', function($routeProvider, $
       templateUrl: 'views/terms.html',
       controller: 'TermsCtrl'
     })
+    .when('/privacy', {
+      templateUrl: 'views/privacy.html',
+      controller: 'PrivacyCtrl'
+    })
     .otherwise({
       redirectTo: '/splash'
     });
