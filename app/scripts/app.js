@@ -57,7 +57,7 @@ Evenly.config(['$routeProvider', '$locationProvider', function($routeProvider, $
       controller: 'PrivacyCtrl'
     })
     .otherwise({
-      redirectTo: '/home'
+      redirectTo: '/splash'
     });
 
     // $locationProvider.html5Mode(true);
