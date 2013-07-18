@@ -12,21 +12,21 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
           s.publishedString = moment(s.published_at).fromNow();
 
           if (s.verb === 'withdrew') {
-            s.imagePath = '/images/cash-left.png';
+            s.type = 'left';
           } else if (s.subject.id !== $rootScope.me.id && s.target.id !== $rootScope.me.id) {
-            s.imagePath = '/images/cash-transfer.png';
+            s.type = 'transfer';
           } else {
             if (s.subject.id === $rootScope.me.id) {
               if (s.verb === 'paid') {
-                s.imagePath = '/images/cash-left.png';
+                s.type = 'left';
               } else {
-                s.imagePath = '/images/cash-coming.png';
+                s.type = 'coming';
               }
             } else if (s.target.id === $rootScope.me.id) {
               if (s.verb === 'paid') {
-                s.imagePath = '/images/cash-came.png';
+                s.type = 'came';
               } else {
-                s.imagePath = '/images/cash-leaving.png';
+                s.type = 'leaving';
               }
             }
           }
@@ -61,9 +61,9 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
     }
   };
 
-  $scope.heartImage = function(story) {
-    return $scope.storyLikedByUser(story, $rootScope.me.id) ? '/images/heart-red.png' : '/images/heart.png';
-  };
+  // $scope.heartImage = function(story) {
+  //   return $scope.storyLikedByUser(story, $rootScope.me.id) ? '/images/heart-red.png' : '/images/heart.png';
+  // };
 
   $scope.heartPressed = function(story) {
     if ($scope.storyLikedByUser(story, $rootScope.me.id)) {
