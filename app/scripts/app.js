@@ -163,9 +163,10 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
   $rootScope.selectServerOption = function(option) {
     $rootScope.selectedServerOption = option;
     Restangular.setBaseUrl(option.url);
+    $.cookie('__sc', $rootScope.serverOptions.indexOf(option));
   };
 
-  $rootScope.selectServerOption($rootScope.serverOptions[1]);
+  $rootScope.selectServerOption($rootScope.serverOptions[$.cookie('__sc')] || 1);
 }]);
 
 window.Evenly = Evenly;

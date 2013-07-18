@@ -11,7 +11,9 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
         _.each(stories, function(s) {
           s.publishedString = moment(s.published_at).fromNow();
 
-          if (s.subject.id !== $rootScope.me.id && s.target.id !== $rootScope.me.id) {
+          if (s.verb === 'withdrew') {
+            s.imagePath = '/images/cash-left.png';
+          } else if (s.subject.id !== $rootScope.me.id && s.target.id !== $rootScope.me.id) {
             s.imagePath = '/images/cash-transfer.png';
           } else {
             if (s.subject.id === $rootScope.me.id) {
