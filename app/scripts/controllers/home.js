@@ -4,39 +4,12 @@
 /* global moment: false */
 
 angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope', 'Story', function ($scope, Me, $rootScope, Story) {
-  $scope.loadNewsfeed = function() {
+  $rootScope.loadNewsfeed = function() {
     Me.newsfeed()
       .then(function(stories) {
         $rootScope.newsfeed = stories;
         _.each(stories, function(s) {
           s.publishedString = moment(s.published_at).fromNow();
-
-          s.likedByUser = function(userId) {
-            var liked = false;
-            _.each(s.likes, function(like) {
-              if (like.liker.id === userId) {
-                liked = true;
-              }
-            });
-            return liked;
-          };
-          
-          s.likesString = function() {
-            if (s.likes.length) {
-              if (s.likedByUser($rootScope.me.id)) {
-                var remainingLikesCount = (s.likes.length - 1);
-                if (remainingLikesCount === 0) {
-                  return 'You';
-                } else {
-                  return 'You + ' + remainingLikesCount.toString();
-                }
-              } else {
-                return s.likes.length.toString();
-              }
-            } else {
-              return "Like";
-            }
-          };
 
           if (s.subject.id !== $rootScope.me.id && s.target.id !== $rootScope.me.id) {
             s.imagePath = '/images/cash-transfer.png';
@@ -59,12 +32,39 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
       });
   };
 
+  $scope.storyLikedByUser = function(story, userId) {
+    var liked = false;
+    _.each(story.likes, function(like) {
+      if (like.liker.id === userId) {
+        liked = true;
+      }
+    });
+    return liked;
+  };
+
+  $scope.storyLikesString = function(story) {
+    if (story.likes.length) {
+      if ($scope.storyLikedByUser(story, $rootScope.me.id)) {
+        var remainingLikesCount = (story.likes.length - 1);
+        if (remainingLikesCount === 0) {
+          return 'You';
+        } else {
+          return 'You + ' + remainingLikesCount.toString();
+        }
+      } else {
+        return story.likes.length.toString();
+      }
+    } else {
+      return "Like";
+    }
+  };
+
   $scope.heartImage = function(story) {
-    return story.likedByUser($rootScope.me.id) ? '/images/heart-red.png' : '/images/heart.png';
+    return $scope.storyLikedByUser(story, $rootScope.me.id) ? '/images/heart-red.png' : '/images/heart.png';
   };
 
   $scope.heartPressed = function(story) {
-    if (story.likedByUser($rootScope.me.id)) {
+    if ($scope.storyLikedByUser(story, $rootScope.me.id)) {
       $scope.unlike(story);
     } else {
       $scope.like(story);
