@@ -126,7 +126,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
         $('.container').css('width', '940px');
         break;
     }
-
+    
     switch($location.path()) {
       case "/story":
       case "/contact":
@@ -137,6 +137,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
       case "/signup":
       case "/terms":
       case "/privacy":
+      case "":
         break;
       default:
         $rootScope.refreshMe();
