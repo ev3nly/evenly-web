@@ -92,17 +92,17 @@ Evenly.config(['$httpProvider', function($httpProvider) {
   $httpProvider.responseInterceptors.push(interceptor);
 }]);
 
-Evenly.config(['RestangularProvider', function(RestangularProvider) {
-  // RestangularProvider.setBaseUrl('http://localhost\\:5000/api/v1');
-  RestangularProvider.setBaseUrl('https://germ.herokuapp.com/api/v1');
-  // RestangularProvider.setResponseExtractor(function(response, operation, what, url) {
-  //   console.log("hello dude!");
-  //   alert("sheit up");
-  //   return response.data;
-  // });
-}]);
+// Evenly.config(['RestangularProvider', function(RestangularProvider) {
+//   // RestangularProvider.setBaseUrl('http://localhost\\:5000/api/v1');
+//   // RestangularProvider.setBaseUrl('https://germ.herokuapp.com/api/v1');
+//   // RestangularProvider.setResponseExtractor(function(response, operation, what, url) {
+//   //   console.log("hello dude!");
+//   //   alert("sheit up");
+//   //   return response.data;
+//   // });
+// }]);
 
-Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', function($location, $rootScope, Me, Session, $http) {
+Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', function($location, $rootScope, Me, Session, $http, Restangular) {
   $http.defaults.headers.common['Authorization'] = Session.getAuthenticationToken();
 
   $rootScope.$on('event:loginRequired', function() {
@@ -153,6 +153,19 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', function($locat
         };
       });
   };
+
+  $rootScope.serverOptions = [
+    {name: 'local', url: 'http://localhost\\:5000/api/v1'},
+    {name: 'germ' , url: 'https://germ.herokuapp.com/api/v1'},
+    {name: 'vine' , url: 'https://paywithivy.com/api/v1'}
+  ]
+
+  $rootScope.selectServerOption = function(option) {
+    $rootScope.selectedServerOption = option;
+    Restangular.setBaseUrl(option.url);
+  };
+
+  $rootScope.selectServerOption($rootScope.serverOptions[1]);
 }]);
 
 window.Evenly = Evenly;
