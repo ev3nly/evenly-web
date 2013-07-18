@@ -8,6 +8,4 @@ angular.module('evenlyApp')
     }
 
     $('nav.static-nav').affix();
-
-    $rootScope.showNav = false;
   }]);

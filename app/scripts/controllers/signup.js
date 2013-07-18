@@ -41,6 +41,4 @@ angular.module('evenlyApp')
     }, function(value) {
       console.log("FB.isAuthenticated() ? " + value);
     })
-
-    $rootScope.showNav = false;
   }]);

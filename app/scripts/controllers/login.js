@@ -31,6 +31,4 @@ angular.module('evenlyApp')
         return false;
       }
     };
-
-    $rootScope.showNav = false;
   }]);

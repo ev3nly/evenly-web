@@ -36,8 +36,6 @@ angular.module('evenlyApp')
       }
     ];
 
-    $rootScope.showNav = false;
-
     $scope.facebookContinue = function() {
       if ($FB.isAuthenticated()) {
         console.log('Facebook is Authenticated');

@@ -32,7 +32,10 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <ng-include src="'views/nav.html'" ng-show="showNav"></ng-include>
+    <!-- <div ng-switch on="pageType"> -->
+      <!-- <ng-include src="'views/nav.html'" ng-show="showNav"></ng-include> -->
+    <!-- </div> -->
+
     <div class="container" ng-view></div>
 
     <script type="text/javascript" src="https://js.balancedpayments.com/v1/balanced.js"></script>

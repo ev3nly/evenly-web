@@ -57,7 +57,7 @@ Evenly.config(['$routeProvider', '$locationProvider', function($routeProvider, $
       controller: 'PrivacyCtrl'
     })
     .otherwise({
-      redirectTo: '/splash'
+      redirectTo: '/home'
     });
 
     // $locationProvider.html5Mode(true);
@@ -79,7 +79,7 @@ Evenly.config(['$httpProvider', function($httpProvider) {
       if (status === 401) {
         // alert('Your session has ended.  Please login again');
         $.removeCookie('__evvt');
-        // $rootScope.$broadcast('event:loginRequired');
+        $rootScope.$broadcast('event:loginRequired');
       }
       return $q.reject(response);
     };
@@ -105,29 +105,12 @@ Evenly.config(['RestangularProvider', function(RestangularProvider) {
 Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', function($location, $rootScope, Me, Session, $http) {
   $http.defaults.headers.common['Authorization'] = Session.getAuthenticationToken();
 
-  $rootScope.showNav = true;
-  $rootScope.$watch('showNav', function(value) {
-    if (value) {
-      $('body').css('padding-top', '77');
-    } else {
-      $('body').css('padding-top', '0');
-    }
-  });
-
   $rootScope.$on('event:loginRequired', function() {
     console.warn('Login Required!');
     $location.path('/splash');
   });
 
   $rootScope.$on('$routeChangeStart', function() {
-    var resizeHeight = function(selector) {
-      var screenHeight = $(document).height();
-      $('.static').css('height', screenHeight);
-      console.log("resizing");
-    }
-
-    console.log("route has changed!");
-
     switch($location.path()) {
       case "/story":
       case "/contact":
