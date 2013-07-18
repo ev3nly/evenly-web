@@ -107,7 +107,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', function($locat
 
   $rootScope.$on('event:loginRequired', function() {
     console.warn('Login Required!');
-    $location.path('/splash');
+    $location.path('/login');
   });
 
   $rootScope.$on('$routeChangeStart', function() {
@@ -126,6 +126,22 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', function($locat
         $('.container').css('width', '940px');
         break;
     }
+
+    switch($location.path()) {
+      case "/story":
+      case "/contact":
+      case "/faq":
+      case "/jobs":
+      case "/login":
+      case "/splash":
+      case "/signup":
+      case "/terms":
+      case "/privacy":
+        break;
+      default:
+        $rootScope.refreshMe();
+        break;
+    }
   })
 
   $rootScope.refreshMe = function() {
@@ -137,22 +153,6 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', function($locat
         };
       });
   };
-
-  switch($location.path()) {
-    case "/story":
-    case "/contact":
-    case "/faq":
-    case "/jobs":
-    case "/login":
-    case "/splash":
-    case "/signup":
-    case "/terms":
-    case "/privacy":
-      break;
-    default:
-      $rootScope.refreshMe();
-      break;
-  }
 }]);
 
 window.Evenly = Evenly;
