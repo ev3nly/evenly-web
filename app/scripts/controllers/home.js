@@ -4,6 +4,7 @@
 /* global moment: false */
 
 angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope', 'Story', function ($scope, Me, $rootScope, Story) {
+  $rootScope.showNav = true;
   $scope.loadNewsfeed = function() {
     Me.newsfeed()
       .then(function(stories) {

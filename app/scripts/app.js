@@ -77,9 +77,9 @@ Evenly.config(['$httpProvider', function($httpProvider) {
       var status = response.status;
       // $log.error(response.config.method + ' ' + response.config.url + ' failed with ' + status);
       if (status === 401) {
-        alert('Your session has ended.  Please login again');
+        // alert('Your session has ended.  Please login again');
         $.removeCookie('__evvt');
-        $rootScope.$broadcast('event:loginRequired');
+        // $rootScope.$broadcast('event:loginRequired');
       }
       return $q.reject(response);
     };
