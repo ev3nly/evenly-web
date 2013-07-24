@@ -52,7 +52,7 @@ angular.module('evenlyApp')
           }
         };
 
-        scope.visibility = 'network';
+        scope.visibility = 'friends';
       }
     };
   });
