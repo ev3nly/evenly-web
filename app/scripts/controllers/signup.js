@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('SignupCtrl', ['$scope', '$location', 'User', '$FB', '$timeout', '$rootScope', function ($scope, $location, User, $FB, $timeout, $rootScope) {
+  .controller('SignupCtrl', ['$scope', '$location', 'User', '$FB', '$timeout', '$rootScope', 'Session', function ($scope, $location, User, $FB, $timeout, $rootScope, Session) {
     $scope.signup = function() {
       if (!$scope.submitting) {
         $scope.submitting = true;
@@ -15,7 +15,16 @@ angular.module('evenlyApp')
           facebook_token: $rootScope.fbToken
         }).then(function(user) {
           console.log("created user " + user.name);
-          $scope.submitting = false;
+
+          Session
+            .create($scope.email, $scope.password)
+            .then(function(result) {
+              $location.path('/home');
+              $scope.submitting = false;
+            }, function(response) {
+              $scope.serverError = response.data.message;
+              $scope.submitting = false;
+            });
         }, function(response) {
           console.log(response);
           $scope.submitting = false;
