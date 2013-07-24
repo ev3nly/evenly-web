@@ -25,20 +25,24 @@ angular.module('evenlyApp')
           $scope.hideRequestModal();
           toastr.success('$' + $scope.amount + ' requested from ' + $scope.recipient + ' for ' + $scope.description);
           
-          $scope.newsfeed.unshift({
-            class: "Story",
-            created_at: (new Date()),
-            description: $scope.description,
-            likes: [],
-            published_at: (new Date()),
-            source_type: "Charge",
-            subject: $rootScope.me,
-            target: {
-              class: 'User',
-              name: $scope.recipient
-            },
-            verb: 'requested'
-          });
+          if ($rootScope.newsfeed) {
+            $scope.newsfeed.unshift({
+              class: "Story",
+              created_at: (new Date()),
+              description: $scope.description,
+              likes: [],
+              published_at: (new Date()),
+              source_type: "Charge",
+              subject: $rootScope.me,
+              target: {
+                class: 'User',
+                name: $scope.recipient
+              },
+              verb: 'requested'
+            });
+          } else if ($rootScope.history) {
+            $rootScope.getPending();
+          }
 
           $scope.reset();
         }, function(response) {

@@ -24,20 +24,24 @@ angular.module('evenlyApp')
           $scope.hidePaymentModal();
           toastr.success('$' + $scope.amount + ' sent to ' + $scope.recipient + ' for ' + $scope.description);
 
-          $scope.newsfeed.unshift({
-            class: "Story",
-            created_at: (new Date()),
-            description: $scope.description,
-            likes: [],
-            published_at: (new Date()),
-            source_type: "Payment",
-            subject: $rootScope.me,
-            target: {
-              class: 'User',
-              name: $scope.recipient
-            },
-            verb: 'paid'
-          });
+          if ($rootScope.newsfeed) {
+            $rootScope.newsfeed.unshift({
+              class: "Story",
+              created_at: (new Date()),
+              description: $scope.description,
+              likes: [],
+              published_at: (new Date()),
+              source_type: "Payment",
+              subject: $rootScope.me,
+              target: {
+                class: 'User',
+                name: $scope.recipient
+              },
+              verb: 'paid'
+            });
+          } else if ($rootScope.history) {
+            $rootScope.loadHistory();
+          }
 
           $scope.reset();
         }, function(response) {

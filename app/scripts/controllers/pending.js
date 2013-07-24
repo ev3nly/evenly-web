@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('PendingCtrl', ['$scope', 'Me', 'Request', function ($scope, Me, Request) {
-    $scope.getPending = function() {
+  .controller('PendingCtrl', ['$scope', 'Me', 'Request', '$rootScope', function ($scope, Me, Request, $rootScope) {
+    $rootScope.getPending = function() {
       Me.pending()
         .then(function(pending) {
-          $scope.pending = _.map(pending, function(request) {
+          $rootScope.pending = _.map(pending, function(request) {
             if (request.class === 'GroupCharge') {
               request.subject = request.to === 'me' ? 'You' : request.to;
               request.directObject = request.title;
