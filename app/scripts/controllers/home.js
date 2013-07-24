@@ -11,6 +11,10 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
         _.each(stories, function(s) {
           s.publishedString = moment(s.published_at).fromNow();
 
+          if (s.source_type === 'Hint') {
+            return;
+          }
+
           if (s.verb === 'withdrew') {
             s.type = 'left';
           } else if (s.subject.id !== $rootScope.me.id && s.target.id !== $rootScope.me.id) {
@@ -45,6 +49,10 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
   };
 
   $scope.storyLikesString = function(story) {
+    if (!story.likes) {
+      return "Like";
+    }
+
     if (story.likes.length) {
       if ($scope.storyLikedByUser(story, $rootScope.me.id)) {
         var remainingLikesCount = (story.likes.length - 1);

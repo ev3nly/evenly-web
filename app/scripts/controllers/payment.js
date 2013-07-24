@@ -31,13 +31,15 @@ angular.module('evenlyApp')
               description: $scope.description,
               likes: [],
               published_at: (new Date()),
+              publishedString: 'now',
               source_type: "Payment",
               subject: $rootScope.me,
               target: {
                 class: 'User',
                 name: $scope.recipient
               },
-              verb: 'paid'
+              verb: 'paid',
+              type: 'left'
             });
           } else if ($rootScope.history) {
             $rootScope.loadHistory();

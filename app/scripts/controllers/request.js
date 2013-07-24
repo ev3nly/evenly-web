@@ -32,13 +32,15 @@ angular.module('evenlyApp')
               description: $scope.description,
               likes: [],
               published_at: (new Date()),
+              publishedString: 'now',
               source_type: "Charge",
               subject: $rootScope.me,
               target: {
                 class: 'User',
                 name: $scope.recipient
               },
-              verb: 'requested'
+              verb: 'requested',
+              type: 'coming'
             });
           }
 
