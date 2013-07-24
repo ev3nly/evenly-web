@@ -40,9 +40,9 @@ angular.module('evenlyApp')
               },
               verb: 'requested'
             });
-          } else if ($rootScope.history) {
-            $rootScope.getPending();
           }
+
+          $rootScope.getPending();
 
           $scope.reset();
         }, function(response) {
