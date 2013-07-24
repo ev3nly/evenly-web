@@ -23,7 +23,7 @@ angular.module('evenlyApp')
             item.formattedDate = Date.parse(item.created_at);
             item.amountClass = (item.subject === 'You') ? 'history-item-amount-sent' : 'history-item-amount-received';
 
-            var amountStringPrefix = (item.subject === 'You') ? '+$' : '-$';
+            var amountStringPrefix = (item.subject === 'You') ? '-$' : '+$';
             item.amountString = amountStringPrefix + item.amount;
 
             return item;
