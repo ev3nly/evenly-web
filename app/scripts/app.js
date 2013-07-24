@@ -67,6 +67,8 @@ Evenly.config(['$httpProvider', function($httpProvider) {
   $httpProvider.defaults.useXDomain = true; // CORS
   delete $httpProvider.defaults.headers.common['X-Requested-With']; // CORS
 
+  $httpProvider.defaults.headers.common['Content-Type'] = 'application/json';
+
   var interceptor = ['$rootScope', '$q', function($rootScope, $q) {
     var success = function(response) {
       console.log(response.config.method + ' ' + response.config.url + ' Successful');

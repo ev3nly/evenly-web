@@ -24,6 +24,7 @@ angular.module('evenlyApp')
           console.log('destroyed!');
           console.log(result);
           $scope.loadBankAccounts();
+          toastr.success("Bank Account Deleted!");
         }, function(response) {
           console.log('error');
           console.log(response);
@@ -37,6 +38,7 @@ angular.module('evenlyApp')
           console.log('activated!');
           console.log(result);
           $scope.loadBankAccounts();
+          toastr.success("Bank Account Activated!");
         }, function(response) {
           console.log('error');
           console.log(response);

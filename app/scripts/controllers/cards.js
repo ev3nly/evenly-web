@@ -24,6 +24,7 @@ angular.module('evenlyApp')
           console.log('destroyed!');
           console.log(result);
           $scope.loadCards();
+          toastr.success("Card Deleted!");
         }, function(response) {
           console.log('error');
           console.log(response);
@@ -37,6 +38,7 @@ angular.module('evenlyApp')
           console.log('activated!');
           console.log(result);
           $scope.loadCards();
+          toastr.success("Card Activated!");
         }, function(response) {
           console.log('error');
           console.log(response);
