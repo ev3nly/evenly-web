@@ -8,6 +8,11 @@ angular.module('evenlyApp')
         .then(function(cards) {
           // _.each(cards, function(c) {console.log(c);});
           $rootScope.cards = cards;
+          _.each(cards, function(c) {
+            if (c.status === 'active') {
+              $rootScope.activeCard = c;
+            }
+          });
         }, function(response) {
           console.error(response);
         });

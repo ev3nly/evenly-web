@@ -8,6 +8,9 @@ angular.module('evenlyApp')
         .then(function(bankAccounts) {
           _.each(bankAccounts, function(ba) {
             ba.displayName = ba.bank_name.substring(0, 10) + '... ' + ba.account_number;
+            if (ba.status === 'active') {
+              $rootScope.activeBankAccount = ba;
+            }
           });
           $rootScope.bankAccounts = bankAccounts;
         }, function(response) {
