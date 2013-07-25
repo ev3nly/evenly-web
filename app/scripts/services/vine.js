@@ -4,18 +4,23 @@
 /*jshint unused: vars */
 /* jshint camelcase: false */
 
-Evenly.factory('Session', ['Restangular', '$rootScope', '$http', function(Restangular, $rootScope, $http) {
+Evenly.factory('Session', ['Restangular', '$rootScope', '$http', '$timeout', function(Restangular, $rootScope, $http, $timeout) {
   var tokenKey = '__evvt';
   var setAuthenticationToken = function(token) {
     var expiry = new Date();
     var time = expiry.getTime();
-    time += 30 * 60 * 1000;
+    var expirationTime = 30 * 60 * 1000;
+    time += expirationTime;
     expiry.setTime(time);
 
     $.cookie(tokenKey, token, { expires: expiry });
 
     // alert('setting token: ' + token);
     $http.defaults.headers.common['Authorization'] = token;
+
+    $timeout(function() {
+      $http.defaults.headers.common['Authorization'] = "";      
+    }, expirationTime);
   };
 
   var getAuthenticationToken = function() {
