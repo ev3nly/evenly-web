@@ -56,6 +56,10 @@ Evenly.config(['$routeProvider', '$locationProvider', function($routeProvider, $
       templateUrl: 'views/privacy.html',
       controller: 'PrivacyCtrl'
     })
+    .when('/confirmation', {
+      templateUrl: 'views/confirmation.html',
+      controller: 'ConfirmationCtrl'
+    })
     .otherwise({
       redirectTo: '/splash'
     });
@@ -139,6 +143,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
       case "/signup":
       case "/terms":
       case "/privacy":
+      case "/confirmation":
       case "":
         break;
       default:
