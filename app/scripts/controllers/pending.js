@@ -20,6 +20,7 @@ angular.module('evenlyApp')
             } else {
               request.type = 'leaving';
               request.imageUrl = request.from.avatar_url
+              $rootScope.actionable = true;
             } 
             console.log(request.imageUrl);
 

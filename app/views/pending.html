@@ -1,6 +1,6 @@
 <div class="pending-list">
   <div class="pending-item" ng-repeat="request in pending" ng-click="presentRequest(request)">
-    <div class="story-profile-picture" style="background-image: url('{{request.imageUrl}}')">
+    <div class="pending-profile-picture" style="background-image: url('{{request.imageUrl}}')">
     </div>
     <span class="pull-right" ng-switch on="request.type">
       <img class="story-type" src="/images/cash-left.png" ng-switch-when="left">
