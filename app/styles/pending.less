@@ -2,6 +2,10 @@ div[ng-controller="PendingCtrl"] {
   display: inline-block;
 }
 
+.popover {
+  box-shadow: 0 0 5px 1px #888888;
+}
+
 .pending-list {
   width: 400px;
   height: 400px;
@@ -42,3 +46,16 @@ div[ng-controller="PendingCtrl"] {
 /*.popover.bottom .arrow {
   border-bottom-color: @green;
 }*/
+
+.story-profile-picture {
+  .bordered(1px, @white);
+  .rounded-corners(3px);
+
+  width: 60px;
+  height: 60px;
+  float: left;
+  margin-right: @unit;
+  
+  .image-content-fill('/images/dawwww.jpg');
+  background-size: cover;
+}

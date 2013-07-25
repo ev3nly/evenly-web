@@ -14,6 +14,15 @@ angular.module('evenlyApp')
               request.directObject = request.description;
             }
 
+            if (request.from === 'me') {
+              request.type = 'coming';
+              request.imageUrl = request.to.avatar_url
+            } else {
+              request.type = 'leaving';
+              request.imageUrl = request.from.avatar_url
+            } 
+            console.log(request.imageUrl);
+
             request.formattedDate = Date.parse(request.created_at);
             request.target = request.from.name || request.from;
             request.verb = request.to.name ? 'owes' : 'owe';
