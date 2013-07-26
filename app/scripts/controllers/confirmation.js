@@ -14,9 +14,9 @@ angular.module('evenlyApp')
           $scope.success = true;
         }, function(response) {
           $scope.submitting = false;
-          $scope.serverError = response.data.message;
+          $scope.serverError = "Invalid or expired confirmation link";
         });
     } else {
-      $scope.serverError = "Invalid or expired confirmation link"
+      $scope.serverError = "Invalid or expired confirmation link";
     }
   }]);
