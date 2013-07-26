@@ -128,6 +128,9 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
       case "/privacy":
         $('.container').css('width', '100%');
         break;
+      case "/confirmation":
+        $('.container').css('width', '320px');
+        break;
       default:
         $('.container').css('width', '940px');
         break;
@@ -163,7 +166,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
   };
 
   $rootScope.serverOptions = [
-    {name: 'local', url: 'http://localhost\\:5000/api/v1'},
+    {name: 'local', url: 'http://localhost:5000/api/v1'},
     {name: 'germ' , url: 'https://germ.herokuapp.com/api/v1'},
     {name: 'vine' , url: 'https://paywithivy.com/api/v1'}
   ]

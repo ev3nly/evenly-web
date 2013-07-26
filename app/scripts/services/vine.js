@@ -101,6 +101,10 @@ Evenly.factory('Me', ['Restangular', function(Restangular) {
     pending: function(params) {
       return base
         .getList('pending');
+    },
+    confirmation: function(token) {
+      return base
+        .customPUT('confirmation', {confirmation_token: token});
     }
   };
 }]);
