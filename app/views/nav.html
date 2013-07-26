@@ -6,25 +6,7 @@
         <p>{{'$' + $root.me.balance}}</p>
       </a>
 
-      <ul class="nav pull-right">
-        <li ng-class="stateForItem('home')">
-          <a href="#/home">
-            <img src='/images/nav/nav-home.png'></img>
-            Home
-          </a>
-        </li>
-        <li ng-class="stateForItem('wallet')">
-          <a href="#/wallet">
-            <img src='/images/nav/nav-wallet.png'></img>
-            Wallet
-          </a>
-        </li>
-        <li ng-class="stateForItem('profile')">
-          <a href="#/profile">
-            <img src='/images/nav/nav-profile.png'></img>
-            {{$root.me.firstName()}}
-          </a>
-        </li>
+      <ul class="nav">
         <li ng-controller="PendingCtrl" class="pull-left">
           <a href="" 
             ng-show="true"
@@ -89,6 +71,28 @@
             </div>
           </div>
         </li>
+      </ul>
+
+      <ul class="nav pull-right">
+        <li ng-class="stateForItem('home')">
+          <a href="#/home">
+            <img src='/images/nav/nav-home.png'></img>
+            Home
+          </a>
+        </li>
+        <li ng-class="stateForItem('wallet')">
+          <a href="#/wallet">
+            <img src='/images/nav/nav-wallet.png'></img>
+            Wallet
+          </a>
+        </li>
+        <li ng-class="stateForItem('profile')">
+          <a href="#/profile">
+            <img src='/images/nav/nav-profile.png'></img>
+            {{$root.me.firstName()}}
+          </a>
+        </li>
+        
       </ul>
     </div>
   </div>
