@@ -35,12 +35,16 @@
   color: @white;
   font-weight: 800;
   font-size: 13px;
+
+  display: none;
 }
 
 .btn-splash-inverse {
   .bordered(1px, @border-color);
   background: white;
   color: @black;
+
+  display: block;
 }
 
 .centerpiece {
@@ -131,11 +135,11 @@
         }
 
         button.disabled {
-          display: none;
+          // display: none;
         }
 
         button.btn-social-facebook, a {
-          // display: none;
+          display: none;
         }
       }
 
