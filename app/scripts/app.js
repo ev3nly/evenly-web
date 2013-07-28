@@ -177,7 +177,14 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
     $.cookie('__sc', $rootScope.serverOptions.indexOf(option));
   };
 
-  $rootScope.selectServerOption($rootScope.serverOptions[$.cookie('__sc')] || 1);
+  if (window.location.href.indexOf("evenly.com") !== -1) {
+    console.log('before setting prod url');
+    Restangular.setBaseUrl('https://paywithivy.com/api/v1');
+    console.log('just set prod url');
+    console.log(Restangular);
+  } else {
+    $rootScope.selectServerOption($rootScope.serverOptions[$.cookie('__sc')] || 1);
+  }
 }]);
 
 window.Evenly = Evenly;
