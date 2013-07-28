@@ -179,11 +179,11 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
 
   if (window.location.href.indexOf("evenly.com") !== -1) {
     console.log('before setting prod url');
-    Restangular.setBaseUrl('https://paywithivy.com/api/v1');
+    // Restangular.setBaseUrl('https://paywithivy.com/api/v1');
     console.log('just set prod url');
     console.log(Restangular);
   } else {
-    $rootScope.selectServerOption($rootScope.serverOptions[$.cookie('__sc')] || 1);
+    // $rootScope.selectServerOption($rootScope.serverOptions[$.cookie('__sc')] || 1);
   }
 }]);
 
