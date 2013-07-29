@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('ResetPasswordCtrl', ['$scope', 'Uri', function ($scope, Uri) {
+  .controller('ResetPasswordCtrl', ['$scope', 'Uri', 'Me', function ($scope, Uri, Me) {
     var params = Uri.getVariables(window.location.href);
     console.log(params);
 
