@@ -108,7 +108,7 @@ Evenly.factory('Me', ['Restangular', function(Restangular) {
     },
     resetPassword: function(token, password) {
       return base
-        .customPUT('me/password', {reset_password_token: token, password: password});
+        .customPOST('password', {reset_password_token: token, password: password});
     }
   };
 }]);
