@@ -23,7 +23,7 @@ command :github do |c|
     `grunt build --force`
     say 'build complete'
 
-    say 'deleting all files in github.io repo'
+    # say 'deleting all files in github.io repo'
 
     # Dir.foreach('ev3nly.github.io') do |file|
     #   if file != '.' and file != '..'
@@ -31,7 +31,7 @@ command :github do |c|
     #   end
     # end
     
-    speak_and_say 'moving distribution files to github.io repo'
+    # speak_and_say 'moving distribution files to github.io repo'
 
     Dir.glob(File.join(File.expand_path("./dist"), '*')).each do |file|
       if File.exists?(file)
@@ -41,11 +41,12 @@ command :github do |c|
 
     Dir.chdir 'ev3nly.github.io'
 
-    speak_and_say 'commiting files'
+    # speak_and_say 'commiting files'
     `git add .`
     `git commit . -m 'Rebuilding dist'`
     `git push`
 
+    speak_and_say 'Okay, I am done now Sean, get back to work'
   end
 end
 
