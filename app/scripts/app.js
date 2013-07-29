@@ -64,6 +64,10 @@ Evenly.config(['$routeProvider', '$locationProvider', function($routeProvider, $
       templateUrl: 'views/ios-download.html',
       controller: 'IosDownloadCtrl'
     })
+    .when('/reset-password', {
+      templateUrl: 'views/reset-password.html',
+      controller: 'ResetPasswordCtrl'
+    })
     .otherwise({
       redirectTo: '/splash'
     });
@@ -133,6 +137,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
         $('.container').css('width', '100%');
         break;
       case "/confirmation":
+      case "/reset-password":
       case "/ios-download":
         $('.container').css('width', '320px');
         break;
@@ -152,6 +157,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
       case "/terms":
       case "/privacy":
       case "/confirmation":
+      case "/reset-password":
       case "/ios-download":
       case "":
         break;

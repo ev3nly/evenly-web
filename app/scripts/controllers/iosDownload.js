@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('evenlyWebApp')
+angular.module('evenlyApp')
   .controller('IosDownloadCtrl', ['$scope', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
