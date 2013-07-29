@@ -60,6 +60,10 @@ Evenly.config(['$routeProvider', '$locationProvider', function($routeProvider, $
       templateUrl: 'views/confirmation.html',
       controller: 'ConfirmationCtrl'
     })
+    .when('/ios-download', {
+      templateUrl: 'views/ios-download.html',
+      controller: 'IosDownloadCtrl'
+    })
     .otherwise({
       redirectTo: '/splash'
     });
@@ -129,6 +133,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
         $('.container').css('width', '100%');
         break;
       case "/confirmation":
+      case "/ios-download":
         $('.container').css('width', '320px');
         break;
       default:
@@ -147,6 +152,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
       case "/terms":
       case "/privacy":
       case "/confirmation":
+      case "/ios-download":
       case "":
         break;
       default:
