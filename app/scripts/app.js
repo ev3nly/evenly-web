@@ -178,13 +178,13 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
   };
 
   if (window.location.href.indexOf("evenly.com") !== -1) {
-    $rootScope.selectServerOption(2);
+    $rootScope.selectServerOption($rootScope.serverOptions[2]);
 
     if (window.location.protocol != 'https:') {
       window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
     }
   } else {
-    $rootScope.selectServerOption($rootScope.serverOptions[$.cookie('__sc')] || 1);
+    $rootScope.selectServerOption($rootScope.serverOptions[$.cookie('__sc') || 1]);
   }
 }]);
 
