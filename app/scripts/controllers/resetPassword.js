@@ -5,17 +5,30 @@ angular.module('evenlyApp')
     var params = Uri.getVariables(window.location.href);
     console.log(params);
 
-    if (params.token) {
-      $scope.submitting = true;
-      Me.confirmation(params.token)
-        .then(function(result) {
-          $scope.submitting = false;
-          $scope.success = true;
-        }, function(response) {
-          $scope.submitting = false;
-          $scope.serverError = "Invalid or expired confirmation link";
-        });
-    } else {
-      $scope.serverError = "Invalid or expired confirmation link";
+    $scope.resetPassword = function() {
+      $scope.submitAttempted = true;
+      if ($scope.validForm()) {
+        $scope.submitting = true;
+        Me.resetPassword(params.token, $scope.password)
+          .then(function(result) {
+            $scope.submitting = false;
+            $scope.success = true;
+          }, function(response) {
+            $scope.submitting = false;
+            $scope.serverError = "Invalid or expired reset password link";
+          });
+      }
+    }
+
+    $scope.samePasswords = function() {
+      return $scope.password === $scope.passwordConfirmation;
+    }
+
+    $scope.validForm = function() {
+      return $scope.form.$valid && $scope.samePasswords();
+    }
+
+    if (!params.token) {
+      $scope.noTokenError = "Invalid or expired reset password link";
     }
   }]);
