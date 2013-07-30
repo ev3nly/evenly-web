@@ -124,6 +124,13 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
     $location.path('/login');
   });
 
+  $rootScope.redirectToIosSplash = function() {
+    return;
+    if ((navigator.userAgent.indexOf('iPhone') != -1) ||  (navigator.userAgent.indexOf('iPod') != -1)) {  
+      $location.path('/ios-download')
+    }
+  }
+
   $rootScope.$on('$routeChangeStart', function() {
     switch($location.path()) {
       case "/story":
@@ -135,6 +142,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
       case "/terms":
       case "/privacy":
         $('.container').css('width', '100%');
+        $rootScope.redirectToIosSplash();
         break;
       case "/confirmation":
       case "/reset-password":
@@ -143,6 +151,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
         break;
       default:
         $('.container').css('width', '940px');
+        $rootScope.redirectToIosSplash();
         break;
     }
     
