@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('PendingCtrl', ['$scope', 'Me', 'Request', '$rootScope', 'GroupRequest', function ($scope, Me, Request, $rootScope, GroupRequest) {
+  .controller('PendingCtrl', ['$scope', 'Me', 'Request', '$rootScope', 'GroupRequest', '$timeout', function ($scope, Me, Request, $rootScope, GroupRequest, $timeout) {
     $rootScope.getPending = function() {
       Me.pending()
         .then(function(pending) {
@@ -158,6 +158,29 @@ angular.module('evenlyApp')
     $scope.opts = {
       backdropFade: true,
       dialogFade: true
+    }
+
+    var hidePopover = function(e) {
+      console.log('clicking html');
+      if ($scope.popoverOpen) {
+        console.log('hiding popover');
+        $('a[bs-popover="views/pending.html"]').popover('hide');
+        $('html').unbind('click', hidePopover);
+        $scope.popoverOpen = false;
+      }
+    };
+
+    $scope.popoverOpen = false;
+    $scope.clickedPendingButton = function() {
+      $scope.popoverOpen = !$scope.popoverOpen;
+
+      if ($scope.popoverOpen) {
+        $timeout(function() {
+          $('html').bind('click', hidePopover);
+        }, 500);
+      } else {
+        $('html').unbind('click', hidePopover);
+      }
     }
 
     $scope.getPending();
