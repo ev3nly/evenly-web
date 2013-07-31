@@ -32,7 +32,7 @@
         if (end <= 0) { end = window.location.href.length + 1; }
         var path = window.location.href.substring(start, end);
         path = path.substring(path.indexOf('#') + 1);
-        alert(path);
+        // alert(path);
 
         mixpanel.track(path + ' page loaded', {
             'host': window.location.host
@@ -42,11 +42,11 @@
 
     <!-- disable logging -->
     <script type="text/javascript">
-        if (window.location.host.indexOf('evenly.com')) {
-            console.log = function() {};
-            console.debug = function() {};
-            console.warn = function() {};
-        }
+        // if (window.location.host.indexOf('evenly.com')) {
+        //     console.log = function() {};
+        //     console.debug = function() {};
+        //     console.warn = function() {};
+        // }
     </script>
 
   </head>
