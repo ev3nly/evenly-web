@@ -16,9 +16,24 @@
 
       td:first-child {
         font-size: @medium-font-size;
+        color: @black;
       }
 
-      td:last-child, td:nth-last-child(2) {text-align: right;}
+      td:last-child {
+        text-align: right;
+      }
+    }
+  }
+
+  li:last-child {
+    margin-top: 10px;
+    
+    button {
+      width: 112px;
+    }
+
+    button:first-child {
+      margin-right: 25px;
     }
   }
 }
@@ -27,4 +42,8 @@
   font-size: @medium-font-size;
   font-weight: bold;
   color: @green;
+}
+
+.wallet-cc-number, .wallet-bank-number {
+  color: @dark-gray;
 }

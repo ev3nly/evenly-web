@@ -1,5 +1,13 @@
 .ba-list {
   margin: (2 * @unit) (4 * @unit);
+
+  button.btn-primary {
+    margin-top: 20px;
+  }
+
+  button {
+    margin-left: 5px;
+  }
 }
 
 .ba {
@@ -10,6 +18,8 @@
   padding: @unit;
   display: inline-block;
   vertical-align: middle;
+  min-width: 394px;
+  max-width: 394px;
 }
 
 .ba.selected {
@@ -17,8 +27,8 @@
 }
 
 .ba-brand {
-  .bordered(2px, @dark-gray);
-  .rounded-corners(5px);
+  // .bordered(2px, @dark-gray);
+  // .rounded-corners(5px);
   padding: 2px 4px;
 }
 
