@@ -16,13 +16,12 @@ angular.module('evenlyApp')
 
             if (request.from === 'me') {
               request.type = 'coming';
-              request.imageUrl = request.to.avatar_url
+              request.imageUrl = request.to.avatar_url || $rootScope.defaultProfilePic(request.to.id)
             } else {
               request.type = 'leaving';
-              request.imageUrl = request.from.avatar_url
+              request.imageUrl = request.from.avatar_url || $rootScope.defaultProfilePic(request.from.id)
               $rootScope.actionable = true;
-            } 
-            console.log(request.imageUrl);
+            }
 
             request.formattedDate = Date.parse(request.created_at);
             request.target = request.from.name || request.from;

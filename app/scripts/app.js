@@ -80,6 +80,7 @@ Evenly.config(['$httpProvider', function($httpProvider) {
   delete $httpProvider.defaults.headers.common['X-Requested-With']; // CORS
 
   $httpProvider.defaults.headers.common['Content-Type'] = 'application/json';
+  $httpProvider.defaults.headers.common['Client-Version'] = 'web-v0.1b0';
 
   var interceptor = ['$rootScope', '$q', function($rootScope, $q) {
     var success = function(response) {
@@ -175,6 +176,14 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
         break;
     }
   })
+
+  $rootScope.defaultProfilePic = function(user_id) {
+    if (!user_id) {
+      user_id = Math.floor((Math.random()*100)+1);
+    }
+    var index = user_id % 6 + 1
+    return '/images/profile-' + index + '.png';
+  };
 
   $rootScope.refreshMe = function() {
     Me.get()
