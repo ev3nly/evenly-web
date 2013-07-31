@@ -151,7 +151,10 @@ angular.module('evenlyApp')
     };
 
     $scope.close = function() {
-      $scope.modalOpen = false;
+      $timeout(function() {
+        $scope.modalOpen = false;
+      }, 100);
+
       $scope.pendingReceivedRequestModalShouldBeOpen = false;
       $scope.pendingSentRequestModalShouldBeOpen = false;
       $scope.pendingGroupRequestModalShouldBeOpen = false;
@@ -179,7 +182,7 @@ angular.module('evenlyApp')
       if ($scope.popoverOpen) {
         $timeout(function() {
           $('html').bind('click', hidePopover);
-        }, 500);
+        }, 100);
       } else {
         $('html').unbind('click', hidePopover);
       }
