@@ -43,8 +43,23 @@ angular.module('evenlyApp')
       $scope.buttonTitle = value ? 'Signing Up...' : 'Sign Up';
     });
 
-    console.log("in SignupCtrl");
-    $timeout(function() {
+    $scope.facebookContinue = function() {
+      if ($FB.isAuthenticated()) {
+
+      } else {
+        $FB.login(function(response) {
+          if (response.authResponse) {
+            console.log("logged into Facebook!")
+            $scope.loadFacebookMe();
+            $scope.$apply();
+          } else {
+            console.log("failed to login to Facebook");
+          }
+        }, {scope: 'email'});
+      }
+    };
+
+    $scope.loadFacebookMe = function() {
       console.log("loading /me");
       $FB.api('/me', function(response) {
         $scope.name = response.name;
@@ -53,7 +68,9 @@ angular.module('evenlyApp')
         console.log('loaded /me');
         console.log(response);
       });
-    }, 1000);
+    };
+
+    $timeout($scope.loadFacebookMe, 1000);
 
     $scope.$watch(function() {
       return $FB.isAuthenticated();

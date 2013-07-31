@@ -6,7 +6,17 @@
   </div>
 
   <div class="right">
-    <form class="login-form" name="form">
+    <button 
+      ng-click="facebookContinue()" 
+      href="" 
+      class="btn btn-huge btn-embossed btn-social-facebook"
+      ng-hide="$root.fbToken">
+      
+      <i class="fui-facebook"></i>
+      Continue
+    </button>
+
+    <form ng-show="$root.fbToken" class="login-form" name="form">
       <div class="help-block">Sign Up</div>
           
       <div class="control-group" ng-class="form.name.$error">
