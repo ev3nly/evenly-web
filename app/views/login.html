@@ -24,7 +24,7 @@
         <a href="/#/signup">Sign up here</a>
       </div>
 
-      <div class="btn-group">
+      <div class="btn-group" ng-show="debug">
         <button class="btn" 
           ng-repeat="serverOption in serverOptions" 
           ng-class="{active: serverOption.name == selectedServerOption.name}"

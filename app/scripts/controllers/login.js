@@ -2,7 +2,9 @@
 /* global _: false */
 
 angular.module('evenlyApp')
-  .controller('LoginCtrl', ['$scope', 'Session', '$rootScope', '$location', function ($scope, Session, $rootScope, $location) {
+  .controller('LoginCtrl', ['$scope', 'Session', '$rootScope', '$location', 'Uri', function ($scope, Session, $rootScope, $location, Uri) {
+    var params = Uri.getVariables(window.location.href);
+    $scope.debug = params.debug;
 
     $scope.login = function(email, password) {
       if ($scope.validForm() && !$scope.submitting) {

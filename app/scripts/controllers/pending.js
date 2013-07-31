@@ -9,6 +9,20 @@ angular.module('evenlyApp')
             if (request.class === 'GroupCharge') {
               request.subject = request.to === 'me' ? 'You' : request.to;
               request.directObject = request.title;
+
+              var record = _.find(request.records, function(record) {
+                return record.user.id === $rootScope.me.id;
+              });
+
+              if (record) {
+                var tier = _.find(request.tiers, function(tier) {
+                  return tier.id === record.tier_id
+                });
+
+                if (tier) {
+                  request.amount = tier.price;
+                }
+              }
             } else if (request.class === 'Charge') {
               request.subject = request.to.name || 'You';
               request.directObject = request.description;
