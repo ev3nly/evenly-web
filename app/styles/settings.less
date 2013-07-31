@@ -95,18 +95,33 @@
 
 .settings-notifications {
   clear: both;
-  margin-top: (4 * @settings-section-margin);
+  margin-top: (2 * @settings-section-margin);
+  margin-bottom: (2 * @settings-section-margin);
 
   .settings-notifications-list {
-    .bordered;
-    .rounded-corners;
-
     background: @background-color;
-    padding: (2 * @unit);
 
     .settings-notifications-setting {
       p {
         font-size: @small-font-size;
+      }
+
+      strong {
+        font-size: @medium-font-size;
+      }
+
+      table {
+        float: right;
+        margin-top: -3px;
+      }
+
+      td {
+        text-align: right;
+
+        input {
+          margin-left: 5px;
+          margin-top: -2px;
+        }
       }
     }
   }
