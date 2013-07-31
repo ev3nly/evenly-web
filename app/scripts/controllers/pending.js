@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('PendingCtrl', ['$scope', 'Me', 'Request', '$rootScope', function ($scope, Me, Request, $rootScope) {
+  .controller('PendingCtrl', ['$scope', 'Me', 'Request', '$rootScope', 'GroupRequest', function ($scope, Me, Request, $rootScope, GroupRequest) {
     $rootScope.getPending = function() {
       Me.pending()
         .then(function(pending) {
-          $rootScope.pending = _.map(pending, function(request) {
+          pending = _.map(pending, function(request) {
             if (request.class === 'GroupCharge') {
               request.subject = request.to === 'me' ? 'You' : request.to;
               request.directObject = request.title;
@@ -27,6 +27,19 @@ angular.module('evenlyApp')
             request.target = request.from.name || request.from;
             request.verb = request.to.name ? 'owes' : 'owe';
             return request;
+          });
+
+          // filtering out sent Group Requests
+          $rootScope.pending = _.filter(pending, function(request) {
+            if (request.class === 'GroupCharge') {
+              if (request.subject === 'You') {
+                return true; // You owe
+              } else {
+                return false; // someone owes You
+              }
+            } else {
+              return true;
+            }
           });
         });
     }
@@ -82,6 +95,42 @@ angular.module('evenlyApp')
           $scope.removeRequestFromPending(request);
         }, function(response) {
           $scope.presentRequest(request);
+          $scope.toastGenericFailure(response);
+        });
+      $scope.close();
+    };
+
+    $scope.rejectGroupRequest = function(groupRequest) {
+      var record = _.find(groupRequest.records, function(record) {
+        return record.user.id === $rootScope.me.id;
+      });
+
+      GroupRequest.reject(groupRequest.id, record.id)
+        .then(function() {
+          toastr.success('Rejected ' + groupRequest.from.name + '\'s Request for ' + groupRequest.description);
+          $scope.removeRequestFromPending(groupRequest);
+        }, function(response) {
+          $scope.presentRequest(groupRequest);
+          $scope.toastGenericFailure(response);
+        });
+      $scope.close();
+    };
+
+    $scope.payGroupRequest = function(groupRequest) {
+      var record = _.find(groupRequest.records, function(record) {
+        return record.user.id === $rootScope.me.id;
+      });
+
+      var tier = _.find(groupRequest.tiers, function(tier) {
+        return tier.id === record.tier_id
+      });
+
+      GroupRequest.pay(groupRequest.id, record.id, tier.price)
+        .then(function() {
+          toastr.success('Paid ' + groupRequest.from.name + '\'s $' + tier.price + ' Request for ' + groupRequest.title)
+          $scope.removeRequestFromPending(groupRequest);
+        }, function(response) {
+          $scope.presentRequest(groupRequest);
           $scope.toastGenericFailure(response);
         });
       $scope.close();

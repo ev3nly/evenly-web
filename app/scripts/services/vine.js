@@ -147,6 +147,21 @@ Evenly.factory('Request', ['Restangular', function(Restangular) {
   };
 }]);
 
+Evenly.factory('GroupRequest', ['Restangular', function(Restangular) {
+  return {
+    pay: function(groupRequestId, recordId, amount) {
+      return Restangular.one('group-charges', groupRequestId)
+        .one('records', recordId)
+        .customPOST('payments', {amount: amount});
+    },
+    reject: function(groupRequestId, recordId) {
+      return Restangular.one('group-charges', groupRequestId)
+        .one('records', recordId)
+        .remove();
+    }
+  };
+}]);
+
 Evenly.factory('Deposit', ['Restangular', function(Restangular) {
   return {
     create: function(params) {

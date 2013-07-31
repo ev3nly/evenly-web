@@ -33,7 +33,7 @@
             </div>
 
             <div class="modal-footer">
-              <button class="btn btn-danger cancel" ng-click="cancel(currentRequest)">Cancel</button>
+              <button class="btn btn-danger cancel" ng-click="cancel(currentRequest)">Cancel Request</button>
               <button class="btn btn-primary cancel" ng-click="remind(currentRequest)">Remind</button>
             </div>
           </div>
@@ -60,6 +60,7 @@
           <div modal="pendingGroupRequestModalShouldBeOpen" close="close()" option="opts">
             <div class="modal-header">
               <h3>Pending Group Request</h3>
+              <button class="close" ng-click="close()">×</button>
             </div>
 
             <div class="modal-body">
@@ -67,7 +68,8 @@
             </div>
 
             <div class="modal-footer">
-              <button class="btn btn-warning cancel" ng-click="close()">Cancel</button>
+              <button class="btn btn-danger cancel" ng-click="rejectGroupRequest(currentRequest)">Reject</button>
+              <button class="btn btn-primary cancel" ng-click="payGroupRequest(currentRequest)">Pay</button>
             </div>
           </div>
         </li>
