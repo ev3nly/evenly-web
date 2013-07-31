@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('SettingsCtrl', ['$scope', '$rootScope', 'Me', function ($scope, $rootScope, Me) {
+  .controller('SettingsCtrl', ['$scope', '$rootScope', 'Me', '$timeout', function ($scope, $rootScope, Me, $timeout) {
     $rootScope.$watch('me', function() {
       if ($rootScope.me) {
         $scope.name = $rootScope.me.name;
@@ -49,6 +49,17 @@ angular.module('evenlyApp')
       return $scope.submitting ? "Submitting..." : "Save Profile";
     };
 
+    $scope.openChangePasswordModal = function() {
+      $scope.changePasswordModalShouldBeOpen = true;
+    };
+
+    $scope.closeChangePasswordModal = function() {
+      $scope.changePasswordModalShouldBeOpen = false;
+      $scope.currentPassword = null;
+      $scope.password = null;
+      $scope.passwordConfirmation = null;
+    }
+
     $scope.submitting = false;
 
     $scope.saveProfile = function() {
@@ -76,8 +87,13 @@ angular.module('evenlyApp')
           $scope.submitting = false;
           $scope.password = null;
           $scope.passwordConfirmation = null;
+          $scope.currentPassword = null;
           $rootScope.me = me;
           toastr.success("Profile Updated!");
+
+          // $timeout(function() {
+          //   $scope.closeChangePasswordModal();
+          // }, 1000);
         }, function(response) {
           $scope.submitting = false;
           _.map(response.data.errors, function(error) {

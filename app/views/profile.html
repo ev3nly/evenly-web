@@ -13,19 +13,47 @@
           </div>
         </div>
 
-        <div class="settings-password">
-          <input type="password" placeholder="*******" ng-model="password"></input>
-          <input type="password" placeholder="*******" ng-model="passwordConfirmation"></input>
-          <!-- <button class="btn btn-embossed btn-huge">Change Password</button> -->
-
-          <!-- <div class="alert alert-error" ng-show="true">
-            Passwords are not the same
-          </div> -->
-        </div>
-
         <button class="btn btn-embossed btn-huge" 
           ng-class="{disabled: !saveProfileButtonEnabled()}"
           ng-click="saveProfile()">{{saveProfileButtonTitle()}}</button>
+
+        <div class="settings-password">
+          <button class="btn btn-embossed btn-huge" ng-click="openChangePasswordModal()">Change Password</button>
+
+          <div
+            id="helpme"
+            modal="changePasswordModalShouldBeOpen" 
+            close="closeChangePasswordModal()" 
+            option="opts">
+            <div class="modal-header">
+              <h3>Change Password</h3>
+              <button class="close" ng-click="closeChangePasswordModal()">×</button>
+            </div>
+
+            <div class="modal-body settings-password-form">
+              <div class="control-group">
+                <span class="help-inline">Current Password</span>
+                <input type="password" placeholder="*******" ng-model="currentPassword"></input>
+              </div>
+              <div class="control-group">
+                <span class="help-inline">New Password</span>
+                <input type="password" placeholder="*******" ng-model="password"></input>
+              </div>
+              <div class="control-group">
+                <span class="help-inline">Confirm Password</span>
+                <input type="password" placeholder="*******" ng-model="passwordConfirmation"></input>
+              </div>
+            </div>
+
+            <div class="alert alert-error" ng-show="$scope.password != $scope.passwordConfirmation">
+              Passwords are not the same
+            </div>
+
+            <div class="modal-footer">
+              <button class="btn btn-primary cancel" ng-click="saveProfile()">{{submitting && 'Saving Password' || 'Save Password'}}</button>
+            </div>
+          </div>
+        </div>
 
         <!-- <div class="settings-fb">
           <div>
