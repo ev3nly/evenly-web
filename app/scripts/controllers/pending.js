@@ -137,6 +137,7 @@ angular.module('evenlyApp')
     };
 
     $scope.presentRequest = function(request) {
+      $scope.modalOpen = true;
       $scope.currentRequest = request;
       if (request.class === 'GroupCharge') {
         $scope.pendingGroupRequestModalShouldBeOpen = true;
@@ -150,6 +151,7 @@ angular.module('evenlyApp')
     };
 
     $scope.close = function() {
+      $scope.modalOpen = false;
       $scope.pendingReceivedRequestModalShouldBeOpen = false;
       $scope.pendingSentRequestModalShouldBeOpen = false;
       $scope.pendingGroupRequestModalShouldBeOpen = false;
@@ -162,7 +164,7 @@ angular.module('evenlyApp')
 
     var hidePopover = function(e) {
       console.log('clicking html');
-      if ($scope.popoverOpen) {
+      if ($scope.popoverOpen && !$scope.modalOpen) {
         console.log('hiding popover');
         $('a[bs-popover="views/pending.html"]').popover('hide');
         $('html').unbind('click', hidePopover);
