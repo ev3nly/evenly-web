@@ -24,7 +24,7 @@ angular.module('evenlyApp')
             item.amountClass = (item.subject === 'You') ? 'history-item-amount-sent' : 'history-item-amount-received';
 
             var amountStringPrefix = (item.subject === 'You') ? '-$' : '+$';
-            item.amountString = amountStringPrefix + item.amount;
+            item.amountString = amountStringPrefix + Number(item.amount).toFixed(2);
 
             return item;
           });

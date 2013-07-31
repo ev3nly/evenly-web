@@ -192,6 +192,10 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
         $rootScope.me.firstName = function() {
           return $rootScope.me.name.split(' ')[0];
         };
+
+        $rootScope.me.balanceString = function() {
+          return Number($rootScope.me.balance).toFixed(2);
+        }
       });
   };
 

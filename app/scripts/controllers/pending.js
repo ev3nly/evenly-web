@@ -26,6 +26,9 @@ angular.module('evenlyApp')
             request.formattedDate = Date.parse(request.created_at);
             request.target = request.from.name || request.from;
             request.verb = request.to.name ? 'owes' : 'owe';
+            if (request.amount) {
+              request.amount = Number(request.amount).toFixed(2);
+            }
             return request;
           });
 

@@ -3,7 +3,7 @@
     <div class="navbar-contents">
       <a class="brand nav-brand" href="#/home">
         <img src="/images/nav/nav-logo.png"></img>
-        <p>{{'$' + $root.me.balance}}</p>
+        <p>{{'$' + $root.me.balanceString()}}</p>
       </a>
 
       <ul class="nav">
@@ -34,7 +34,7 @@
             </div>
 
             <div class="modal-footer">
-              <button class="btn btn-danger cancel" ng-click="cancel(currentRequest)">Cancel Request</button>
+              <button class="btn cancel" ng-click="cancel(currentRequest)">Cancel Request</button>
               <button class="btn btn-primary cancel" ng-click="remind(currentRequest)">Remind</button>
             </div>
           </div>
@@ -53,7 +53,7 @@
             </div>
 
             <div class="modal-footer">
-              <button class="btn btn-danger cancel" ng-click="reject(currentRequest)">Reject</button>
+              <button class="btn cancel" ng-click="reject(currentRequest)">Reject</button>
               <button class="btn btn-primary cancel" ng-click="pay(currentRequest)">Pay</button>
             </div>
           </div>
@@ -69,7 +69,7 @@
             </div>
 
             <div class="modal-footer">
-              <button class="btn btn-danger cancel" ng-click="rejectGroupRequest(currentRequest)">Reject</button>
+              <button class="btn cancel" ng-click="rejectGroupRequest(currentRequest)">Reject</button>
               <button class="btn btn-primary cancel" ng-click="payGroupRequest(currentRequest)">Pay</button>
             </div>
           </div>

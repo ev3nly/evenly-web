@@ -1,4 +1,4 @@
-<div modal="addCardShouldBeOpen" close="hideAddCardModal()" options="opts" ng-controller="AddCardCtrl">
+<div modal="addCardShouldBeOpen" close="hideAddCardModal()" options="addCardOpts" ng-controller="AddCardCtrl">
   <div class="modal-header">
     <button class="close" ng-click="hideAddCardModal()">×</button>
     <h3>Credit or Debit Card</h3>
@@ -18,9 +18,9 @@
           card-number
           restrict-numeric
           required>
-      </div>
+      <!-- </div> -->
 
-      <div class="control-group">
+      <!-- <div class="control-group"> -->
         <input 
           type="text" 
           name="expiry"

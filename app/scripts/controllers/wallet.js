@@ -26,10 +26,16 @@ angular.module('evenlyApp')
       $scope.depositShouldBeOpen = false;
     };
 
-    $scope.opts = {
+    $scope.addCardOpts = {
       backdropFade: true,
       dialogFade: true,
       dialogClass: 'modal cc-modal'
+    };
+
+    $scope.addBankAccountOpts = {
+      backdropFade: true,
+      dialogFade: true,
+      dialogClass: 'modal ba-modal'
     };
 
     $scope.selectHistory = function() {

@@ -56,7 +56,7 @@ angular.module('evenlyApp')
           scope.help2 = '';
         }
 
-        scope.help3 = 'for';
+        // scope.help3 = 'What\'d you share?';
         // scope.title = 'TITLE';
         // scope.help1 = 'HELP-1';
         // scope.help2 = 'HELP-2';

@@ -6,15 +6,19 @@
   </div>
 
   <div class="right">
-    <button 
-      ng-click="facebookContinue()" 
-      href="" 
-      class="btn btn-huge btn-embossed btn-social-facebook"
-      ng-hide="$root.fbToken">
-      
-      <i class="fui-facebook"></i>
-      Continue
-    </button>
+    
+    <div class="control-group fb-signup" ng-hide="$root.fbToken">
+      <button 
+        ng-click="facebookContinue()" 
+        href="" 
+        class="btn btn-huge btn-embossed btn-social-facebook">
+        
+        <i class="fui-facebook"></i>
+        Continue
+      </button>
+
+      <p>Get started in 30 seconds</p>
+    </div>
 
     <form ng-show="$root.fbToken" class="login-form" name="form">
       <div class="help-block">Sign Up</div>
@@ -44,7 +48,7 @@
           ng-click='signup()'
           ng-class="{disabled: submitting}">{{buttonTitle}}</button>
         <div class="help-block hint">Have an account? 
-          <a href="/#/login">Log in here.</a>
+          <a href="/#/login">Log in here</a>
         </div>
       </div>
 
