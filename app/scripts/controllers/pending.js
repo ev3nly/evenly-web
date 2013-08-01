@@ -23,7 +23,7 @@ angular.module('evenlyApp')
                   request.amount = tier.price;
                 }
               }
-            } else if (request.class === 'Charge') {
+            } else if (request.class === 'Charge' || request.class === 'SignUpCharge') {
               request.subject = request.to.name || 'You';
               request.directObject = request.description;
             }
@@ -154,11 +154,12 @@ angular.module('evenlyApp')
     };
 
     $scope.presentRequest = function(request) {
+      console.log(request);
       $scope.modalOpen = true;
       $scope.currentRequest = request;
       if (request.class === 'GroupCharge') {
         $scope.pendingGroupRequestModalShouldBeOpen = true;
-      } else if (request.class === "Charge") {
+      } else if (request.class === 'Charge' || request.class === 'SignUpCharge') {
         if (request.to === 'me') {
           $scope.pendingReceivedRequestModalShouldBeOpen = true;
         } else if (request.from === 'me') {
