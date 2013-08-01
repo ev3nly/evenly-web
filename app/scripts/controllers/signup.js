@@ -66,6 +66,7 @@ angular.module('evenlyApp')
         $scope.name = response.name;
         $scope.email = response.email;
         $scope.$apply();
+        $rootScope.fbId = response.id;
         console.log('loaded /me');
         console.log(response);
       });
