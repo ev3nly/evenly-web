@@ -12,7 +12,8 @@ angular.module('evenlyApp')
           phone_number: $scope.phoneNumber,
           password: $scope.password,
           password_confirmation: $scope.password,
-          facebook_token: $rootScope.fbToken
+          facebook_token: $rootScope.fbToken,
+          facebook_id: $rootScope
         }).then(function(user) {
           console.log("created user " + user.name);
 
