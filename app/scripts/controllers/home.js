@@ -100,6 +100,9 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
       }
     };
 
+    if (!story.likes) {
+      story.likes = [];
+    }
     story.likes.push(fauxLike);
 
     Story.like(story.id)
