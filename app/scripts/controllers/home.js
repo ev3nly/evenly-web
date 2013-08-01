@@ -12,7 +12,16 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
           s.publishedString = moment(s.published_at).fromNow();
 
           if (s.source_type === 'Hint') {
+            s.story_type = 'Info';
             return;
+          } else if (s.source_type === 'GettingStarted') {
+            s.story_type = 'Info';
+            return;
+          } else if (s.source_type === 'User') {
+            s.story_type = 'User';
+            return;
+          } else {
+            s.story_type = 'Exchange';
           }
 
           if (s.verb === 'withdrew') {
