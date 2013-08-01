@@ -76,6 +76,7 @@ angular.module('evenlyApp')
               self.authenticated = true;
               console.log("connected from fb directive");
               $rootScope.fbToken = response.authResponse.accessToken;
+              $rootScope.fbId = response.authResponse.userId;
             }
           });
 
