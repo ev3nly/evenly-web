@@ -39,7 +39,8 @@ angular.module('evenlyApp')
                 name: $scope.recipient
               },
               verb: 'paid',
-              type: 'left'
+              type: 'left',
+              story_type: 'Exchange'
             });
           } else if ($rootScope.history) {
             $rootScope.loadHistory();

@@ -40,7 +40,8 @@ angular.module('evenlyApp')
                 name: $scope.recipient
               },
               verb: 'requested',
-              type: 'coming'
+              type: 'coming',
+              story_type: 'Exchange'
             });
           }
 
