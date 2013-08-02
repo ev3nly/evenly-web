@@ -20,6 +20,7 @@ angular.module('evenlyApp')
               }, function(response) {
                 console.log('Failed to add credit card to Vine');
                 console.log(response);
+                toastr.error(response.data.message);
                 $scope.submitting = false;
               });
           }

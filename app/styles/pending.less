@@ -15,6 +15,7 @@ div[ng-controller="PendingCtrl"] {
   margin: 0;
   padding: 10px 20px;
   cursor: pointer;
+  min-height: 80px;
 }
 
 .pending-item:hover {
@@ -52,7 +53,7 @@ div[ng-controller="PendingCtrl"] {
   width: 60px;
   height: 60px;
   float: left;
-  margin-right: @unit;
+  margin-right: (2 * @unit);
   
   .image-content-fill('/images/dawwww.jpg');
   background-size: cover;

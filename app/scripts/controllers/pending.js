@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('PendingCtrl', ['$scope', 'Me', 'Request', '$rootScope', 'GroupRequest', '$timeout', function ($scope, Me, Request, $rootScope, GroupRequest, $timeout) {
+  .controller('PendingCtrl', ['$scope', 'Me', 'Request', '$rootScope', 'GroupRequest', '$timeout', 'Restangular', function ($scope, Me, Request, $rootScope, GroupRequest, $timeout, Restangular) {
     $rootScope.getPending = function() {
       Me.pending()
         .then(function(pending) {
@@ -45,19 +45,6 @@ angular.module('evenlyApp')
             }
             return request;
           });
-
-          // // filtering out sent Group Requests
-          // $rootScope.pending = _.filter(pending, function(request) {
-          //   if (request.class === 'GroupCharge') {
-          //     if (request.subject === 'You') {
-          //       return true; // You owe
-          //     } else {
-          //       return false; // someone owes You
-          //     }
-          //   } else {
-          //     return true;
-          //   }
-          // });
 
           $rootScope.pending = pending;
         });
@@ -155,6 +142,15 @@ angular.module('evenlyApp')
       $scope.close();
     };
 
+    $scope.sendConfirmation = function() {
+      Restangular.one('me', '').post('send-confirmation')
+        .then(function() {
+          toastr.success('Confirmation email has been sent!  Click the link in the email and you should be good to go!');
+        }, function(response) {
+          $scope.toastGenericFailure(response);
+        });
+    };
+
     $scope.presentRequest = function(request) {
       console.log(request);
       $scope.modalOpen = true;
@@ -174,6 +170,11 @@ angular.module('evenlyApp')
       }
     };
 
+    $scope.presentConfirm = function() {
+      $scope.modalOpen = true;
+      $scope.pendingConfirmModalShouldBeOpen = true;
+    };
+
     $scope.close = function() {
       $timeout(function() {
         $scope.modalOpen = false;
@@ -183,6 +184,8 @@ angular.module('evenlyApp')
       $scope.pendingSentRequestModalShouldBeOpen = false;
       $scope.pendingReceivedGroupRequestModalShouldBeOpen = false;
       $scope.pendingSentGroupRequestModalShouldBeOpen = false;
+
+      $scope.pendingConfirmModalShouldBeOpen = false;
     }
 
     $scope.opts = {

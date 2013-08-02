@@ -19,6 +19,7 @@ angular.module('evenlyApp')
               }, function(response) {
                 console.log('Failed to add bank account to Vine');
                 console.log(response);
+                toastr.error(response.data.message);
                 $scope.submitting = false;
               });
           }
