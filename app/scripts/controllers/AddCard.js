@@ -23,6 +23,8 @@ angular.module('evenlyApp')
                 toastr.error(response.data.message);
                 $scope.submitting = false;
               });
+          } else {
+            $scope.submitting = false;
           }
         });
       } else {

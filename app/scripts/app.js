@@ -199,9 +199,21 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
   };
 
   $rootScope.serverOptions = [
-    {name: 'local', url: 'http://localhost:5000/api/v1'},
-    {name: 'germ' , url: 'https://germ.herokuapp.com/api/v1'},
-    {name: 'vine' , url: 'https://paywithivy.com/api/v1'}
+    {
+      name: 'local', 
+      url: 'http://localhost:5000/api/v1',
+      balancedUri: '/v1/marketplaces/TEST-MP6oLyrmIAAsRrnzFWmWAQxo'
+    },
+    {
+      name: 'germ', 
+      url: 'https://germ.herokuapp.com/api/v1',
+      balancedUri: '/v1/marketplaces/TEST-MP2Hr48FkuOXqouGYxNBibAc'
+    },
+    {
+      name: 'vine', 
+      url: 'https://paywithivy.com/api/v1',
+      balancedUri: '/v1/marketplaces/MP4KYFmSZjnYzse0tPnu1s7l'
+    }
   ]
 
   $rootScope.selectServerOption = function(option) {

@@ -11,30 +11,30 @@ var defaultCallback = function(response) {
     break;
   case 400:
     // missing field - check response.error for details
-    console.error('missing fields');
+    toastr.error('There are missing fields');
     break;
   case 402:
     // we couldn't authorize the buyer's credit card
     // check response.error for details
-    console.error('couldn\'t authorize the buyer\'s credit card');
+    toastr.error('We\'re sorry, we couldn\'t authorize the credit card.');
     break;
   case 404:
     // your marketplace URI is incorrect
-    console.error('incorrect marketplace URI');
+    toastr.error('incorrect marketplace URI');
     break;
   case 500:
     // Balanced did something bad, please retry the request
-    console.error('retry');
+    toastr.error('We\' sorry, there was an error processing your request.  Please try again');
     break;
   }
 };
 
 angular.module('evenlyApp')
-  .factory('balanced', [function() {
+  .factory('balanced', ['$rootScope', function($rootScope) {
     var devUri = '/v1/marketplaces/TEST-MP6oLyrmIAAsRrnzFWmWAQxo';
     var germUri = '/v1/marketplaces/TEST-MP2Hr48FkuOXqouGYxNBibAc';
     var prodUri = '/v1/marketplaces/MP4KYFmSZjnYzse0tPnu1s7l';
-    balanced.init(germUri);
+    balanced.init($rootScope.selectedServerOption.balancedUri);
 
     return {
       tokenizeCard: function(card, callback) {
