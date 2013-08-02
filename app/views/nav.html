@@ -44,7 +44,10 @@
             </div>
 
             <div class="modal-footer">
-              <button class="btn btn-primary" ng-click="sendConfirmation()">Resend Email</button>
+              <button 
+                class="btn btn-primary" 
+                ng-click="sendConfirmation()"
+                ng-disabled="sendingConfirmation">{{sendingConfirmation && 'Sending...' || 'Resend Email'}}</button>
             </div>
           </div>
 

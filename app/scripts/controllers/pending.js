@@ -143,11 +143,14 @@ angular.module('evenlyApp')
     };
 
     $scope.sendConfirmation = function() {
+      $scope.sendingConfirmation = true;
       Restangular.one('me', '').post('send-confirmation')
         .then(function() {
           toastr.success('Confirmation email has been sent!  Click the link in the email and you should be good to go!');
+          $scope.sendingConfirmation = false;
         }, function(response) {
           $scope.toastGenericFailure(response);
+          $scope.sendingConfirmation = false;
         });
     };
 
