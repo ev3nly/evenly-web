@@ -17,4 +17,11 @@
     </p>
     <p>{{request.formattedDate.toString('MMM dd')}}</p>
   </div>
+
+  <div class="pending-no-results" ng-show="pending.length == 0">
+    <p>
+      You're all settled up!
+    </p>
+    <img src="/images/logo-inverse-huge.png">
+  </div>
 </div>

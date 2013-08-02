@@ -46,18 +46,20 @@ angular.module('evenlyApp')
             return request;
           });
 
-          // filtering out sent Group Requests
-          $rootScope.pending = _.filter(pending, function(request) {
-            if (request.class === 'GroupCharge') {
-              if (request.subject === 'You') {
-                return true; // You owe
-              } else {
-                return false; // someone owes You
-              }
-            } else {
-              return true;
-            }
-          });
+          // // filtering out sent Group Requests
+          // $rootScope.pending = _.filter(pending, function(request) {
+          //   if (request.class === 'GroupCharge') {
+          //     if (request.subject === 'You') {
+          //       return true; // You owe
+          //     } else {
+          //       return false; // someone owes You
+          //     }
+          //   } else {
+          //     return true;
+          //   }
+          // });
+
+          $rootScope.pending = pending;
         });
     }
 
@@ -158,7 +160,11 @@ angular.module('evenlyApp')
       $scope.modalOpen = true;
       $scope.currentRequest = request;
       if (request.class === 'GroupCharge') {
-        $scope.pendingGroupRequestModalShouldBeOpen = true;
+        if (request.to === 'me') {
+          $scope.pendingReceivedGroupRequestModalShouldBeOpen = true;
+        } else if (request.from === 'me') {
+          $scope.pendingSentGroupRequestModalShouldBeOpen = true;
+        }
       } else if (request.class === 'Charge' || request.class === 'SignUpCharge') {
         if (request.to === 'me') {
           $scope.pendingReceivedRequestModalShouldBeOpen = true;
@@ -175,7 +181,8 @@ angular.module('evenlyApp')
 
       $scope.pendingReceivedRequestModalShouldBeOpen = false;
       $scope.pendingSentRequestModalShouldBeOpen = false;
-      $scope.pendingGroupRequestModalShouldBeOpen = false;
+      $scope.pendingReceivedGroupRequestModalShouldBeOpen = false;
+      $scope.pendingSentGroupRequestModalShouldBeOpen = false;
     }
 
     $scope.opts = {

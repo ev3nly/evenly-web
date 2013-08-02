@@ -46,7 +46,8 @@ Evenly.factory('Session', ['Restangular', '$rootScope', '$http', '$timeout', fun
     setAuthenticationToken: setAuthenticationToken,
     getAuthenticationToken: getAuthenticationToken,
     deleteAuthenticationToken: function() {
-      return $.removeCookie(tokenKey);
+      $.removeCookie(tokenKey);
+      setAuthenticationToken(null);
     },
     refreshAuthenticationToken: function() {
       var token = getAuthenticationToken();
