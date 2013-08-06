@@ -4,15 +4,11 @@
 
   background: @white;
   height: 50px;
-  padding: 0 50px;
-  // width: 400px;
-  // margin: auto;
 
   > div:first-child {
     .bordered-right;
 
     float: left;
-    // background: red;
     
     a { 
       float: left; 
@@ -22,7 +18,6 @@
 
   > div:last-child {
     float: right;
-    // background: blue;
     
     a { 
       float: right; 
@@ -33,6 +28,7 @@
   > div {
     width: 50%;
     height: 100%;
+    padding: 0 40px;
 
     a {
       margin: 10px auto;
@@ -46,6 +42,10 @@
         padding: 0 10px;
       }
     }
+  }
+
+  >div:hover {
+    background: @gray;
   }
 }
 
