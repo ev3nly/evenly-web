@@ -59,54 +59,99 @@ angular.module('evenlyApp')
       toastr.error(response.data, 'Error, please try again');
     };
 
+    $scope.cancelButtonTitle = function () {
+      return $scope.canceling ? "Canceling..." : "Cancel Request"
+    };
+
+    $scope.remindButtonTitle = function () {
+      return $scope.reminding ? "Reminding..." : "Remind"
+    };
+
+    $scope.rejectButtonTitle = function () {
+      return $scope.rejecting ? "Rejecting..." : "Reject Request"
+    };
+
+    $scope.payButtonTitle = function () {
+      return $scope.paying ? "Paying..." : "Pay Request"
+    };
+
     $scope.cancel = function(request) {
+      if ($scope.canceling) { return; }
+      if ($scope.reminding) { return; }
+
+      $scope.canceling = true;
       Request.cancel(request.id)
         .then(function() {
           toastr.success('Canceled your $' + request.amount + ' Request to ' + request.to.name + ' for ' + request.description);
           $scope.removeRequestFromPending(request);
+          $scope.close()
+          $scope.canceling = false;
         }, function(response) {
           $scope.presentRequest(request);
           $scope.toastGenericFailure(response);
+          $scope.canceling = false;
         });
-      $scope.close()
     };
 
     $scope.remind = function(request) {
+      if ($scope.canceling) { return; }
+      if ($scope.reminding) { return; }
+
+      $scope.reminding = true;
       Request.remind(request.id)
         .then(function() {
           toastr.success('Reminded ' + request.to.name + ' to pay you $' + request.amount + ' for ' + request.description);
+          $scope.close();
+          $scope.reminding = false;
         }, function(response) {
           $scope.presentRequest(request);
           $scope.toastGenericFailure(response);
+          $scope.reminding = false;
         });
-      $scope.close();
     };
 
     $scope.reject = function(request) {
+      if ($scope.rejecting) { return; }
+      if ($scope.paying) { return; }
+
+      $scope.rejecting = true;
       Request.deny(request.id)
         .then(function() {
           toastr.success('Rejected ' + request.from.name + '\'s $' + request.amount + ' Request for ' + request.description);
           $scope.removeRequestFromPending(request);
+          $scope.close();
+          $scope.rejecting = false;
         }, function(response) {
           $scope.presentRequest(request);
           $scope.toastGenericFailure(response);
+          $scope.rejecting = false;
         });
-      $scope.close();
     };
 
     $scope.pay = function(request) {
+      if ($scope.rejecting) { return; }
+      if ($scope.paying) { return; }
+
+      $scope.paying = true;
       Request.complete(request.id)
         .then(function() {
           toastr.success('Paid ' + request.from.name + '\'s $' + request.amount + ' Request for ' + request.description);
           $scope.removeRequestFromPending(request);
+          $scope.close();
+          $scope.paying = false;
         }, function(response) {
           $scope.presentRequest(request);
           $scope.toastGenericFailure(response);
+          $scope.paying = false;
         });
-      $scope.close();
     };
 
     $scope.rejectGroupRequest = function(groupRequest) {
+      if ($scope.rejecting) { return; }
+      if ($scope.paying) { return; }
+
+      $scope.rejecting = true;
+
       var record = _.find(groupRequest.records, function(record) {
         return record.user.id === $rootScope.me.id;
       });
@@ -115,14 +160,21 @@ angular.module('evenlyApp')
         .then(function() {
           toastr.success('Rejected ' + groupRequest.from.name + '\'s Request for ' + groupRequest.description);
           $scope.removeRequestFromPending(groupRequest);
+          $scope.close();
+          $scope.rejecting = false;
         }, function(response) {
           $scope.presentRequest(groupRequest);
           $scope.toastGenericFailure(response);
+          $scope.rejecting = false;
         });
-      $scope.close();
     };
 
     $scope.payGroupRequest = function(groupRequest) {
+      if ($scope.rejecting) { return; }
+      if ($scope.paying) { return; }
+
+      $scope.paying = true;
+
       var record = _.find(groupRequest.records, function(record) {
         return record.user.id === $rootScope.me.id;
       });
@@ -135,11 +187,13 @@ angular.module('evenlyApp')
         .then(function() {
           toastr.success('Paid ' + groupRequest.from.name + '\'s $' + tier.price + ' Request for ' + groupRequest.title)
           $scope.removeRequestFromPending(groupRequest);
+          $scope.close();
+          $scope.paying = false;
         }, function(response) {
           $scope.presentRequest(groupRequest);
           $scope.toastGenericFailure(response);
+          $scope.paying = false;
         });
-      $scope.close();
     };
 
     $scope.sendConfirmation = function() {
