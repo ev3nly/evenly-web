@@ -22,7 +22,7 @@ angular.module('evenlyApp')
     };
 
     $scope.$watch('submitting', function(value) {
-      $scope.buttonTitle = value ? 'Waiting...' : 'Continue';
+      $scope.buttonTitle = value ? 'Logging in...' : 'Continue';
     });
 
     $scope.validForm = function() {
