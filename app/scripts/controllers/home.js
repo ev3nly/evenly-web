@@ -10,12 +10,17 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
         $rootScope.newsfeed = stories;
         _.each(stories, function(s) {
           s.publishedString = moment(s.published_at).fromNow();
+          if (!s.id) {
+            s.publishedString = 'Example';
+          }
 
           if (s.source_type === 'Hint') {
             s.story_type = 'Info';
+            s.publishedString = 'Hint';
             return;
           } else if (s.source_type === 'GettingStarted') {
             s.story_type = 'Info';
+            s.publishedString = 'Getting Started';
             return;
           } else if (s.source_type === 'User') {
             s.story_type = 'User';
