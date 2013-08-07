@@ -107,6 +107,10 @@ Evenly.config(['$httpProvider', function($httpProvider) {
   $httpProvider.responseInterceptors.push(interceptor);
 }]);
 
+Evenly.config(['$compileProvider', function($compileProvider) {
+  $compileProvider.urlSanitizationWhitelist(/^\s*(https?|itms-services|mailto|tel):/);
+}]);
+
 // Evenly.config(['RestangularProvider', function(RestangularProvider) {
 //   // RestangularProvider.setBaseUrl('http://localhost\\:5000/api/v1');
 //   // RestangularProvider.setBaseUrl('https://germ.herokuapp.com/api/v1');
