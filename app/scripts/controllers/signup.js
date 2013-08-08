@@ -38,8 +38,6 @@ angular.module('evenlyApp')
       }
     };
 
-    $rootScope.fbToken = "feawjo";
-
     $scope.serverErrors = [];
 
     $scope.$watch('submitting', function(value) {
