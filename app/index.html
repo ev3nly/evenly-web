@@ -40,7 +40,7 @@
     </script>
     <!-- end Mixpanel -->
 
-    <!-- disable logging -->
+    <!-- Disable Logging -->
     <script type="text/javascript">
         // if (window.location.host.indexOf('evenly.com')) {
         //     console.log = function() {};
@@ -48,6 +48,24 @@
         //     console.warn = function() {};
         // }
     </script>
+    <!-- end Disable Logging -->
+
+    <!-- Facebook Conversion -->
+    <script type="text/javascript">
+    var fb_param = {};
+    fb_param.pixel_id = '6007877983954';
+    fb_param.value = '0.00';
+    fb_param.currency = 'USD';
+    (function(){
+     var fpw = document.createElement('script');
+     fpw.async = true;
+     fpw.src = '//connect.facebook.net/en_US/fp.js';
+     var ref = document.getElementsByTagName('script')[0];
+     ref.parentNode.insertBefore(fpw, ref);
+    })();
+    </script>
+    <noscript><img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/offsite_event.php?id=6007877983954&amp;value=0&amp;currency=USD" /></noscript>
+    <!-- end Facebook Conversion -->
 
   </head>
   <body ng-app="evenlyApp">
