@@ -264,6 +264,14 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
     $rootScope.depositShouldBeOpen = false;
   };
 
+  $rootScope.showInviteModal = function() {
+    $rootScope.inviteShouldBeOpen = true;
+  };
+
+  $rootScope.hideInviteModal = function() {
+    $rootScope.inviteShouldBeOpen = false;
+  };
+
   $rootScope.addCardOpts = {
     backdropFade: true,
     dialogFade: true,
@@ -274,6 +282,11 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
     backdropFade: true,
     dialogFade: true,
     dialogClass: 'modal ba-modal'
+  };
+
+  $rootScope.inviteOpts = {
+    backdropFade: true,
+    dialogFade: true
   };
 }]);
 
