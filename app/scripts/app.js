@@ -198,7 +198,15 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
 
         $rootScope.me.balanceString = function() {
           return Number($rootScope.me.balance).toFixed(2);
-        }
+        };
+
+        $rootScope.me.confirmedUser = !!$rootScope.me.roles.indexOf('confirmed_user');
+        $rootScope.me.facebookUser = !!$rootScope.me.roles.indexOf('facebook_user');
+        $rootScope.me.buyer = !!$rootScope.me.roles.indexOf('buyer');
+        $rootScope.me.seller = !!$rootScope.me.roles.indexOf('seller');
+        $rootScope.me.inviter = !!$rootScope.me.roles.indexOf('inviter');
+        $rootScope.me.requester = !!$rootScope.me.roles.indexOf('requester');
+        $rootScope.me.payer = !!$rootScope.me.roles.indexOf('payer');
       });
   };
 
@@ -286,7 +294,8 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
 
   $rootScope.inviteOpts = {
     backdropFade: true,
-    dialogFade: true
+    dialogFade: true,
+    dialogClass: 'modal invite-modal'
   };
 }]);
 
