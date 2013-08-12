@@ -3,7 +3,7 @@
 /* global _: false */
 /* global moment: false */
 
-angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope', 'Story', function ($scope, Me, $rootScope, Story) {
+angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope', 'Story', '$FB', function ($scope, Me, $rootScope, Story, $FB) {
   $rootScope.loadNewsfeed = function() {
     Me.newsfeed()
       .then(function(stories) {
@@ -140,4 +140,19 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
   if ($rootScope.me) {
     $scope.loadNewsfeed();
   }
+
+  $scope.facebookContinue = function() {
+    if ($FB.isAuthenticated()) {
+
+    } else {
+      $FB.login(function(response) {
+        if (response.authResponse) {
+          console.log("logged into Facebook!")
+          $scope.$apply();
+        } else {
+          console.log("failed to login to Facebook");
+        }
+      }, {scope: 'email'});
+    }
+  };
 }]);

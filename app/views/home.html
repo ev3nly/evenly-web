@@ -60,13 +60,13 @@
         </div>
 
         <div class="onboarding-section onboarding-fb-connect">
-          <button class="btn btn-mini btn-embossed">Connect</button>
+          <button class="btn btn-mini btn-embossed" ng-click="facebookContinue()">Connect</button>
           <p class="onboarding-section-title">Connect with Facebook</p>
           <p class="onboarding-section-description">Share the experience with friends</p>
         </div>
 
         <div class="onboarding-section onboarding-add-card">
-          <button class="btn btn-mini btn-embossed">Add</button>
+          <button class="btn btn-mini btn-embossed" ng-click="showAddCardModal()">Add</button>
           <p class="onboarding-section-title">Add a card</p>
           <p class="onboarding-section-description">Use any debit or credit card</p>
         </div>
@@ -78,13 +78,31 @@
         </div>
 
         <div class="onboarding-section onboarding-exchange">
-          <button class="btn btn-mini btn-embossed">Send</button>
-          <p class="onboarding-section-title">Send a payment or request</p>
+          <button class="btn btn-mini btn-embossed" ng-click="showPaymentModal()">Send</button>
+          <!-- <button
+            ng-href="{{selectedbetaOptionUrl()}}" 
+            class="btn btn-mini btn-embosssed">Send</button>
+          <a class="btn btn-mini btn-embossed dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-inverse">
+            <li class="pull-left">
+              <a ng-click="showPaymentModal()">Payment</a>
+            </li>
+            <li class="pull-left">
+              <a ng-click="showRequestModal()">Request</a>
+            </li>
+          </ul> -->
+
+          <p class="onboarding-section-title">
+            Send a <a href="" ng-click="showPaymentModal()">payment</a> or 
+            <a href="" ng-click="showRequestModal()">request</a>
+          </p>
           <p class="onboarding-section-description">It only takes 10 seconds</p>
         </div>
 
         <div class="onboarding-section onboarding-add-bank">
-          <button class="btn btn-mini btn-embossed">Add</button>
+          <button class="btn btn-mini btn-embossed" ng-click="showAddBankAccountModal()">Add</button>
           <p class="onboarding-section-title">Add a bank</p>
           <p class="onboarding-section-description">Deposit your Evenly Cash</p>
         </div>

@@ -202,6 +202,8 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
       });
   };
 
+  /* Server Options for switching between Germ, Vine, and Localhost */
+
   $rootScope.serverOptions = [
     {
       name: 'local', 
@@ -235,6 +237,44 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
   } else {
     $rootScope.selectServerOption($rootScope.serverOptions[$.cookie('__sc') || 1]);
   }
+
+  /* Modals for Cards and Banks */
+
+  $rootScope.showAddCardModal = function() {
+    $rootScope.addCardShouldBeOpen = true;
+  };
+
+  $rootScope.hideAddCardModal = function() {
+    $rootScope.addCardShouldBeOpen = false;
+  };
+
+  $rootScope.showAddBankAccountModal = function() {
+    $rootScope.addBankAccountShouldBeOpen = true;
+  };
+
+  $rootScope.hideAddBankAccountModal = function() {
+    $rootScope.addBankAccountShouldBeOpen = false;
+  };
+
+  $rootScope.showDepositModal = function() {
+    $rootScope.depositShouldBeOpen = true;
+  };
+
+  $rootScope.hideDepositModal = function() {
+    $rootScope.depositShouldBeOpen = false;
+  };
+
+  $rootScope.addCardOpts = {
+    backdropFade: true,
+    dialogFade: true,
+    dialogClass: 'modal cc-modal'
+  };
+
+  $rootScope.addBankAccountOpts = {
+    backdropFade: true,
+    dialogFade: true,
+    dialogClass: 'modal ba-modal'
+  };
 }]);
 
 window.Evenly = Evenly;
