@@ -200,13 +200,20 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
           return Number($rootScope.me.balance).toFixed(2);
         };
 
-        $rootScope.me.confirmedUser = !!$rootScope.me.roles.indexOf('confirmed_user');
-        $rootScope.me.facebookUser = !!$rootScope.me.roles.indexOf('facebook_user');
-        $rootScope.me.buyer = !!$rootScope.me.roles.indexOf('buyer');
-        $rootScope.me.seller = !!$rootScope.me.roles.indexOf('seller');
-        $rootScope.me.inviter = !!$rootScope.me.roles.indexOf('inviter');
-        $rootScope.me.requester = !!$rootScope.me.roles.indexOf('requester');
-        $rootScope.me.payer = !!$rootScope.me.roles.indexOf('payer');
+        $rootScope.me.confirmedUser = $rootScope.me.roles.indexOf('confirmed_user') >= 0;
+        $rootScope.me.facebookUser = $rootScope.me.roles.indexOf('facebook_user') >= 0;
+        $rootScope.me.buyer = $rootScope.me.roles.indexOf('buyer') >= 0;
+        $rootScope.me.seller = $rootScope.me.roles.indexOf('seller') >= 0;
+        $rootScope.me.inviter = $rootScope.me.roles.indexOf('inviter') >= 0;
+        $rootScope.me.requester = $rootScope.me.roles.indexOf('requester') >= 0;
+        $rootScope.me.payer = $rootScope.me.roles.indexOf('payer') >= 0;
+
+        $rootScope.me.onboarded = $rootScope.me.confirmedUser &&
+          $rootScope.me.facebookUser &&
+          $rootScope.me.buyer &&
+          $rootScope.me.seller &&
+          $rootScope.me.inviter &&
+          ($rootScope.me.requester || $rootScope.me.payer);
       });
   };
 
