@@ -236,6 +236,10 @@ Evenly.factory('Invite', ['Restangular', function(Restangular) {
     create: function(email) {
       return Restangular.all('invites')
         .post({email: email});
+    },
+    iOSDownload: function() {
+      return Restangular.all('invites') 
+        .customPOST('ios-app-download');
     }
   };
 }]);

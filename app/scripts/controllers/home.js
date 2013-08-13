@@ -3,7 +3,7 @@
 /* global _: false */
 /* global moment: false */
 
-angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope', 'Story', '$FB', function ($scope, Me, $rootScope, Story, $FB) {
+angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope', 'Story', '$FB', 'Invite', function ($scope, Me, $rootScope, Story, $FB, Invite) {
   $rootScope.loadNewsfeed = function() {
     Me.newsfeed()
       .then(function(stories) {
@@ -155,4 +155,16 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
       }, {scope: 'email'});
     }
   };
+
+  $scope.textDownloadApp = function() {
+    $scope.texting = true;
+    Invite.iOSDownload()
+      .then(function() {
+        toastr.success('Texted a link to ' + $rootScope.me.phone_number);
+        $scope.texting = false;
+      }, function(response) {
+        toastr.error(response.data.message);
+        $scope.texting = false;
+      })
+  }
 }]);
