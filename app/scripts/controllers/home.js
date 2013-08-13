@@ -143,17 +143,30 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
 
   $scope.facebookContinue = function() {
     if ($FB.isAuthenticated()) {
-
+      $scope.connectFacebook();
     } else {
       $FB.login(function(response) {
         if (response.authResponse) {
           console.log("logged into Facebook!")
           $scope.$apply();
+          $scope.connectFacebook();
         } else {
           console.log("failed to login to Facebook");
         }
       }, {scope: 'email'});
     }
+  };
+
+  $scope.connectFacebook = function() {
+    Me.put({
+      facebook_id: $rootScope.fbId,
+      facebook_token: $rootScope.fbToken
+    }).then(function() {
+      toastr.success('Connected Facebook!');
+      $rootScope.me.facebookUser = true;
+    }, function(response) {
+      toastr.error(response.data.message);
+    });
   };
 
   $scope.textDownloadApp = function() {
