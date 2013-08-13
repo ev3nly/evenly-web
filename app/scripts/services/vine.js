@@ -33,7 +33,7 @@ Evenly.factory('Session', ['Restangular', '$rootScope', '$http', '$timeout', fun
         .all('sessions')
         .post({email:email, password: password})
         .then(function(result) {
-          console.debug('Session retrieved: ' + result.authentication_token);
+          // console.debug('Session retrieved: ' + result.authentication_token);
 
           setAuthenticationToken(result.authentication_token);
           return result;
