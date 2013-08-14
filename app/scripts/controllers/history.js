@@ -13,6 +13,9 @@ angular.module('evenlyApp')
               item.subject = 'You';
               item.object = item.bank_name;
               item.topic = 'Deposit into ' + item.bank_name;
+            } else if (item.class === 'Reward') {
+              item.amount = item.winnings;
+              item.topic = 'Rewards Win';
             } else { // Payment or SignUpPayment
               item.verb = 'paid';
               item.subject = (item.from !== 'me') ? item.from.name : 'You';
