@@ -8,7 +8,8 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
     Me.newsfeed()
       .then(function(stories) {
         $rootScope.newsfeed = stories;
-        _.each(stories, function(s) {
+
+        _.each($rootScope.newsfeed, function(s) {
           s.publishedString = moment(s.published_at).fromNow();
           if (!s.id) {
             s.publishedString = 'Example';
@@ -24,6 +25,10 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
             return;
           } else if (s.source_type === 'User') {
             s.story_type = 'User';
+            return;
+          } else if (s.source_type === 'Reward') {
+            s.story_type = 'Reward';
+            s.amount = Number(s.amount).toFixed(2);
             return;
           } else {
             s.story_type = 'Exchange';
