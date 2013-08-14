@@ -8,10 +8,11 @@ angular.module('evenlyApp')
     $scope.betaOptions = [
       'ios-v0.2.6b3',
       'ios-v0.2.7b1',
-      'ios-v0.2.8b1'
+      'ios-v0.2.8b1',
+      'ios-v0.2.8b3'
     ];
 
-    $scope.selectedBetaOption = 'ios-v0.2.8b1';
+    $scope.selectedBetaOption = $scope.betaOptions[$scope.betaOptions.length - 1];
 
     $scope.selectBetaOption = function(index) {
       $scope.selectedBetaOption = $scope.betaOptions[index];
