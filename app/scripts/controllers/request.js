@@ -49,7 +49,7 @@ angular.module('evenlyApp')
 
           $scope.reset();
         }, function(response) {
-          $scope.serverError = response.data;
+          $scope.serverError = response.data.error || response.data.message;
           $scope.submitting = false;
           $scope.showRequestModal();
         });
