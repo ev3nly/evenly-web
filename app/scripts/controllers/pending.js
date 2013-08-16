@@ -46,7 +46,7 @@ angular.module('evenlyApp')
             return request;
           });
 
-          $rootScope.pending = pending;
+          $rootScope.pending = [];
         });
     }
 
