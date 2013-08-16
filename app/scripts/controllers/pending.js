@@ -196,18 +196,6 @@ angular.module('evenlyApp')
         });
     };
 
-    $scope.sendConfirmation = function() {
-      $scope.sendingConfirmation = true;
-      Restangular.one('me', '').post('send-confirmation')
-        .then(function() {
-          toastr.success('Confirmation email has been sent!  Click the link in the email and you should be good to go!');
-          $scope.sendingConfirmation = false;
-        }, function(response) {
-          $scope.toastGenericFailure(response);
-          $scope.sendingConfirmation = false;
-        });
-    };
-
     $scope.presentRequest = function(request) {
       console.log(request);
       $scope.modalOpen = true;
@@ -227,11 +215,6 @@ angular.module('evenlyApp')
       }
     };
 
-    $scope.presentConfirm = function() {
-      $scope.modalOpen = true;
-      $scope.pendingConfirmModalShouldBeOpen = true;
-    };
-
     $scope.close = function() {
       $timeout(function() {
         $scope.modalOpen = false;
@@ -241,8 +224,6 @@ angular.module('evenlyApp')
       $scope.pendingSentRequestModalShouldBeOpen = false;
       $scope.pendingReceivedGroupRequestModalShouldBeOpen = false;
       $scope.pendingSentGroupRequestModalShouldBeOpen = false;
-
-      $scope.pendingConfirmModalShouldBeOpen = false;
     }
 
     $scope.opts = {

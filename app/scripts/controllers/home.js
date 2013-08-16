@@ -184,5 +184,5 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
         toastr.error(response.data.message);
         $scope.texting = false;
       })
-  }
+  };
 }]);

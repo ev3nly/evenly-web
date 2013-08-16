@@ -214,7 +214,27 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
           $rootScope.me.seller &&
           $rootScope.me.inviter &&
           ($rootScope.me.requester || $rootScope.me.payer);
+
+        if (!$rootScope.me.confirmedUser) {
+          $rootScope.presentConfirm();
+        }
       });
+  };
+
+  $rootScope.sendConfirmation = function() {
+    $rootScope.sendingConfirmation = true;
+    Restangular.one('me', '').post('send-confirmation')
+      .then(function() {
+        toastr.success('Confirmation email has been sent!  Click the link in the email and you should be good to go!');
+        $rootScope.sendingConfirmation = false;
+      }, function(response) {
+        toastr.error(response.data.message);
+        $rootScope.sendingConfirmation = false;
+      });
+  };
+
+  $rootScope.presentConfirm = function() {
+    $rootScope.pendingConfirmModalShouldBeOpen = true;
   };
 
   /* Server Options for switching between Germ, Vine, and Localhost */
