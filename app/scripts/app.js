@@ -216,25 +216,9 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
           ($rootScope.me.requester || $rootScope.me.payer);
 
         if (!$rootScope.me.confirmedUser) {
-          $rootScope.presentConfirm();
+          $rootScope.presentConfirmModal();
         }
       });
-  };
-
-  $rootScope.sendConfirmation = function() {
-    $rootScope.sendingConfirmation = true;
-    Restangular.one('me', '').post('send-confirmation')
-      .then(function() {
-        toastr.success('Confirmation email has been sent!  Click the link in the email and you should be good to go!');
-        $rootScope.sendingConfirmation = false;
-      }, function(response) {
-        toastr.error(response.data.message);
-        $rootScope.sendingConfirmation = false;
-      });
-  };
-
-  $rootScope.presentConfirm = function() {
-    $rootScope.pendingConfirmModalShouldBeOpen = true;
   };
 
   /* Server Options for switching between Germ, Vine, and Localhost */
@@ -307,6 +291,22 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
     $rootScope.inviteShouldBeOpen = false;
   };
 
+  $rootScope.sendConfirmation = function() {
+    $rootScope.sendingConfirmation = true;
+    Restangular.one('me', '').post('send-confirmation')
+      .then(function() {
+        toastr.success('Confirmation email has been sent!  Click the link in the email and you should be good to go!');
+        $rootScope.sendingConfirmation = false;
+      }, function(response) {
+        toastr.error(response.data.message);
+        $rootScope.sendingConfirmation = false;
+      });
+  };
+
+  $rootScope.presentConfirmModal = function() {
+    $rootScope.pendingConfirmModalShouldBeOpen = true;
+  };
+
   $rootScope.addCardOpts = {
     backdropFade: true,
     dialogFade: true,
@@ -323,6 +323,13 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
     backdropFade: true,
     dialogFade: true,
     dialogClass: 'modal invite-modal'
+  };
+
+  $rootScope.confirmOpts = {
+    backdropClick: false,
+    keyboard: false
+    // dialogFade: true,
+    // backdropFade: true
   };
 }]);
 
