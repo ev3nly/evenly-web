@@ -1,7 +1,10 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('SplashCtrl', ['$scope', '$FB', '$location', '$rootScope', function ($scope, $FB, $location, $rootScope) {
+  .controller('SplashCtrl', ['$scope', '$FB', '$location', '$rootScope', 'Uri', function ($scope, $FB, $location, $rootScope, Uri) {
+    var params = Uri.getVariables(window.location.href);
+    $rootScope.campaign = params.campaign;
+
     $scope.carouselInterval = 7500;
     
     $scope.slides = [
@@ -36,15 +39,17 @@ angular.module('evenlyApp')
       }
     ];
 
-    $scope.facebookContinue = function() {
+    $rootScope.facebookContinue = function() {
       if ($FB.isAuthenticated()) {
         console.log('Facebook is Authenticated');
         $location.path('/signup');
+        $rootScope.dismissCampaignModal();
       } else {
         $FB.login(function(response) {
           if (response.authResponse) {
             console.log("logged into Facebook!")
             $location.path('/signup');
+            $rootScope.dismissCampaignModal();
             $scope.$apply();
           } else {
             console.log("failed to login to Facebook");

@@ -307,6 +307,24 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
     $rootScope.pendingConfirmModalShouldBeOpen = true;
   };
 
+  $rootScope.presentCampaignModal = function() {
+    $rootScope.campaignModalShouldBeOpen = true;
+  };
+
+  $rootScope.dismissCampaignModal = function() {
+    $rootScope.campaignModalShouldBeOpen = false;
+  };
+
+  $rootScope.$watch('campaign', function() {
+    if ($rootScope.campaign) {
+      $rootScope.presentCampaignModal();
+    }
+  });
+
+  $rootScope.campaignClass = function() {
+    return $rootScope.campaign;
+  };
+
   $rootScope.addCardOpts = {
     backdropFade: true,
     dialogFade: true,
@@ -330,6 +348,12 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
     keyboard: false
     // dialogFade: true,
     // backdropFade: true
+  };
+
+  $rootScope.campaignOpts = {
+    backdropFade: true,
+    dialogFade: true,
+    dialogClass: 'modal campaign-modal'
   };
 }]);
 

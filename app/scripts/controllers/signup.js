@@ -1,7 +1,16 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('SignupCtrl', ['$scope', '$location', 'User', '$FB', '$timeout', '$rootScope', 'Session', function ($scope, $location, User, $FB, $timeout, $rootScope, Session) {
+  .controller('SignupCtrl', ['$scope', '$location', 'User', '$FB', '$timeout', '$rootScope', 'Session', 'Uri', function ($scope, $location, User, $FB, $timeout, $rootScope, Session, Uri) {
+    var params = Uri.getVariables(window.location.href);
+    var campaign = params.campaign;
+
+    if ($rootScope.campaign) {
+      $scope.campaign = $rootScope.campaign;
+    } else if (campaign) {
+      $scope.campaign = campaign;
+    }
+
     $scope.signup = function() {
       if (!$scope.submitting) {
         $scope.submitting = true;
@@ -13,7 +22,8 @@ angular.module('evenlyApp')
           password: $scope.password,
           password_confirmation: $scope.password,
           facebook_token: $rootScope.fbToken,
-          facebook_id: $rootScope.fbId
+          facebook_id: $rootScope.fbId,
+          sign_up_code: $scope.campaign
         }).then(function(user) {
           console.log("created user " + user.name);
 

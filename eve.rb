@@ -50,6 +50,30 @@ command :github do |c|
   end
 end
 
+command :campaign do |c|
+  c.summary = 'create another campaign for evenly.com'
+  c.action do |args, options|
+    @campaign_code = args.first
+    
+    if @campaign_code.nil?
+      puts 'Enter a Campaign Code'
+    else
+      begin
+        # Make a /unc directory if we have to
+        FileUtils.mkdir("app/#{@campaign_code}")
+      rescue
+      end
+
+      # Copy campaign-template/index.html to unc/index.html
+      # Replace 'CAMPAIGN_CODE' with unc
+      campaign_index_path = "app/#{@campaign_code}/index.html"
+      FileUtils.cp('app/campaign-template/index.html', campaign_index_path, verbose: true)
+      text = File.read(campaign_index_path).gsub(/CAMPAIGN_CODE/, @campaign_code)
+      File.open(campaign_index_path, 'w') { |file| file.write text }
+    end
+  end
+end
+
 def current_path
   File.expand_path("..", __FILE__)
 end
