@@ -40,10 +40,12 @@ angular.module('evenlyApp')
     ];
 
     $rootScope.facebookContinue = function() {
+      mixpanel.track('fb-continue button clicked');
       if ($FB.isAuthenticated()) {
         console.log('Facebook is Authenticated');
         $location.path('/signup');
         $rootScope.dismissCampaignModal();
+        mixpanel.track('fb already authenticated');
       } else {
         $FB.login(function(response) {
           if (response.authResponse) {
@@ -51,8 +53,10 @@ angular.module('evenlyApp')
             $location.path('/signup');
             $rootScope.dismissCampaignModal();
             $scope.$apply();
+            mixpanel.track('fb authentication successful');
           } else {
             console.log("failed to login to Facebook");
+            mixpanel.track('fb authentication failed');
           }
         }, {scope: 'email'});
       }

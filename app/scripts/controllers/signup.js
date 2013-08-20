@@ -14,6 +14,7 @@ angular.module('evenlyApp')
     $scope.signup = function() {
       if (!$scope.submitting) {
         $scope.submitting = true;
+        mixpanel.track('signup button clicked');
 
         User.create({
           name: $scope.name,
@@ -26,6 +27,7 @@ angular.module('evenlyApp')
           sign_up_code: $scope.campaign
         }).then(function(user) {
           console.log("created user " + user.name);
+          mixpanel.track('signup successful');
 
           Session
             .create($scope.email, $scope.password)
@@ -38,6 +40,8 @@ angular.module('evenlyApp')
             });
         }, function(response) {
           console.log(response);
+          mixpanel.track('signup failed');
+          
           $scope.submitting = false;
           if (response.data.error) {
             $scope.serverErrors = [response.data.error];

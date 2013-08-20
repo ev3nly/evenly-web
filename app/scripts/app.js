@@ -136,6 +136,15 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
   }
 
   $rootScope.$on('$routeChangeStart', function() {
+    var start = window.location.protocol.length + 2 + window.location.host.length;
+    var end = window.location.href.indexOf('?');
+    if (end <= 0) { end = window.location.href.length + 1; }
+    var path = window.location.href.substring(start, end);
+    path = path.substring(path.indexOf('#') + 1);
+    // alert(path);
+
+    mixpanel.track(path + ' page loaded');
+
     switch($location.path()) {
       case "/story":
       case "/contact":
@@ -218,6 +227,17 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
         if (!$rootScope.me.confirmedUser) {
           $rootScope.presentConfirmModal();
         }
+
+        mixpanel.identify(me.id);
+        mixpanel.people.set({
+            "$name": me.name,
+            "$email": me.email,
+            "$created": me.created_at,
+            "$last_login": new Date()          
+        });
+
+        //Streams
+        mixpanel.name_tag(me.name);
       });
   };
 
