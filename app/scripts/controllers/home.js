@@ -11,27 +11,19 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
 
         _.each($rootScope.newsfeed, function(s) {
           s.publishedString = moment(s.published_at).fromNow();
+
           if (!s.id) {
             s.publishedString = 'Example';
-          }
-
-          if (s.source_type === 'Hint') {
-            s.story_type = 'Info';
+          } else if (s.source_type === 'Hint') {
             s.publishedString = 'Hint';
             return;
           } else if (s.source_type === 'GettingStarted') {
-            s.story_type = 'Info';
             s.publishedString = 'Getting Started';
             return;
           } else if (s.source_type === 'User') {
-            s.story_type = 'User';
             return;
           } else if (s.source_type === 'Reward') {
-            s.story_type = 'Reward';
-            s.amount = Number(s.amount).toFixed(2);
             return;
-          } else {
-            s.story_type = 'Exchange';
           }
 
           if (s.verb === 'withdrew') {

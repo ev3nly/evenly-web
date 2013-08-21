@@ -11,6 +11,7 @@
     "spin.js": "latest",
     "angular-cookies": "latest",
     "angular-resource": "latest",
+    "angular-sanitize": "latest",
     "restangular": "latest",
     "angular-bootstrap": "latest",
     "angular-ui-utils": "latest",
