@@ -4,6 +4,7 @@ angular.module('evenlyApp')
   .controller('SplashCtrl', ['$scope', '$FB', '$location', '$rootScope', 'Uri', 'angularFire', function ($scope, $FB, $location, $rootScope, Uri, angularFire) {
     var params = Uri.getVariables(window.location.href);
     $rootScope.campaign = params.campaign;
+    $rootScope.campaignCode = "CAMP-" + $rootScope.campaign.toUpperCase();
 
     $scope.carouselInterval = 7500;
     
@@ -63,7 +64,7 @@ angular.module('evenlyApp')
     };
 
     if ($rootScope.campaign) {
-      var url = 'https://evenly.firebaseio.com/' + $rootScope.selectedServerOption.name + '/' + $rootScope.campaign + '-count';
+      var url = 'https://evenly.firebaseio.com/' + $rootScope.selectedServerOption.name + '/' + $rootScope.campaignCode + '-count';
       angularFire(url, $scope, 'spotsLeft', 0)
         .then(function(spotsLeft) {
                 console.log($scope.spotsLeft);
