@@ -12,6 +12,7 @@
     "angular-cookies": "latest",
     "angular-resource": "latest",
     "angular-sanitize": "latest",
+    "angular-fire": "latest",
     "restangular": "latest",
     "angular-bootstrap": "latest",
     "angular-ui-utils": "latest",

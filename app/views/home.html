@@ -25,6 +25,7 @@
           <p ng-show="story.story_type == 'Info'">{{story.description}}</p>
           <p ng-show="story.story_type == 'User'"><strong>{{story.subject.name}}</strong> has joined Evenly!</p>
           <p ng-show="story.story_type == 'Reward'"><strong>{{story.subject.name}}</strong> won <strong>${{story.amount}}</strong> on Evenly!</p> -->
+          
           <p ng-show="story.display_title"><strong>{{story.display_title}}</strong></p>
           <p ng-bind-html="story.display_description"></p>
           <p class="story-published">

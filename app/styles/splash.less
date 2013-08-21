@@ -147,6 +147,24 @@
           display: block;
           width: 300px;
         }
+
+        .bonus-ticker, .splash-ticker {
+          width: 110px;
+          margin: auto;
+          text-align: center;
+          font-size: @small-font-size;
+
+          .bonus-ticker-count, .splash-ticker-count {
+            .bordered;
+            .rounded-corners;
+            margin-top: -15px;
+            margin-bottom: 0;
+            padding-top: 5px;
+            background: white;
+            font-size: @large-font-size;
+            color: @red;
+          }
+        }
       }
 
       .iphone-hand {

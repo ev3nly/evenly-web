@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('SplashCtrl', ['$scope', '$FB', '$location', '$rootScope', 'Uri', function ($scope, $FB, $location, $rootScope, Uri) {
+  .controller('SplashCtrl', ['$scope', '$FB', '$location', '$rootScope', 'Uri', 'angularFire', function ($scope, $FB, $location, $rootScope, Uri, angularFire) {
     var params = Uri.getVariables(window.location.href);
     $rootScope.campaign = params.campaign;
 
@@ -61,4 +61,27 @@ angular.module('evenlyApp')
         }, {scope: 'email'});
       }
     };
+
+    if ($rootScope.campaign) {
+      var url = 'https://evenly.firebaseio.com/' + $rootScope.selectedServerOption.name + '/' + $rootScope.campaign + '-count';
+      angularFire(url, $scope, 'spotsLeft', 0)
+        .then(function(spotsLeft) {
+                console.log($scope.spotsLeft);
+                $scope.showBonusTicker = !!($scope.spotsLeft);
+              });
+    } else {
+      var url = 'https://evenly.firebaseio.com/' + $rootScope.selectedServerOption.name + '/splash-count';
+      angularFire(url, $scope, 'spotsLeft', 0)
+        .then(function() {
+                console.log($scope.spotsLeft);
+                $scope.showSplashTicker = $scope.spotsLeft > 0;
+                var splashCount = new Firebase(url);
+                splashCount.transaction(function(count) {
+                  if (count > 0)
+                    return count - 1;
+                  else
+                    return 0;
+                });
+              });
+    }
   }]);
