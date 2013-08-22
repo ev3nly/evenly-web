@@ -14,16 +14,27 @@ angular.module('evenlyApp').controller('HomeCtrl', ['$scope', 'Me', '$rootScope'
 
           if (!s.id) {
             s.publishedString = 'Example';
-          } else if (s.source_type === 'Hint') {
-            s.publishedString = 'Hint';
             return;
-          } else if (s.source_type === 'GettingStarted') {
-            s.publishedString = 'Getting Started';
-            return;
-          } else if (s.source_type === 'User') {
-            return;
-          } else if (s.source_type === 'Reward') {
-            return;
+          }
+
+          switch(s.source_type) {
+            case 'Hint':
+              s.publishedString = 'Hint';
+              break;
+            case 'GettingStarted':
+              s.publishedString = 'Getting Started';
+              break;
+          }
+
+          switch(s.source_type) {
+            case 'Payment':
+            case 'Charge':
+            case 'SignUpPayment':
+            case 'SignUpCharge':
+              break;
+            default:
+              return;
+              break;
           }
 
           if (s.verb === 'withdrew') {
