@@ -29,6 +29,15 @@
     p { font-size: @small-font-size; margin: 0; }
   }
 
+  .invite-tally {
+    width: 400px;
+    margin: 20px auto -10px;
+    text-align: center;
+
+    p:first-child { font-size: @small-font-size; }
+    p:last-child { margin-top: 10px; }
+  }
+
   .invite-header {
     text-align: center;
   }
@@ -95,4 +104,19 @@
     margin-top: 10px;
     color: @dark-gray;
   }
+
+  /* Remove this when Inviting is ready */
+
+  .invite-header, .invite-details, .invite-tally, .invite-divider,
+  .invite-more, .invite-more-buttons, .modal-footer {
+    display: none;
+  }
+  width: 500px;
+  margin-left: (-0.5 * 500px);
+  .invite-email {
+    margin-left: 40px;
+    margin-bottom: 50px;
+  }
+
+  /* END */
 }

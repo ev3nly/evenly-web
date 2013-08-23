@@ -14,8 +14,16 @@ angular.module('evenlyApp')
       return (3 - ($scope.inviteCount % 3));
     };
 
+    $scope.winCount = function() {
+      return Math.floor($scope.inviteCount / 3)
+    };
+
+    $scope.wins = function() {
+      return new Array($scope.winCount());
+    };
+
     $scope.potentialWinnings = function() {
-      return Math.floor($scope.inviteCount / 3) * 5;
+      return $scope.winCount() * 5;
     };
 
     $scope.invite = function() {
