@@ -7,12 +7,6 @@ angular.module('evenlyApp')
     if ($rootScope.campaign)
       $rootScope.campaignCode = "CAMP-" + $rootScope.campaign.toUpperCase();
 
-    if ($rootScope.campaign) {
-      $scope.campaign = $rootScope.campaign;
-    } else if (campaign) {
-      $scope.campaign = campaign;
-    }
-
     $scope.signup = function() {
       if (!$scope.submitting) {
         $scope.submitting = true;

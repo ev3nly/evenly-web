@@ -3,9 +3,10 @@
 angular.module('evenlyApp')
   .controller('SplashCtrl', ['$scope', '$FB', '$location', '$rootScope', 'Uri', 'angularFire', function ($scope, $FB, $location, $rootScope, Uri, angularFire) {
     var params = Uri.getVariables(window.location.href);
-    $rootScope.campaign = params.campaign;
-    if ($rootScope.campaign)
+    if (params.campaign) {
+      $rootScope.campaign = params.campaign;
       $rootScope.campaignCode = "CAMP-" + $rootScope.campaign.toUpperCase();
+    }
 
     $scope.carouselInterval = 7500;
     
