@@ -77,7 +77,7 @@ angular.module('evenlyApp')
       angularFire(url, $scope, 'spotsLeft', 0)
         .then(function() {
                 console.log($scope.spotsLeft);
-                $scope.showSplashTicker = $scope.spotsLeft > 0;
+                $scope.showSplashTicker = false //commented out for now: $scope.spotsLeft > 0;
                 var splashCount = new Firebase(url);
                 splashCount.transaction(function(count) {
                   if (count > 0)
