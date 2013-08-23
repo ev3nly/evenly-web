@@ -1,9 +1,98 @@
 .invite-modal {
-  width: 350px;
-  margin-left: (-0.5 * 300px);
+  width: 1000px;
+  margin-left: (-0.5 * 1000px);
+
+  .modal-body {
+    max-height: 550px;
+  }
 
   input {
-    height: 40px;
+    height: 41px;
     width: 100%;
+  }
+
+  .invite-email {
+    width: 300px;
+    margin-top: 30px;
+    margin-left: 286px;
+    display: block;
+    input {
+      border-color: @firm;
+    }
+  }
+
+  .alert {
+    width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+    p { font-size: @small-font-size; margin: 0; }
+  }
+
+  .invite-header {
+    text-align: center;
+  }
+
+  .invite-details {
+    text-align: center;
+    padding: 0 75px;
+    font-size: @small-font-size;
+  }
+
+  .invite-divider {
+    .bordered-top(1px);
+    margin: 30px;
+    margin-left: -15px;
+    width: 998px
+  }
+
+  .invite-more {
+    text-align: center;
+  }
+
+  .invite-more-buttons {
+    margin: 20px auto;
+
+    .invite-more-buttons-left, .invite-more-buttons-right {
+      display: inline-block;
+      width: 49%;
+    }
+    
+    .invite-more-buttons-left {
+      padding-right: 10px;
+      
+      .invite-link {
+        float: right;
+        margin: 0;
+        display: inline-block;
+        margin-right: 105px;
+      }
+    }
+
+    .invite-more-buttons-right {
+      padding-left: 10px;
+
+      .invite-facebook, .invite-twitter {
+        float: left;
+        display: inline-block;
+        margin: 0;
+        .btn { width: 185px; }
+      }
+
+      .invite-facebook {
+        margin-right: 5px;
+      }
+
+      .invite-twitter {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .invite-help {
+    font-size: @small-font-size;
+    text-align: center;
+    margin-top: 10px;
+    color: @dark-gray;
   }
 }

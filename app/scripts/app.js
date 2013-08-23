@@ -121,7 +121,7 @@ Evenly.config(['$compileProvider', function($compileProvider) {
 //   // });
 // }]);
 
-Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', function($location, $rootScope, Me, Session, $http, Restangular) {
+Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 'Uri', function($location, $rootScope, Me, Session, $http, Restangular, Uri) {
   $http.defaults.headers.common['Authorization'] = Session.getAuthenticationToken();
 
   $rootScope.$on('event:loginRequired', function() {
@@ -306,6 +306,10 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
   $rootScope.showInviteModal = function() {
     $rootScope.inviteShouldBeOpen = true;
   };
+
+  var params = Uri.getVariables(window.location.href);
+  if (params.invite)
+    $rootScope.showInviteModal();
 
   $rootScope.hideInviteModal = function() {
     $rootScope.inviteShouldBeOpen = false;
