@@ -18,7 +18,8 @@
     "angular-ui-utils": "latest",
     "underscore": "latest",
     "datejs": "latest",
-    "jquery.cookie": "latest"
+    "jquery.cookie": "latest",
+    "zeroclipboard": "latest"
   },
   "devDependencies": {
     "angular-mocks": "~1.0.5",

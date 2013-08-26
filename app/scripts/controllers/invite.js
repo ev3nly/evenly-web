@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('InviteCtrl', ['$scope', 'Invite', function ($scope, Invite) {
+  .controller('InviteCtrl', ['$scope', 'Invite', '$timeout', function ($scope, Invite, $timeout) {
     $scope.buttonTitle = function() {
       return 'Send Invite';
     };
@@ -74,4 +74,39 @@ angular.module('evenlyApp')
       return true;
       // return !$scope.form.email.$error.email;
     };
+
+    // Flash movie sheit for ZeroClipboard
+    $timeout(function() {
+
+      ZeroClipboard.setDefaults({moviePath: "/components/zeroclipboard/ZeroClipboard.swf"});
+      var clip = new ZeroClipboard(document.getElementById("btn-clipboard"));
+
+      clip.on('load', function(client) {
+        console.log("movie is loaded");
+      });
+
+      clip.on('complete', function(client, args) {
+        // this.style.display = 'none'; // "this" is the element that was clicked
+        toastr.success("Copied link to clipboard");
+        console.log("Copied text to clipboard: " + args.text );
+      });
+
+      clip.on('mouseover', function(client) {
+        console.log("mouse over");
+      });
+
+      clip.on('mouseout', function(client) {
+        console.log("mouse out");
+      });
+
+      clip.on('mousedown', function(client) {
+
+        console.log("mouse down");
+      });
+
+      clip.on('mouseup', function(client) {
+        console.log("mouse up");
+      });
+
+    }, 500);
   }]);
