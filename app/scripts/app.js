@@ -307,10 +307,6 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
     $rootScope.inviteShouldBeOpen = true;
   };
 
-  var params = Uri.getVariables(window.location.href);
-  if (params.invite)
-    $rootScope.showInviteModal();
-
   $rootScope.hideInviteModal = function() {
     $rootScope.inviteShouldBeOpen = false;
   };
@@ -379,6 +375,19 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
     dialogFade: true,
     dialogClass: 'modal campaign-modal'
   };
+
+  var params = Uri.getVariables(window.location.href);
+  if (params.invite)
+    $rootScope.showInviteModal();
+
+  if (params.campaign) {
+    $rootScope.campaign = params.campaign;
+    $rootScope.campaignCode = "CAMP-" + $rootScope.campaign.toUpperCase();
+  }
+
+  if (params.referral) {
+    $rootScope.referral = params.referral;
+  }
 }]);
 
 window.Evenly = Evenly;

@@ -1,12 +1,7 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('SignupCtrl', ['$scope', '$location', 'User', '$FB', '$timeout', '$rootScope', 'Session', 'Uri', function ($scope, $location, User, $FB, $timeout, $rootScope, Session, Uri) {
-    var params = Uri.getVariables(window.location.href);
-    $rootScope.campaign = params.campaign;
-    if ($rootScope.campaign)
-      $rootScope.campaignCode = "CAMP-" + $rootScope.campaign.toUpperCase();
-
+  .controller('SignupCtrl', ['$scope', '$location', 'User', '$FB', '$timeout', '$rootScope', 'Session', function ($scope, $location, User, $FB, $timeout, $rootScope, Session) {
     $scope.signup = function() {
       if (!$scope.submitting) {
         $scope.submitting = true;
