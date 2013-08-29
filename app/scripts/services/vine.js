@@ -233,9 +233,9 @@ Evenly.factory('Story', ['Restangular', function(Restangular) {
 
 Evenly.factory('Invite', ['Restangular', function(Restangular) {
   return {
-    create: function(email) {
+    create: function(data) {
       return Restangular.all('invites')
-        .post({email: email});
+        .post({data: data});
     },
     iOSDownload: function() {
       return Restangular.all('invites') 
