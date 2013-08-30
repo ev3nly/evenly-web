@@ -17,7 +17,7 @@ angular.module('evenlyApp')
           console.log('validating gte');
 
           min = min || 0.50;
-          if (value === undefined) { return false; }
+          if (!value) { return false; }
           return value.replace(/[^0-9\.]/g,'') >= min;
         };
       }
