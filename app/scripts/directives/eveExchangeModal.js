@@ -31,27 +31,25 @@ angular.module('evenlyApp')
           scope.serverError = undefined;
           scope.amount = null;
           scope.recipient = null;
+          scope.recipientId = null;
           scope.description = null;
         };
 
         scope.$watch('submitting', function(){
-          if (scope.submitting) {
-            scope.oldSubmitMessage = scope.submitMessage;
-            scope.submitMessage = 'Sending ' + scope.type + '...';
-          } else if (scope.oldSubmitMessage !== undefined) {
-            scope.submitMessage = scope.oldSubmitMessage;
-          }
+          var object = scope.type.charAt(0).toUpperCase() + scope.type.slice(1);
+          if (scope.submitting)
+            scope.submitMessage = 'Sending ' + object + '...';
+          else
+            scope.submitMessage = 'Complete ' + object;
         });
 
         if (scope.type === 'request') {
           scope.title = 'Request';
-          scope.submitMessage = 'Complete Request';
           scope.help1 = '';
           scope.help2 = 'owes me';
 
         } else if (scope.type === 'payment') {
           scope.title = 'New Payment';
-          scope.submitMessage = 'Complete Payment';
           scope.help1 = 'Pay';
           scope.help2 = '';
         }
