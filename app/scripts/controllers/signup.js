@@ -15,7 +15,7 @@ angular.module('evenlyApp')
           password_confirmation: $scope.password,
           facebook_token: $rootScope.fbToken,
           facebook_id: $rootScope.fbId,
-          sign_up_code: $rootScope.campaignCode
+          sign_up_code: $rootScope.referral || $rootScope.campaignCode
         }).then(function(user) {
           console.log("created user " + user.name);
           mixpanel.track('signup successful');
