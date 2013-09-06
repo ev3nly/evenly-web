@@ -162,7 +162,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
         $('.container').css('width', '320px');
         break;
       case "/signup":
-
+        
         break;
       default:
         $('.container').css('width', '940px');
@@ -266,7 +266,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
   $rootScope.selectServerOption = function(option) {
     $rootScope.selectedServerOption = option;
     Restangular.setBaseUrl(option.url);
-    $.cookie('__sc', 0);
+    $.cookie('__sc', $rootScope.serverOptions.indexOf(option));
   };
 
   if (window.location.href.indexOf("evenly.com") !== -1) {
