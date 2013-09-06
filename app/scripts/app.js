@@ -133,7 +133,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
     if ((navigator.userAgent.indexOf('iPhone') != -1) ||  (navigator.userAgent.indexOf('iPod') != -1)) {  
       $location.path('/ios-download')
     }
-  }
+  };
 
   $rootScope.$on('$routeChangeStart', function() {
     var start = window.location.protocol.length + 2 + window.location.host.length;
@@ -151,7 +151,6 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
       case "/faq":
       case "/jobs":
       case "/login":
-      case "/signup":
       case "/terms":
       case "/privacy":
         $('.container').css('width', '100%');
@@ -161,6 +160,9 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
       case "/reset-password":
       case "/ios-download":
         $('.container').css('width', '320px');
+        break;
+      case "/signup":
+
         break;
       default:
         $('.container').css('width', '940px');
@@ -264,7 +266,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
   $rootScope.selectServerOption = function(option) {
     $rootScope.selectedServerOption = option;
     Restangular.setBaseUrl(option.url);
-    $.cookie('__sc', $rootScope.serverOptions.indexOf(option));
+    $.cookie('__sc', 0);
   };
 
   if (window.location.href.indexOf("evenly.com") !== -1) {

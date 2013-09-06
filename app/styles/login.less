@@ -1,94 +1,157 @@
+@input-button-width: 250px;
 
+@media (min-width: 800px) {
+  .login {
+    background-color: black;
+    width: 100%;
+    
+    // overflow: hidden;
 
-.login {
-  background-color: black;
-  width: 100%;
-  
-  // overflow: hidden;
-
-  .left {
-    background-color: white;
-    float: left;
-    width: 50%;
-    height: 100%;
-  }
-
-  .right {
-    .bordered-left;
-    margin-left: -1px;
-
-    background-color: @main-background-color;
-    float: right;
-    width: 50%;
-    height: 100%;
-  }
-
-  .evenly-brand {
-    margin: (30 * @unit) (4 * @unit);
-    float: right;
-  }
-
-  .fb-signup {
-    margin: 310px (4 * @unit);
-    button.btn-social-facebook {
-      width: 250px;
+    .left {
+      background-color: white;
+      float: left;
+      width: 50%;
+      height: 100%;
     }
 
-    p {
-      margin-top: 10px;
-    }
-  }
+    .right {
+      .bordered-left;
+      margin-left: -1px;
 
-  .login-form {
-    width: 600px;
-    margin: (25 * @unit) (4 * @unit);
-
-    .help-block:first-child {
-      margin-bottom: @unit;
-      padding: 0;
-      font-size: @large-font-size;
+      background-color: @main-background-color;
+      float: right;
+      width: 50%;
+      height: 100%;
     }
 
-    @input-button-width: 250px;
+    .evenly-brand {
+      margin: (30 * @unit) (4 * @unit);
+      float: right;
+    }
 
-    .hint {
-      margin-top: @unit;
-      padding: 0;
-      font-size: @medium-font-size;
-      width: @input-button-width;
-      text-align: justify;
+    .fb-signup {
+      margin: 310px (4 * @unit);
+      button.btn-social-facebook {
+        width: @input-button-width;
+      }
 
-      a {
-        color: @firm;
-        margin-left: @unit;
+      p {
+        margin-top: 10px;
       }
     }
 
-    button {
-      width: @input-button-width;
+    .login-form {
+      width: 600px;
+      margin: (25 * @unit) (4 * @unit);
+
+      .help-block:first-child {
+        margin-bottom: @unit;
+        padding: 0;
+        font-size: @large-font-size;
+      }
+
+      .hint {
+        margin-top: @unit;
+        padding: 0;
+        font-size: @medium-font-size;
+        width: @input-button-width;
+        text-align: justify;
+
+        a {
+          color: @firm;
+          margin-left: @unit;
+        }
+      }
+
+      button {
+        width: @input-button-width;
+      }
+
+      input {
+        padding: @unit;
+        width: @input-button-width;
+        height: 44px;
+      }
+
+      input[type=checkbox] {
+        margin-top: -4px;
+        width: 20px;
+      }
+
+      span {
+        display: inline-block;
+        width: (@input-button-width);
+        a {
+          color: @blue;
+        }
+      }
+
+      .alert {
+        width: @input-button-width;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: 320px
+  }
+
+  .login {
+    .evenly-brand {
+      margin: (@unit) (4 * @unit);
+      float: right;
     }
 
-    input {
-      padding: @unit;
-      width: @input-button-width;
-      height: 44px;
-    }
+    .fb-signup {
+      margin: 20px (4 * @unit);
+      
+      button.btn-social-facebook {
+        width: @input-button-width;
+      }
 
-    input[type=checkbox] {
-      margin-top: -4px;
-      width: 20px;
-    }
-
-    span {
-      display: inline-block;
-      width: (@input-button-width);
-      a {
-        color: @blue;
+      p {
+        margin-top: 10px;
       }
     }
 
-    .alert {
-      width: @input-button-width;
+    .login-form {
+      .help-block {
+        text-align: center;
+      }
+
+      input {
+        margin: -10px (2 * @unit);
+        height: 44px;
+        .rounded-corners(0);
+      }
+
+      input[type=text] {
+        border-radius: 0;
+        .rounded-corners-top;
+      }
+
+      input[type=password] {
+        .rounded-corners-bottom;
+      }
+
+      button {
+        margin: (2 * @unit) (2 * @unit);
+        width: 100%;
+        height: 44px
+      }
+    }
+
+    .signup-terms, .hint {
+      text-align: center;
+      margin-left: 35px;
+      display: none;
+    }
+
+    .alert.alert-error {
+      margin-left: (2 * @unit);
+      width: 320px
     }
   }
 }
