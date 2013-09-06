@@ -2,6 +2,17 @@
 
 angular.module('evenlyApp')
   .controller('SignupCtrl', ['$scope', '$location', 'User', '$FB', '$timeout', '$rootScope', 'Session', function ($scope, $location, User, $FB, $timeout, $rootScope, Session) {
+    $scope.logoClicked = function() {
+      if ((navigator.userAgent.indexOf('iPhone') != -1) ||  (navigator.userAgent.indexOf('iPod') != -1))
+        return
+
+      $location.path('/splash');
+    };
+
+    $scope.getAppClicked = function() {
+      $location.path('/ios-download');
+    };
+
     $scope.signup = function() {
       if (!$scope.submitting) {
         $scope.submitting = true;

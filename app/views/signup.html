@@ -1,7 +1,7 @@
 <div class="login">
   <div class="left">
     <div class="evenly-brand">
-      <a href="/"><img src="/images/logo-wordmark.png"></img></a>
+      <a ng-click="logoClicked()" href=""><img src="/images/logo-wordmark.png"></img></a>
     </div>
   </div>
 
@@ -72,7 +72,7 @@
           ng-class="{disabled: submitting}">{{buttonTitle}}</button>
         <div class="help-block hint">Have an account? 
           <a class="signup-login" href="/#/login">Log in here</a>
-          <a class="signup-get-app" href="/#/ios-download">Get the app</a>
+          <a class="signup-get-app" href="" ng-click="getAppClicked()">Get the iPhone app</a>
         </div>
       </div>
 
