@@ -47,7 +47,7 @@
       .help-block:first-child {
         margin-bottom: @unit;
         padding: 0;
-        font-size: @large-font-size;
+        p:first-child { font-size: @large-font-size; }
       }
 
       .hint {
@@ -60,6 +60,10 @@
         a {
           color: @firm;
           margin-left: @unit;
+        }
+
+        .signup-get-app {
+          display: none;
         }
       }
 
@@ -105,7 +109,7 @@
     }
 
     .fb-signup {
-      margin: 20px (4 * @unit);
+      margin: (2 * @unit) (4 * @unit);
       
       button.btn-social-facebook {
         width: @input-button-width;
@@ -116,15 +120,23 @@
       }
     }
 
+    .help-block {
+      text-align: center;
+      width: 300px;
+      margin-left: -20px;
+      margin-bottom: 20px;
+      p { font-size: @small-font-size; }
+    }
+
     .login-form {
       .help-block {
-        text-align: center;
+        margin-left: 30px;
       }
 
       input {
         margin: -10px (2 * @unit);
         height: 44px;
-        .rounded-corners(0);
+        .rounded-corners(1px);
       }
 
       input[type=text] {
@@ -143,10 +155,15 @@
       }
     }
 
-    .signup-terms, .hint {
+    .signup-terms {
       text-align: center;
       margin-left: 35px;
       display: none;
+    }
+
+    .hint {
+      a { color: @firm; }
+      a.signup-login { display: none; }
     }
 
     .alert.alert-error {

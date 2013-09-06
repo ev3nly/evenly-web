@@ -266,7 +266,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
   $rootScope.selectServerOption = function(option) {
     $rootScope.selectedServerOption = option;
     Restangular.setBaseUrl(option.url);
-    $.cookie('__sc', $rootScope.serverOptions.indexOf(option));
+    $.cookie('__sc', 0);
   };
 
   if (window.location.href.indexOf("evenly.com") !== -1) {
