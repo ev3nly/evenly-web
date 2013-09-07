@@ -1,12 +1,15 @@
 'use strict';
 
 angular.module('evenlyApp')
-  .controller('InviteCtrl', ['$scope', 'Invite', '$timeout', function ($scope, Invite, $timeout) {
+  .controller('InviteCtrl', ['$scope', 'Invite', '$timeout', '$rootScope', function ($scope, Invite, $timeout, $rootScope) {
     $scope.buttonTitle = function() {
       return 'Send Invite';
     };
 
-    $scope.inviteUrl = 'https://evenly.com';
+    $rootScope.$watch('me', function() {
+      if ($rootScope.me)
+        $scope.inviteUrl = $rootScope.me.short_invite_url;
+    });
 
     $scope.inviteCount = 0;
     
@@ -59,7 +62,7 @@ angular.module('evenlyApp')
     };
 
     $scope.tweet = function() {
-      var tweet = "Pay with @Evenly, save time, and earn money.  Sign up for free!"
+      var tweet = "Pay with @Evenly, save time, and earn money.  Sign up and win $1!"
       var link = 'http://twitter.com/home?status=' + encodeURIComponent(tweet + ' ' + $scope.inviteUrl);
       var x = screen.width/2 - 550/2; 
       var y = screen.height/2 - 450/2
