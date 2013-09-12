@@ -68,6 +68,10 @@ Evenly.config(['$routeProvider', '$locationProvider', function($routeProvider, $
       templateUrl: 'views/reset-password.html',
       controller: 'ResetPasswordCtrl'
     })
+    .when('/splash2', {
+      templateUrl: 'views/splash2.html',
+      controller: 'SplashCtrl'
+    })
     .otherwise({
       redirectTo: '/splash'
     });
@@ -177,6 +181,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
       case "/jobs":
       case "/login":
       case "/splash":
+      case "/splash2":
       case "/signup":
       case "/terms":
       case "/privacy":
