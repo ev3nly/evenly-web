@@ -8,6 +8,8 @@ module.exports = function (grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
   grunt.loadNpmTasks('grunt-recess');
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // configurable paths
   var yeomanConfig = {
@@ -30,6 +32,32 @@ module.exports = function (grunt) {
         files: ['test/spec/{,*/}*.coffee'],
         tasks: ['coffee:test']
       },
+      less: {
+        files: '<%= yeoman.app %>/styles/*',
+        tasks: ['less']
+      },
+
+      // less: {
+      //   development: {
+      //     options: {
+      //       paths: ['<%= yeoman.app %>/styles'],
+      //       yuicompress:false
+      //     },
+      //     files: {'<%= yeoman.app %>/styles/css/style.css':'<%= yeoman.app %>/styles/style.less'}
+      //   }
+      // },
+      // watch: {
+      //   files: '<%= yeoman.app %>/styles/*',
+      //   tasks: ['less']
+
+      // },
+      // production: {
+      //   options: {
+      //     paths: ["app/styles"],
+      //     yuicompress: false
+      //   },
+      //   files: {'<%= yeoman.app %>/styles/{,*/}*.css':'<%= yeoman.app %>/styles/{,*/}*.less'}
+      // }
       // compass: {
       //   files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
       //   tasks: ['compass']
@@ -48,6 +76,22 @@ module.exports = function (grunt) {
         tasks: ['livereload']
       }
     },
+
+
+    less: {
+      development: {
+        options: {
+          paths: ['<%= yeoman.app %>/styles'],
+          yuicompress:false
+        },
+        files: {'<%= yeoman.app %>/styles/css/style.css':'<%= yeoman.app %>/styles/style.less'}
+      }
+    },
+    // watch: {
+    //   files: '<%= yeoman.app %>/styles/*',
+    //   tasks: ['less']
+    // },
+
     connect: {
       options: {
         port: 9000,

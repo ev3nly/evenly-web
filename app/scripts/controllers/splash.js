@@ -60,26 +60,5 @@ angular.module('evenlyApp')
       }
     };
 
-    if ($rootScope.campaign) {
-      var url = 'https://evenly.firebaseio.com/' + $rootScope.selectedServerOption.name + '/' + $rootScope.campaignCode + '-count';
-      angularFire(url, $scope, 'spotsLeft', 0)
-        .then(function(spotsLeft) {
-                console.log($scope.spotsLeft);
-                $scope.showBonusTicker = !!($scope.spotsLeft);
-              });
-    } else {
-      var url = 'https://evenly.firebaseio.com/' + $rootScope.selectedServerOption.name + '/splash-count';
-      angularFire(url, $scope, 'spotsLeft', 0)
-        .then(function() {
-                console.log($scope.spotsLeft);
-                $scope.showSplashTicker = false //commented out for now: $scope.spotsLeft > 0;
-                var splashCount = new Firebase(url);
-                splashCount.transaction(function(count) {
-                  if (count > 0)
-                    return count - 1;
-                  else
-                    return 0;
-                });
-              });
-    }
+    
   }]);
