@@ -36,28 +36,6 @@ module.exports = function (grunt) {
         files: '<%= yeoman.app %>/styles/*',
         tasks: ['less']
       },
-
-      // less: {
-      //   development: {
-      //     options: {
-      //       paths: ['<%= yeoman.app %>/styles'],
-      //       yuicompress:false
-      //     },
-      //     files: {'<%= yeoman.app %>/styles/css/style.css':'<%= yeoman.app %>/styles/style.less'}
-      //   }
-      // },
-      // watch: {
-      //   files: '<%= yeoman.app %>/styles/*',
-      //   tasks: ['less']
-
-      // },
-      // production: {
-      //   options: {
-      //     paths: ["app/styles"],
-      //     yuicompress: false
-      //   },
-      //   files: {'<%= yeoman.app %>/styles/{,*/}*.css':'<%= yeoman.app %>/styles/{,*/}*.less'}
-      // }
       // compass: {
       //   files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
       //   tasks: ['compass']
@@ -87,11 +65,6 @@ module.exports = function (grunt) {
         files: {'<%= yeoman.app %>/styles/css/style.css':'<%= yeoman.app %>/styles/style.less'}
       }
     },
-    // watch: {
-    //   files: '<%= yeoman.app %>/styles/*',
-    //   tasks: ['less']
-    // },
-
     connect: {
       options: {
         port: 9000,
