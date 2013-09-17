@@ -1,48 +1,334 @@
-@red:#842210;
-@green:rgb(0,200,176);
-@bg:white;
-@blue:blue;
-@grey:rbg(143,139,139);
+//Primary to-do's
+//Go through this and replace variables and slim down using already used styles
+//Mobile / Media Queries - start with left/right buttons
+//Replace static primary image with plugin
+//Assuming will replace header/footer because originals already exist
+//Add hrefs.. duh.
+//----------
+// colors
+//----------
+@bg:white;//TODO: overriding background color, but i think the off-white looks better. just doing because images have white bg...
+@grey:rbg(143,139,139);//TODO: offset from @dark-gray
+@grey_l:#d7d7d7;//light grey, TODO: offset from @dark-gray
+//----------
+// fonts
+//----------
 @font_free:AvenirLTPro-Book;
-
-#header{}
-#evenly{}
-#security{}
-#sign_in{}
-
-#car{}
+@font_botomline:AvenirLTPro-Book;
+//----------
+// main wrapper
+//----------
+@mww:940px;//main wrapper width
+//----------
+// plugin
+//----------
+@pluginH:550px;// plugin height
+@c_radius:9999px;
+@c_diam:70px;
+//----------
+// intermediary "split" piece
+//----------
+@sww:@mww;//split wrapper width
+@slom:0px;@slim:50px;// split line outside and inside margins
+@sldw:270px;//split-line div width
+@sldp:0px;//split-line div padding (left and right), TODO: if remove <br> can set newlines with word-wrap
+@sll:(@sww - @sldw - 2*@slom - 2*@slim)/2;//split line length
+@slc:@grey_l;//split line color
+//----------
+//extraneous 
+//----------
+@eww:@mww;//extraneous wrapper width
+//----------
+// diagrams
+//----------
+@dww:@eww - @pww;//diagram wrapper width
+@dih:250px;//max diagram image height - diagram height alloted for images
+//----------
+//phone
+//----------
+@pww:400px;//phone wrapper width
+@pwh:800px;//test image is 400x800 px, phone image max height
+//----------
+//footer
+//----------
+@fw:@eww;@fh:200px;//width and height
+//----------
+//get started
+//----------
+@gsw:300px;//width of the facebook 'get started' button
+//----------
+// banner 
+//----------
+//@hh:100px;//header height
+@bH:150px;//banner height
+//-----------------------
+body{background-color:@bg !important;}//TODO: overriding background color but like the original better
+// div{}
+// p{}
+// h1{}
+// h2{}
+// h3{}
+// a{}
+// hr{}
+#header{height:50px;}//TODO: expand when input buttons
+// #evenly{}
+// #security{}
+// #sign_in{}
+//---------------------------------------
+// CAROUSEL 
+//---------------------------------------
+#car{
+	height:@pluginH;
+	background:url(/images/test/summertime.jpg);
+	background-repeat:no-repeat;
+	.border-radius(5px);
+}
+// #car when (@flagPluginWidth){
+// 	background-size:10px;
+// 	//width:50px;
+// }
+.square{
+	display:inline-block;
+	width: 20px;
+	height: 20px;
+}
+//TODO: add to mixins unless equivalent in bootstrap
+.inner-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+	-webkit-box-shadow: inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+	-moz-box-shadow:    inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+	box-shadow:         inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+.drop-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
+	-webkit-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+	-moz-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
+	box-shadow:			@x @y @blur @spread rgba(0, 0, 0, @alpha);
+}
+//.circle(@radius:@p_radius){
+.circle(@radius:@c_radius){
+	display:inline-block;
+    width:@c_diam;
+    height:@c_diam;
+    background:@dark-gray;
+    margin:20px;
+	.bordered(5px,@white);
+	//.inner-shadow(0,1px,4px,0,0.7);
+	.drop-shadow(0,1px,4px,0,0.7);//TODO:make so both are compatible, in current state only one shadow mixin can be used at a time
+    -webkit-border-radius:@radius;
+       -moz-border-radius:@radius;
+            border-radius:@radius; 
+}
+#left_c{
+	position:absolute;
+	top:@pluginH/2;
+	left:100px;//TODO:yay media queries coming soon!
+	.circle;
+}
+//#left_c:before{content:'<'}
+#right_c{
+	position:absolute;
+	top:@pluginH/2;
+	right:100px;//TODO:yay media queries coming soon!
+	.circle;
+}
+//#right_c:before{content:'>'}
+#car .square{
+	margin-left:10px;
+	position:relative;
+	top:@pluginH - @bH - 40px;
+	//top:@pluginH - @bH - @hh - 10px;
+}
+// #car #hBlurb{height:@hh;}
+// #car h2{
+// 	font-weight:normal;
+// 	padding-left:10px;
+// 	padding-top:15px;
+// }
 .red{
 	border:1;
-	background:fade(@red,20%);}
-.green{
-background-color:green;}
-#blurb{}
-#banner{}
-#start{}
-#lock{}
-#else{}
-#split{}
-#ext{}
-#diagram_wrapper{}
-
-div{}
-/*ng-binding*/
-p{}
-h1{}
-h2{}
-h3{}
-a{}
-
-#footer{}
-#start{}
-#bottom_line{color:@grey;}
-.left{text-align: left;}
-.right{	text-align: right;}
-#bottom_line .left:before{
-	content:"\00a9 EVENLY 2013. ALL RIGHTS RESERVED.";}
-#free{
+	background:fade(#FF1919,40%);
+	&:hover{
+        background:fade(#FF1919,60%);
+    }
+}
+#banner{
+	position: relative;
+	top:@pluginH - @bH - 30px;
+	//top:@pluginH - @bH - @hh;
+	height:@bH;
+	width:@mww;
+	background:fade(#FFFFFF,50%);
+	padding:25px;
+}
+#banner #start{
+	margin-left: (@mww / 2) + 30px;//TODO: 60px for ">"s, 25 for padding
+}
+#car #banner p{
+	width:(@mww / 4) - 50px;//TODO: 60px for ">"s
+	float:left;
+	text-align:center;
+	color:black;
+}
+#car #banner p.del{//del for delimiter
+	width:50px;
+	padding-top:25px;
+	color:@dark-gray - #111;
+}
+#car #banner p.del:before{
+	font-weight:bold;
+	font-size:30px;
+	content:">";
+}
+#blurb{
+	color:black;
+	position: relative;
+	padding-left:10px;
+	top:@pluginH - @bH - 50px; //TODO: "variable"-ize this. it is minus the square's padding and the square height 	
+	//top:@pluginH - @bH - 20px - @hh;
+}
+#blurb:before{
+	content:'Zach Abrams, Sean Yu, and 3 other friends use Evenly';//TODO: JS/etc associated with plugin will change this
+}
+// #lock{}
+// #else{}
+//---------------------------------------
+// GET STARTED
+//---------------------------------------
+#start{
+	background:url(/images/test/get_started.png);
+	background-repeat:no-repeat;
+	content:'Free, easy and secure';
+	width:@gsw;
+	height:70px;
+	.border-radius(5px);
+}
+//---------------------------------------
+// SPLIT
+//---------------------------------------
+#split{
+	width: 100%;
+	display:inline-block;
+}
+#split div{
+	text-align:center;
+	color:black;//TODO:PREFER ORIGINAL COLOR :)
+	float:left;
+	width:@sldw;
+	padding-left: @sldp;
+	padding-right: @sldp;
+	padding-top: 20px;//TODO: make relative to text size
+}
+#split hr{
+	border-color:@slc;
+	width:@sll;
+	display:inline-block;
+	position: relative;
+	bottom:-20px;//TODO: change this to relative to text size
+}
+#split hr.left{
+	margin-left:@slom;
+	margin-right:@slim;
+	float:left;
+}
+#split hr.right{
+	margin-left:@slim;
+	margin-right:@slom;
+	float:right;
+}
+//---------------------------------------
+// EXTRANEOUS
+//---------------------------------------
+#ext{
+	width:@eww;
+}
+//---------------------------------------
+// DIAGRAMS
+//---------------------------------------
+//TODO: nest this stuff.. old css habits...
+#diagram_wrapper{//TODO: could alternately make the diagram wrapper the hight of the iphone wrapper, then divide each inner div by three. currently, not necessarily same height, just looks good at the moment.
+	width:@dww;
+	float:left;
+	.bordered(1px,@gray);
+	.border-radius(4px);
+	background-color:@light-gray;//TODO: added padding and border, should remove the padding and this 20px if change to noborder or background color
+}
+#diagram_wrapper > div{
+	padding:10px;
+	height:@dih + 10px;
+}
+#diagram_wrapper > div:nth-child(1){
+	background:url(/images/test/diag0.png);
+	.bordered-bottom(1px,@gray);
+}
+#diagram_wrapper > div:nth-child(2){
+	background:url(/images/test/diag1.png);
+	.bordered-bottom(1px,@gray);
+}
+#diagram_wrapper > div:nth-child(3){
+	background:url(/images/test/diag2.png);
+}
+#diagram_wrapper > div:nth-child(odd){
+	background-position:right center;
+	background-repeat:no-repeat;
+}
+#diagram_wrapper > div:nth-child(even) h4,#diagram_wrapper > div:nth-child(even) p,#diagram_wrapper > div:nth-child(even) #free{
+ 	position:relative;
+ 	left:@dih;
+}
+#diagram_wrapper > div:nth-child(even){
+	background-position:left center;
+	background-repeat:no-repeat;
+}
+#diagram_wrapper p{//TODO: change to appropriate font by inheriting correct element (change away from h1 yo)
+	width:@dww - @dih - 20px;//TODO: minus 20px because added padding, should remove the padding and this 20px if change to noborder or background color
+	text-align:justify;
+}
+#diagram_wrapper div #free{
 	.brochure .splash-free;
 	font-family: @font_free !important;
-	vertical-align: middle;
-	text-align: center;}
+	padding-top:7px;
+	text-align: center;
+}
 #free:before{content:"FREE";}
+//---------------------------------------
+// PHONE
+//---------------------------------------
+#phone{
+	width:@pww;
+	height:@pwh;
+	float:right;
+	background:url(/images/test/iphone.png);
+	//background-position:right center;
+}
+//---------------------------------------
+// FOOTER
+//---------------------------------------
+#footer{//TODO: ask if team prefers true bottom (bottom:0px;)
+	width:@fw;
+	height:@fh;
+	float:left;
+}
+#footer #start{
+	margin-left:(@eww - @gsw) / 2;
+	margin-top:@unit * 2;
+}
+#bottom_line{
+	color:@dark-gray;
+	font-weight:bold;
+	letter-spacing:1px;
+	margin-top:@unit * 3;
+	a{
+		color:@dark-gray;
+		font-size:@small-font-size;
+	}
+	a:hover {
+		color: @black;
+	}
+	.right a{margin-right:20px;}
+}
+#bottom_line .left:before{
+	content:"\00a9 EVENLY 2013. ALL RIGHTS RESERVED.";
+}
+.left{
+	//text-align: left;
+}
+.right{float:right;}
