@@ -70,8 +70,23 @@ body{background-color:@bg !important;}//TODO: overriding background color but li
 // h3{}
 // a{}
 // hr{}
-#header{height:50px;}//TODO: expand when input buttons
-// #evenly{}
+#header{
+	#evenly{
+		height:80px;
+		width:260px;
+		//text-align:right;
+		padding-left:85px;
+		padding-top:12px;
+		background:url(/images/logo.png);//original image is 260x76, logo is 77x76
+		background-repeat:no-repeat;
+	}
+	#evenly h2:before{//TODO: ask which font the ref image is
+		color:black;
+		content:'EVENLY';
+		font-weight:bold;
+		letter-spacing:3px;
+	}
+}
 // #security{}
 // #sign_in{}
 //---------------------------------------
