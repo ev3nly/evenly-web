@@ -95,7 +95,7 @@ module.exports = function (grunt) {
     },
     open: {
       server: {
-        url: 'http://localhost:<%= connect.options.port %>'
+        url: 'http://localhost:<%= connect.options.port %>/#/splash2'//for splash 2 testing, remove '/#/splash2' later
       }
     },
     clean: {
