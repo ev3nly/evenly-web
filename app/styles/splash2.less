@@ -63,6 +63,8 @@
 @bH:150px;//banner height
 //-----------------------
 body{background-color:@bg !important;}//TODO: overriding background color but like the original better
+.left{float:left;}
+.right{float:right;}
 // div{}
 // p{}
 // h1{}
@@ -71,24 +73,32 @@ body{background-color:@bg !important;}//TODO: overriding background color but li
 // a{}
 // hr{}
 #header{
+	width:@mww;
 	#evenly{
 		height:80px;
 		width:260px;
-		//text-align:right;
 		padding-left:85px;
 		padding-top:12px;
 		background:url(/images/logo.png);//original image is 260x76, logo is 77x76
 		background-repeat:no-repeat;
 	}
 	#evenly h2:before{//TODO: ask which font the ref image is
-		color:black;
+		color:#444000;
 		content:'EVENLY';
 		font-weight:bold;
 		letter-spacing:3px;
 	}
 }
-// #security{}
-// #sign_in{}
+// #security{
+// 	//.btn .btn-splash .btn-splash-inverse;
+// 	//.right;
+// }
+// #security:before{content:'LEARN MORE';}
+// #sign_in{
+// 	//btn btn-splash btn-splash-inverse;
+// 	//.right;
+// }
+// #sign_in:before{content:'SIGN IN'}
 //---------------------------------------
 // CAROUSEL 
 //---------------------------------------
@@ -343,7 +353,3 @@ body{background-color:@bg !important;}//TODO: overriding background color but li
 #bottom_line .left:before{
 	content:"\00a9 EVENLY 2013. ALL RIGHTS RESERVED.";
 }
-.left{
-	//text-align: left;
-}
-.right{float:right;}

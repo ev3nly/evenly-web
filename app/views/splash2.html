@@ -3,6 +3,29 @@
 	splitHtml="<hr class='left'></hr><div>"+splitHtml+"</div><hr class='right'></hr>"
 	document.getElementById("split").innerHTML=splitHtml;
 </script>
+<script type="text/javascript">
+	//TODO: put this in seperate .js file
+	//TODO: fade between images
+	var x=0;
+	function swapCarImg(){
+		var images=[];
+	 	images[0]="/images/test/summertime.jpg";
+	 	images[1]="/images/test/friends.jpg";
+	 	images[2]="/images/test/concert.jpg";
+		var carElem = document.getElementById('car');//[object HTMLDivElement]
+ 		var style = carElem.currentStyle || window.getComputedStyle(carElem,false);//[object CSSStyleDeclaration]
+ 		var bgImg = style.backgroundImage.slice(4,-1);//full image url
+ 		var myLoc=document.domain;//this domain
+ 		if(document.domain=='localhost')//can utilize document.domain or window.location
+ 			myLoc=myLoc+":9000";
+ 		$('div[id="car"]').css("background-image","url("+images[x]+")");//TODO: not using jquery sux ;)
+ 		x++;
+ 		if(x>=images.length)
+ 			x=0;
+ 		setTimeout("swapCarImg()",5000);
+ 	}
+swapCarImg();
+</script>
 <div id='main_wrapper'>
 	<div id='header'>
 		<div id='evenly'><h2></h2></div><div id='security'></div><div id='sign_in'></div>
