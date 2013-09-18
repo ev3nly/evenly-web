@@ -108,27 +108,11 @@ body{background-color:@bg !important;}//TODO: overriding background color but li
 	background-repeat:no-repeat;
 	.border-radius(5px);
 }
-// #car when (@flagPluginWidth){
-// 	background-size:10px;
-// 	//width:50px;
-// }
 .square{
 	display:inline-block;
 	width: 20px;
 	height: 20px;
 }
-//TODO: add to mixins unless equivalent in bootstrap
-.inner-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
-	-webkit-box-shadow: inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
-	-moz-box-shadow:    inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
-	box-shadow:         inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
-}
-.drop-shadow (@x: 0, @y: 1px, @blur: 2px, @spread: 0, @alpha: 0.25) {
-	-webkit-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
-	-moz-box-shadow:	@x @y @blur @spread rgba(0, 0, 0, @alpha);
-	box-shadow:			@x @y @blur @spread rgba(0, 0, 0, @alpha);
-}
-//.circle(@radius:@p_radius){
 .circle(@radius:@c_radius){
 	display:inline-block;
     width:@c_diam;
@@ -156,12 +140,6 @@ body{background-color:@bg !important;}//TODO: overriding background color but li
 	.circle;
 }
 //#right_c:before{content:'>'}
-#car .square{
-	margin-left:10px;
-	position:relative;
-	top:@pluginH - @bH - 40px;
-	//top:@pluginH - @bH - @hh - 10px;
-}
 // #car #hBlurb{height:@hh;}
 // #car h2{
 // 	font-weight:normal;
@@ -175,46 +153,54 @@ body{background-color:@bg !important;}//TODO: overriding background color but li
         background:fade(#FF1919,60%);
     }
 }
-#banner{
-	position: relative;
-	top:@pluginH - @bH - 30px;
-	//top:@pluginH - @bH - @hh;
-	height:@bH;
-	width:@mww;
-	background:fade(#FFFFFF,50%);
-	padding:25px;
+#car{
+	.square{
+		margin-left:10px;
+		position:relative;
+		top:@pluginH - @bH - 40px;
+		//top:@pluginH - @bH - @hh - 10px;
+	}
+	#banner{
+		position: relative;
+		top:@pluginH - @bH - 30px;
+		//top:@pluginH - @bH - @hh;
+		height:@bH;
+		width:@mww;
+		background:fade(#FFFFFF,50%);
+		padding:25px;
+		#start{
+			margin-left: (@mww / 2) + 30px;//TODO: 60px for ">"s, 25 for padding
+		}
+		p{
+			width:(@mww / 4) - 50px;//TODO: 60px for ">"s
+			float:left;
+			text-align:center;
+			color:black;
+		}
+		p.del{//del for delimiter
+			width:50px;
+			padding-top:25px;
+			color:@dark-gray - #111;
+		}
+		p.del:before{
+			font-weight:bold;
+			font-size:30px;
+			content:">";
+		}
+	}
+	#blurb{
+		color:black;
+		position: relative;
+		padding-left:10px;
+		top:@pluginH - @bH - 50px; //TODO: "variable"-ize this. it is minus the square's padding and the square height 	
+		//top:@pluginH - @bH - 20px - @hh;
+	}
+	#blurb:before{
+		content:'Zach Abrams, Sean Yu, and 3 other friends use Evenly';//TODO: JS/etc associated with plugin will change this
+	}
+	//#lock{}
+	//#else{}
 }
-#banner #start{
-	margin-left: (@mww / 2) + 30px;//TODO: 60px for ">"s, 25 for padding
-}
-#car #banner p{
-	width:(@mww / 4) - 50px;//TODO: 60px for ">"s
-	float:left;
-	text-align:center;
-	color:black;
-}
-#car #banner p.del{//del for delimiter
-	width:50px;
-	padding-top:25px;
-	color:@dark-gray - #111;
-}
-#car #banner p.del:before{
-	font-weight:bold;
-	font-size:30px;
-	content:">";
-}
-#blurb{
-	color:black;
-	position: relative;
-	padding-left:10px;
-	top:@pluginH - @bH - 50px; //TODO: "variable"-ize this. it is minus the square's padding and the square height 	
-	//top:@pluginH - @bH - 20px - @hh;
-}
-#blurb:before{
-	content:'Zach Abrams, Sean Yu, and 3 other friends use Evenly';//TODO: JS/etc associated with plugin will change this
-}
-// #lock{}
-// #else{}
 //---------------------------------------
 // GET STARTED
 //---------------------------------------
@@ -232,35 +218,35 @@ body{background-color:@bg !important;}//TODO: overriding background color but li
 #split{
 	width: 100%;
 	display:inline-block;
-}
-#split div{
-	text-align:center;
-	color:black;//TODO:PREFER ORIGINAL COLOR :)
-	float:left;
-	width:@sldw;
-	padding-left: @sldp;
-	padding-right: @sldp;
-	padding-top: 20px;//TODO: make relative to text size
-}
-#split hr{
-	border-color:@slc;
-	width:@sll;
-	display:inline-block;
-	position: relative;
-	bottom:-20px;//TODO: change this to relative to text size
-}
-#split hr.left{
-	margin-left:@slom;
-	margin-right:@slim;
-	float:left;
-}
-#split hr.right{
-	margin-left:@slim;
-	margin-right:@slom;
-	float:right;
+	div{
+		text-align:center;
+		color:black;//TODO:PREFER ORIGINAL COLOR :)
+		float:left;
+		width:@sldw;
+		padding-left: @sldp;
+		padding-right: @sldp;
+		padding-top: 20px;//TODO: make relative to text size
+	}
+	hr{
+		border-color:@slc;
+		width:@sll;
+		display:inline-block;
+		position: relative;
+		bottom:-20px;//TODO: change this to relative to text size
+	}
+	hr.left{
+		margin-left:@slom;
+		margin-right:@slim;
+		float:left;
+	}
+	hr.right{
+		margin-left:@slim;
+		margin-right:@slom;
+		float:right;
+	}
 }
 //---------------------------------------
-// EXTRANEOUS
+// EXTRANEOUS MIDDLE CONTENT
 //---------------------------------------
 #ext{
 	width:@eww;
@@ -268,13 +254,23 @@ body{background-color:@bg !important;}//TODO: overriding background color but li
 //---------------------------------------
 // DIAGRAMS
 //---------------------------------------
-//TODO: nest this stuff.. old css habits...
 #diagram_wrapper{//TODO: could alternately make the diagram wrapper the hight of the iphone wrapper, then divide each inner div by three. currently, not necessarily same height, just looks good at the moment.
 	width:@dww;
 	float:left;
 	.bordered(1px,@gray);
 	.border-radius(4px);
 	background-color:@light-gray;//TODO: added padding and border, should remove the padding and this 20px if change to noborder or background color
+	p{//TODO: change to appropriate font by inheriting correct element (change away from h1 yo)
+		width:@dww - @dih - 20px;//TODO: minus 20px because added padding, should remove the padding and this 20px if change to noborder or background color
+		text-align:justify;
+	}
+	div #free{
+		.brochure .splash-free;
+		font-family: @font_free !important;
+		padding-top:7px;
+		text-align: center;
+	}
+	div #free:before{content:"FREE";}
 }
 #diagram_wrapper > div{
 	padding:10px;
@@ -302,18 +298,7 @@ body{background-color:@bg !important;}//TODO: overriding background color but li
 #diagram_wrapper > div:nth-child(even){
 	background-position:left center;
 	background-repeat:no-repeat;
-}
-#diagram_wrapper p{//TODO: change to appropriate font by inheriting correct element (change away from h1 yo)
-	width:@dww - @dih - 20px;//TODO: minus 20px because added padding, should remove the padding and this 20px if change to noborder or background color
-	text-align:justify;
-}
-#diagram_wrapper div #free{
-	.brochure .splash-free;
-	font-family: @font_free !important;
-	padding-top:7px;
-	text-align: center;
-}
-#free:before{content:"FREE";}
+} 
 //---------------------------------------
 // PHONE
 //---------------------------------------
@@ -322,7 +307,6 @@ body{background-color:@bg !important;}//TODO: overriding background color but li
 	height:@pwh;
 	float:right;
 	background:url(/images/test/iphone.png);
-	//background-position:right center;
 }
 //---------------------------------------
 // FOOTER
@@ -331,10 +315,10 @@ body{background-color:@bg !important;}//TODO: overriding background color but li
 	width:@fw;
 	height:@fh;
 	float:left;
-}
-#footer #start{
-	margin-left:(@eww - @gsw) / 2;
-	margin-top:@unit * 2;
+	#start{
+		margin-left:(@eww - @gsw) / 2;
+		margin-top:@unit * 2;
+	}
 }
 #bottom_line{
 	color:@dark-gray;
@@ -349,7 +333,7 @@ body{background-color:@bg !important;}//TODO: overriding background color but li
 		color: @black;
 	}
 	.right a{margin-right:20px;}
-}
-#bottom_line .left:before{
-	content:"\00a9 EVENLY 2013. ALL RIGHTS RESERVED.";
+	.left:before{
+		content:"\00a9 EVENLY 2013. ALL RIGHTS RESERVED.";
+	}
 }
