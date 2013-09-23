@@ -13,7 +13,7 @@
     "angular-resource": "latest",
     "angular-sanitize": "latest",
     "angular-fire": "0.2.0",
-    "restangular": "latest",
+    "restangular": "1.0.11",
     "angular-bootstrap": "0.5.0",
     "angular-ui-utils": "latest",
     "underscore": "latest",
