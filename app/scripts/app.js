@@ -72,8 +72,16 @@ Evenly.config(['$routeProvider', '$locationProvider', function($routeProvider, $
       templateUrl: 'views/splash2.html',
       controller: 'SplashCtrl'
     })
+    .when('/future', {
+      templateUrl: 'views/future.html',
+      controller: 'FutureCtrl'
+    })
+    .when('/future', {
+      templateUrl: 'views/future.html',
+      controller: 'FutureCtrl'
+    })
     .otherwise({
-      redirectTo: '/splash'
+      redirectTo: '/future'
     });
 
     // $locationProvider.html5Mode(true);
@@ -157,6 +165,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
       case "/login":
       case "/terms":
       case "/privacy":
+      case "/future":
         $('.container').css('width', '100%');
         $rootScope.redirectToIosSplash();
         break;
@@ -175,6 +184,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
     }
     
     switch($location.path()) {
+      case "/future":
       case "/story":
       case "/contact":
       case "/faq":
