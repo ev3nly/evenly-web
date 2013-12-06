@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('evenlyWebApp')
+angular.module('evenlyApp')
   .controller('FutureCtrl', ['$scope', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

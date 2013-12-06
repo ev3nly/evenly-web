@@ -288,7 +288,7 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
     $.cookie('__sc', $rootScope.serverOptions.indexOf(option));
   };
 
-  if (window.location.href.indexOf("evenly.com") !== -1) {
+  if (window.location.href.indexOf("evenly.com") !== -1 && window.location.href.indexOf("staging") == -1) {
     $rootScope.selectServerOption($rootScope.serverOptions[2]);
 
     if (window.location.protocol != 'https:') {
