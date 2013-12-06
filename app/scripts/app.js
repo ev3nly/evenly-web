@@ -170,7 +170,9 @@ Evenly.run(['$location', '$rootScope', 'Me', 'Session', '$http', 'Restangular', 
       case "/future":
       case "":
         $('.container').css('width', '100%');
-        $rootScope.redirectToIosSplash();
+        
+        if ($location.path() !== "")
+          $rootScope.redirectToIosSplash();
         break;
       case "/confirmation":
       case "/reset-password":
