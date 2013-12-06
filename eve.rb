@@ -30,6 +30,8 @@ command :deploy do |c|
       end
     end
 
+    `cp CNAME ev3nly.github.io/CNAME`
+
     say 'commiting files'
     Dir.chdir 'ev3nly.github.io'
     `git add .`
